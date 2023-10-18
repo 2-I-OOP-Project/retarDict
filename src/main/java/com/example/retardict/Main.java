@@ -7,8 +7,5 @@ public class Main {
         DictionaryManagement nam = new DictionaryManagement();
         nam.insertFromCommandLine();
         nam.showAllWords();
-
-
-
     }
 }
