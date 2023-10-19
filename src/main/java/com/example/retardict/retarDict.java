@@ -7,17 +7,28 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class retarDict extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("DMQuanSieuSieuGay");
-        stage.setScene(scene);
-        stage.show();
-    }
+//public class retarDict extends Application {
+//    @Override
+//    public void start(Stage stage) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("hello-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("DMQuanSieuSieuGay");
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+//
+//    public static void main(String[] args) {
+//        launch();
+//    }
+//}
 
+public class retarDict {
     public static void main(String[] args) {
-        launch();
+        //while(true) chạy liên tục đến khi ngắt chương trình
+        while (true) {
+            DictionaryManagement dict1 = new DictionaryManagement();
+            dict1.insertFromCommandLine();
+            dict1.showAllWords();
+        }
     }
 }

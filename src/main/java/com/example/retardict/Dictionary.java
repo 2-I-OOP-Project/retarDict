@@ -7,13 +7,12 @@ public class Dictionary {
 
     public void insertWord(String target, String explain) {
         if (target == null) target = "something";
-        if (explain == null) explain = "something aswell";
+        if (explain == null) explain = "something as well";
         words.add(new Word(target, explain));
     }
 
     public void sortByWordTarget() {
-        words.sort(((o1, o2) ->
-                o1.getWord_target().compareTo(o2.getWord_target())));
+        words.sort(((o1, o2) -> o1.getWord_target().compareTo(o2.getWord_target())));
     }
 
     public int getWordCount () {
