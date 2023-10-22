@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class DictionaryManagement {
     private Dictionary dic = new Dictionary();
+
     public void insertFromCommandLine() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insert number of words: ");
@@ -22,7 +23,7 @@ public class DictionaryManagement {
         System.out.println("No | English | Vietnamese");
         dic.sortByWordTarget();
         for (int i = 0; i < dic.getWordCount(); i++) {
-            System.out.println((i+1) + " | " + dic.getWord(i).getWord_target() + " | " + dic.getWord(i).getWord_explain());
+            System.out.println((i + 1) + " | " + dic.getWord(i).getWord_target() + " | " + dic.getWord(i).getWord_explain());
         }
     }
 }

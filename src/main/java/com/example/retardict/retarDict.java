@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Class để chạy bằng giao diện.
+ * Class chạy bằng giao diện.
  */
 public class retarDict extends Application {
     @Override

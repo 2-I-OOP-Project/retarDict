@@ -15,7 +15,7 @@ public class Dictionary {
         words.sort(((o1, o2) -> o1.getWord_target().compareTo(o2.getWord_target())));
     }
 
-    public int getWordCount () {
+    public int getWordCount() {
         return words.size();
     }
 
