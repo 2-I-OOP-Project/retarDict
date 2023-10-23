@@ -16,4 +16,6 @@ public class Controller {
     protected void onGayButtonClick() {
         welcomeText.setText("Of course you are!");
     }
+
+
 }
