@@ -49,11 +49,15 @@ show table;
 
 SELECT * FROM test;
 
+INSERT INTO words VALUES ("quan", "/クアン/", "human name");
+
 CREATE TABLE words (
     word TEXT,
     pronunciation TEXT,
     description TEXT
-);]]></console>
+);
+
+SELECT * FROM words;]]></console>
       <console name="testSQLite" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
