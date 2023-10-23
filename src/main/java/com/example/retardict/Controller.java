@@ -1,6 +1,7 @@
 package com.example.retardict;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class Controller {
@@ -8,12 +9,12 @@ public class Controller {
     private Label welcomeText;
 
     @FXML
-    protected void onNotGayButtonClick() {
+    protected void aButton() {
         welcomeText.setText("You must be gay!");
     }
 
     @FXML
-    protected void onGayButtonClick() {
+    protected void bButton() {
         welcomeText.setText("Of course you are!");
     }
 }
