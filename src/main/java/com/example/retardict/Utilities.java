@@ -36,7 +36,7 @@ public class Utilities {
 
     public static void loadToDatabase(List<String> words) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:D:/intelliJ/DictionaryMaybe/src/main/resources/testdb.db");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:D:\\CODING\\code\\retarDict\\src\\main\\resources\\testdb.db");
             PreparedStatement statement = connection.prepareStatement("INSERT INTO words VALUES (?, ?, ?);");
 
             for (String word : words) {
@@ -44,8 +44,14 @@ public class Utilities {
                 String[] firstLine = wholeWord[0].split("/",2);
 
                 String word_target = firstLine[0];
-                String pronunciation = "/" + firstLine[1];
-                String description = wholeWord[1];
+                String pronunciation = null;
+                if (firstLine.length != 1) {
+                    pronunciation = "/" + firstLine[1];
+                }
+                String description = null;
+                if (wholeWord.length == 2) {
+                    description = wholeWord[1];
+                }
                 statement.setString(1, word_target);
                 statement.setString(2, pronunciation);
                 statement.setString(3, description);
@@ -59,7 +65,7 @@ public class Utilities {
     }
 
     public static void main(String[] args) {
-        List<String> words = Utilities.loadFromTextFile("src/main/resources/test.txt");
+        List<String> words = Utilities.loadFromTextFile("src/main/resources/anhviet109K.txt");
         Utilities.loadToDatabase(words);
 
 

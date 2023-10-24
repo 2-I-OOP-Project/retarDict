@@ -3,10 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0"
+      prefWidth="643.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.retardict.Controller">
     <children>
-        <Button layoutX="274.0" layoutY="160.0" mnemonicParsing="false" onAction="#aButton" text="A" />
-        <Button layoutX="274.0" layoutY="208.0" mnemonicParsing="false" onAction="#bButton" text="B" />
-      <Label fx:id="welcomeText" layoutX="271.0" layoutY="121.0" text="Label" />
+        <Button layoutX="274.0" layoutY="160.0" mnemonicParsing="false" onAction="#aButton" text="A"/>
+        <Button layoutX="274.0" layoutY="208.0" mnemonicParsing="false" onAction="#bButton" text="B"/>
+        <Label fx:id="welcomeText" layoutX="271.0" layoutY="121.0" text="Label"/>
     </children>
 </Pane>
