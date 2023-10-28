@@ -36,7 +36,7 @@ public class Utilities {
 
     public static void loadToDatabase(List<String> words) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/ADMIN/things/intelliJProjects/dictionaryMaybe/src/main/resources/testdb.db");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:D:\\CODING\\code\\retarDict\\src\\main\\resources\\testdb.db");
             PreparedStatement statement = connection.prepareStatement("INSERT INTO words VALUES (?, ?, ?);");
 
             for (String word : words) {

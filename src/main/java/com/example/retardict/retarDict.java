@@ -3,56 +3,56 @@ package com.example.retardict;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
  * Class chạy bằng giao diện.
  */
 public class retarDict extends Application {
+    private static final String PATH_TO_ICON = "D:\\CODING\\code\\retarDict\\src\\main\\resources\\com.example.retardict\\icon.jpg";
+    private static final String APP_TITLE = "retarDict";
+
+    /**
+     * The start function to run application with FXML files
+     *
+     * @param stage the primary stage for this application, onto which
+     *              the application scene can be set.
+     *              Applications may create other stages, if needed, but they will not be
+     *              primary stages.
+     */
     @Override
     public void start(Stage stage) throws IOException {
-//        // đoạn code để chạy giao diện nhưng không dùng file fxml
-//        Group root = new Group();
-//        Scene scene = new Scene(root, Color.BLACK);
-//
-//        // thêm icon cho app nhưng chưa chạy được
-//        Image icon = new Image("D:\\CODING\\code\\retarDict\\src\\main\\resources\\images\\download.jpg");
-//        stage.getIcons().add(icon);
-//
-//        stage.setTitle("retarDict");
-//
-//        stage.setScene(scene);
-//        stage.show();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("welcomeScene.fxml"));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("retarDict");
-        Image icon = new Image("C:\\Users\\ADMIN\\things\\intelliJProjects\\dictionaryMaybe\\src\\main\\resources\\images\\download.jpg");
-        stage.getIcons().add(icon);
-        stage.setScene(scene);
-        stage.show();
+            Scene scene = new Scene(root);
+            stage.setTitle(APP_TITLE);
+
+            Image icon = new Image(PATH_TO_ICON);
+            stage.getIcons().add(icon);
+
+            String css = this.getClass().getResource("application.css").toExternalForm();
+            scene.getStylesheets().add(css);
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
         launch();
     }
 }
-
-///**
-// * Class chạy bằng CommandLine.
-// */
-//public class retarDict {
-//    public static void main(String[] args) {
-//        //while(true) chạy liên tục đến khi ngắt chương trình
-//        while (true) {
-//            DictionaryManagement dict1 = new DictionaryManagement();
-//            dict1.insertFromCommandLine();
-//            dict1.showAllWords();
-//        }
-//    }
-//}
