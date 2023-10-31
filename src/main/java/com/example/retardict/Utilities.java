@@ -8,8 +8,9 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Utilities {
+    private static List<String> words = null;
+
     public static List<String> loadFromTextFile(String filePath) {
-        List<String> words = null;
         try {
             File myObj = new File(filePath);
             Scanner myReader = new Scanner(myObj);
@@ -36,7 +37,7 @@ public class Utilities {
 
     public static void loadToDatabase(List<String> words) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/ADMIN/things/intelliJProjects/dictionaryMaybe/src/main/resources/testdb.db");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:D:\\CODING\\code\\retarDict\\src\\main\\resources\\testdb.db");
             PreparedStatement statement = connection.prepareStatement("INSERT INTO words VALUES (?, ?, ?);");
 
             for (String word : words) {
@@ -67,8 +68,6 @@ public class Utilities {
     public static void main(String[] args) {
         List<String> words = Utilities.loadFromTextFile("src/main/resources/anhviet109K.txt");
         Utilities.loadToDatabase(words);
-
-
 //        try {
 //            Connection connection = DriverManager.getConnection("jdbc:sqlite:D:/intelliJ/DictionaryMaybe/src/main/resources/testdb.db");
 //            Statement statement = connection.createStatement();
