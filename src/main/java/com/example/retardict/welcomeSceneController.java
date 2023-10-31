@@ -25,7 +25,7 @@ public class welcomeSceneController implements Initializable {
     private Parent root;
 
     @FXML
-    private ListView<String> list;
+    private ListView<Word> list;
 
     @FXML
     private TextField searchBox;
@@ -34,7 +34,9 @@ public class welcomeSceneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<String> words = FXCollections.observableArrayList();
+        ObservableList<Word> words = FXCollections.observableArrayList();
+        ObservableList<String> wordNames = null;
+
         list.setItems(words);
 
         try {
@@ -45,10 +47,13 @@ public class welcomeSceneController implements Initializable {
 
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select word from words");
+            ResultSet resultSet = statement.executeQuery("select * from words");
 
             while (resultSet.next()) {
-                words.add(resultSet.getString(1));
+                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
+                words.add(word);
+//                wordNames.add(word.getWord());
+
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -56,7 +61,11 @@ public class welcomeSceneController implements Initializable {
     }
 
     public void searchWord() {
-        ObservableList<String> words = FXCollections.observableArrayList();
+        ObservableList<Word> words = FXCollections.observableArrayList();
+//        ObservableList<String> wordNames = null;
+//        for (Word word : words) {
+//            wordNames.add(word.getWord());
+//        }
         list.setItems(words);
 
         String pattern = '*' + searchBox.getText() + '*';
@@ -64,12 +73,15 @@ public class welcomeSceneController implements Initializable {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            preparedStatement = connection.prepareStatement("select word from words where (word glob ?)");
+            preparedStatement = connection.prepareStatement("select * from words where (word glob ?)");
             preparedStatement.setString(1, pattern);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                words.add(resultSet.getString(1));
+                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
+                words.add(word);
+//                wordNames.add(word.getWord());
+
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -96,10 +108,9 @@ public class welcomeSceneController implements Initializable {
         FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("wordScene.fxml"));
         root = wordSceneLoader.load();
 
-        String word = list.getFocusModel().getFocusedItem();
+        Word word = list.getFocusModel().getFocusedItem();
         wordSceneController wordSceneController = wordSceneLoader.getController();
         wordSceneController.showWord(word);
-
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
