@@ -2,7 +2,10 @@ package com.example.retardict;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,9 +16,24 @@ import java.io.IOException;
 public class retarDict extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+//        // đoạn code để chạy giao diện nhưng không dùng file fxml
+//        Group root = new Group();
+//        Scene scene = new Scene(root, Color.BLACK);
+//
+//        // thêm icon cho app nhưng chưa chạy được
+//        Image icon = new Image("D:\\CODING\\code\\retarDict\\src\\main\\resources\\images\\download.jpg");
+//        stage.getIcons().add(icon);
+//
+//        stage.setTitle("retarDict");
+//
+//        stage.setScene(scene);
+//        stage.show();
+
         FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("retarDict");
+        Image icon = new Image("D:\\intelliJ\\DictionaryMaybe\\src\\main\\resources\\images\\test.png");
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
     }
@@ -23,8 +41,6 @@ public class retarDict extends Application {
     public static void main(String[] args) {
         launch();
     }
-
-
 }
 
 ///**
