@@ -23,7 +23,6 @@ public class welcomeSceneController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private static final String PATH_TO_DATABASE_CONNECTION = "jdbc:sqlite:D:\\CODING\\code\\retarDict\\src\\main\\resources\\testdb.db";
 
     @FXML
     private ListView<String> list;
@@ -39,7 +38,7 @@ public class welcomeSceneController implements Initializable {
         list.setItems(words);
 
         try {
-            connection = DriverManager.getConnection(PATH_TO_DATABASE_CONNECTION);
+            connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

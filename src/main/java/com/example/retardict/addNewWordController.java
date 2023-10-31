@@ -19,6 +19,7 @@ public class addNewWordController {
 
     @FXML
     private TextField userDefinedWord;
+
     @FXML
     private TextField userDefinedMeaning;
 
@@ -26,7 +27,7 @@ public class addNewWordController {
     public void switchBackToMainScene(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("welcomeScene.fxml"));
         root = fxmlLoader.load();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -49,8 +50,7 @@ public class addNewWordController {
 //            while (rs.next()) {
 //                System.out.println(rs.getString("word"));
 //            }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }

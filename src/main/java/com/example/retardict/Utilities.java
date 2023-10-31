@@ -8,6 +8,9 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Utilities {
+    public static final String APP_TITLE = "retarDict";
+    public static final String PATH_TO_DATABASE = "jdbc:sqlite:src\\main\\resources\\testdb.db";
+    public static final String PATH_TO_ICON = "src\\main\\resources\\icon.jpg";
     private static List<String> words = null;
 
     public static List<String> loadFromTextFile(String filePath) {
@@ -37,12 +40,12 @@ public class Utilities {
 
     public static void loadToDatabase(List<String> words) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:D:\\CODING\\code\\retarDict\\src\\main\\resources\\testdb.db");
+            Connection connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
             PreparedStatement statement = connection.prepareStatement("INSERT INTO words VALUES (?, ?, ?);");
 
             for (String word : words) {
-                String[] wholeWord = word.split("\n",2);
-                String[] firstLine = wholeWord[0].split("/",2);
+                String[] wholeWord = word.split("\n", 2);
+                String[] firstLine = wholeWord[0].split("/", 2);
 
                 String word_target = firstLine[0];
                 String pronunciation = null;

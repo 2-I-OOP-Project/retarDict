@@ -20,8 +20,6 @@ import java.io.IOException;
  * Class chạy bằng giao diện.
  */
 public class retarDict extends Application {
-    private static final String PATH_TO_ICON = "D:\\CODING\\code\\retarDict\\src\\main\\resources\\com.example.retardict\\icon.jpg";
-    private static final String APP_TITLE = "retarDict";
 
     /**
      * The start function to run application with FXML files
@@ -37,9 +35,9 @@ public class retarDict extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("welcomeScene.fxml"));
 
             Scene scene = new Scene(root);
-            stage.setTitle(APP_TITLE);
+            stage.setTitle(Utilities.APP_TITLE);
 
-//            Image icon = new Image(PATH_TO_ICON);
+//            Image icon = new Image(Utilities.PATH_TO_ICON);
 //            stage.getIcons().add(icon);
 
             String css = this.getClass().getResource("application.css").toExternalForm();
