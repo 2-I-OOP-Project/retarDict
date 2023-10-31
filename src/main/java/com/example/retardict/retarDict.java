@@ -39,8 +39,8 @@ public class retarDict extends Application {
             Scene scene = new Scene(root);
             stage.setTitle(APP_TITLE);
 
-            Image icon = new Image(PATH_TO_ICON);
-            stage.getIcons().add(icon);
+//            Image icon = new Image(PATH_TO_ICON);
+//            stage.getIcons().add(icon);
 
             String css = this.getClass().getResource("application.css").toExternalForm();
             scene.getStylesheets().add(css);
