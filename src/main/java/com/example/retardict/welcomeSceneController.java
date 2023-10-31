@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class welcomeSceneController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private static final String PATH_TO_DATABASE_CONNECTION =  "jdbc:sqlite:D:\\CODING\\code\\retarDict\\src\\main\\resources\\testdb.db";
+    private static final String PATH_TO_DATABASE_CONNECTION = "jdbc:sqlite:D:\\CODING\\code\\retarDict\\src\\main\\resources\\testdb.db";
 
     @FXML
     private ListView<String> list;
@@ -78,10 +79,27 @@ public class welcomeSceneController implements Initializable {
 
     @FXML
     public void switchToAddWordScene(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("addNewWordScene.fxml"));
-//        root = fxmlLoader.load();
-
         Parent root = FXMLLoader.load(getClass().getResource("addNewWordScene.fxml"));
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("switchToAddWordScene");
+    }
+
+    /**
+     * Switch to word description scene.
+     * ERROR: click to blank area of the list will still switch to blank word scene.
+     */
+    @FXML
+    public void switchToWordScene(MouseEvent event) throws IOException {
+        FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("wordScene.fxml"));
+        root = wordSceneLoader.load();
+
+        String word = list.getFocusModel().getFocusedItem();
+        wordSceneController wordSceneController = wordSceneLoader.getController();
+        wordSceneController.showWord(word);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
