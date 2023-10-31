@@ -32,8 +32,8 @@ public class retarDict extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("retarDict");
-        Image icon = new Image("D:\\intelliJ\\DictionaryMaybe\\src\\main\\resources\\images\\test.png");
-        stage.getIcons().add(icon);
+//        Image icon = new Image("D:\\intelliJ\\DictionaryMaybe\\src\\main\\resources\\images\\test.png");
+//        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
     }
