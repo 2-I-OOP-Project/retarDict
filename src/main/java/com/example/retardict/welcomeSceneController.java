@@ -96,7 +96,6 @@ public class welcomeSceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("switchToAddWordScene");
     }
 
     /**
