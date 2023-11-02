@@ -78,7 +78,8 @@ public class welcomeSceneController implements Initializable {
 
     @FXML
     public void switchToAddWordScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("addNewWordScene.fxml"));
+        FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+        root = wordSceneLoader.load();
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

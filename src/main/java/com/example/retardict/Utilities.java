@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Utilities {
     public static final String APP_TITLE = "retarDict";
     public static final String PATH_TO_DATABASE = "jdbc:sqlite:src\\main\\resources\\testdb.db";
-    public static final String PATH_TO_ICON = "src\\main\\resources\\icon.jpg";
+//    public static final String PATH_TO_ICON = "src\\main\\resources\\icon.jpg";
     private static List<String> words = null;
 
     public static List<String> loadFromTextFile(String filePath) {
