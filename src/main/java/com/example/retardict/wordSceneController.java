@@ -9,11 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
+
 import java.io.IOException;
 
 public class wordSceneController {
     @FXML
-    private Label word;
+    private Label wordLabel;
     @FXML
     private Label pronunciation;
     @FXML
@@ -22,33 +25,44 @@ public class wordSceneController {
     private Scene scene;
     private Parent root;
 
+    private Word word;
+
     @FXML
-    public void showWord(Word word) {
-        if (word == null) {
-            this.word.setText("no word selected!");
+    public void showWord(Word inputWord) {
+        this.word = inputWord;
+        if (inputWord == null) {
+            this.wordLabel.setText("no word selected!");
             return;
         }
-        this.word.setText(word.getWord());
+        this.wordLabel.setText(word.getWord());
         this.pronunciation.setText(word.getPronunciation());
         this.description.setText(word.getDescription());
     }
 
     @FXML
-    public void showPronunciation(String word) {
-        if (word == null) {
-            this.pronunciation.setText("no pronunciation!");
-            return;
-        }
-        this.pronunciation.setText(word);
-    }
+    public void speak(ActionEvent event) {
+        System.setProperty(
+                "freetts.voices",
+                "com.sun.speech.freetts.en.us"
+                        + ".cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        Voice[] voices = VoiceManager.getInstance().getVoices();
+        for (int i = 0; i < voices.length; i++) {
+            System.out.println("# Voices: " + voices[i].getName());
 
-    @FXML
-    public void showDescription(String word) {
-        if (word == null) {
-            this.description.setText("no description!");
-            return;
         }
-        this.description.setText(word);
+        if (voice != null)
+        {
+            voice.allocate();
+            System.out.println("Voice rate: " + voice.getRate());
+            System.out.println("Voice pitch: " + voice.getPitch());
+            System.out.println("Voice volume: " + voice.getVolume());
+            boolean status = voice.speak(word.getWord());
+            System.out.println("Status: " + status);
+            voice.deallocate();
+        } else {
+            System.err.println("error something");
+        }
     }
 
     @FXML
