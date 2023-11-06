@@ -35,8 +35,6 @@ public class welcomeSceneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Word> words = FXCollections.observableArrayList();
-        ObservableList<String> wordNames = null;
-
         list.setItems(words);
 
         try {
@@ -50,10 +48,9 @@ public class welcomeSceneController implements Initializable {
             ResultSet resultSet = statement.executeQuery("select * from words");
 
             while (resultSet.next()) {
-                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
+                Word word = new Word(resultSet.getString("word"),
+                        resultSet.getString("pronunciation"), resultSet.getString("description"));
                 words.add(word);
-//                wordNames.add(word.getWord());
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -62,10 +59,6 @@ public class welcomeSceneController implements Initializable {
 
     public void searchWord() {
         ObservableList<Word> words = FXCollections.observableArrayList();
-//        ObservableList<String> wordNames = null;
-//        for (Word word : words) {
-//            wordNames.add(word.getWord());
-//        }
         list.setItems(words);
 
         String pattern = '*' + searchBox.getText() + '*';
@@ -78,10 +71,9 @@ public class welcomeSceneController implements Initializable {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
+                Word word = new Word(resultSet.getString("word"),
+                        resultSet.getString("pronunciation"), resultSet.getString("description"));
                 words.add(word);
-//                wordNames.add(word.getWord());
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -90,7 +82,8 @@ public class welcomeSceneController implements Initializable {
 
     @FXML
     public void switchToAddWordScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("addNewWordScene.fxml"));
+        FXMLLoader userDefinedWordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+        Parent root = userDefinedWordSceneLoader.load();
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

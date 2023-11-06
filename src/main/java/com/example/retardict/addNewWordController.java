@@ -38,8 +38,8 @@ public class addNewWordController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<UserDefinedWord> words = FXCollections.observableArrayList();
-
         list.setItems(words);
+        list.setCellFactory(userDefinedWordListView -> new UserDefinedWordListViewCell());
 
         try {
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
@@ -54,8 +54,6 @@ public class addNewWordController implements Initializable {
             while (resultSet.next()) {
                 UserDefinedWord word = new UserDefinedWord(resultSet.getString("word"), resultSet.getString("meaning"));
                 words.add(word);
-//                wordNames.add(word.getWord());
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -73,32 +71,21 @@ public class addNewWordController implements Initializable {
 
     public void addUserDefinedWord(ActionEvent event) {
         UserDefinedWord word = new UserDefinedWord(userDefinedWord.getText(), userDefinedMeaning.getText());
-//        word.setWord();
-//        String meaning = ;
         System.out.println(word.getWord());
         System.out.println(word.getMeaning());
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/resources/testdb.db");
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO userDefinedWords VALUES (?, ?);");
-            preparedStatement.setString(1, word.getWord());
-            preparedStatement.setString(2, word.getMeaning());
-            preparedStatement.executeUpdate();
-//            Statement statement = connection.createStatement();
-//
-//            ResultSet rs = statement.executeQuery("SELECT * FROM words;");
-//            while (rs.next()) {
-//                System.out.println(rs.getString("word"));
-//            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        if (word.getWord() != null) {
+            Model.addUserDefinedWord(word);
         }
     }
 
-//    public void deleteUserDefinedWord(ActionEvent event) {
+    @FXML
+    public void deleteUserDefinedWord(ActionEvent event) {
 //        String word = userDefinedWord.getText();
 //        String meaning = userDefinedMeaning.getText();
 //        System.out.println(word);
 //        System.out.println(meaning);
+        System.out.println(list.getFocusModel().focusedItemProperty());
+
 //        try {
 //            Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/resources/testdb.db");
 //            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM userDefinedWords WHERE word = ?;");
@@ -108,5 +95,5 @@ public class addNewWordController implements Initializable {
 //        catch (SQLException e) {
 //            System.out.println(e.getMessage());
 //        }
-//    }
+    }
 }
