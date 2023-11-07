@@ -18,7 +18,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class addNewWordController implements Initializable {
+public class addNewWordSceneController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
