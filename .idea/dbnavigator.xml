@@ -91,16 +91,18 @@ DELETE FROM userDefinedWords WHERE word = "hello";
 
 SELECT * FROM words ;
 
-SELECT * FROM userDefinedWords;]]></console>
+SELECT * FROM userDefinedWords;
+
+DELETE FROM "userDefinedWords" WHERE word = "";
+
+UPDATE "userDefinedWords" SET word = "dumb" WHERE word = "sss";]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="efe0fbbe-e123-4857-8827-d1bd56bae5b6" object-ref="consoles/testSQLite" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
