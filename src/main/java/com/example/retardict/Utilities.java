@@ -65,23 +65,10 @@ public class Utilities {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-
     }
 
     public static void main(String[] args) {
         List<String> words = Utilities.loadFromTextFile("src/main/resources/anhviet109K.txt");
         Utilities.loadToDatabase(words);
-//        try {
-//            Connection connection = DriverManager.getConnection("jdbc:sqlite:D:/intelliJ/DictionaryMaybe/src/main/resources/testdb.db");
-//            Statement statement = connection.createStatement();
-//            ResultSet rs = statement.executeQuery("select * from test");
-//            while(rs.next()) {
-//                // read the result set
-//                System.out.println("name = " + rs.getString("name"));
-//                System.out.println("surname = " + rs.getString("surname"));
-//            }
-//        } catch (SQLException e) {
-//            System.err.println(e.getMessage());
-//        }
     }
 }

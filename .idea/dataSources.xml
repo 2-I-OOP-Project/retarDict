@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="testdb" uuid="b70c627d-ad51-4077-a468-928018960fa6">
+    <data-source source="LOCAL" name="testdb" uuid="7d50cce2-c3d7-4c19-b8cf-d71f64b4fabe">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\ADMIN\things\intelliJProjects\dictionaryMaybe\src\main\resources\testdb.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\CODING\code\retarDict\src\main\resources\testdb.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

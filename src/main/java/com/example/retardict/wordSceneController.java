@@ -1,5 +1,7 @@
 package com.example.retardict;
 
+import com.example.retardict.Word;
+import com.example.retardict.retarDict;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

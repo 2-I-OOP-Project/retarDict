@@ -97,7 +97,6 @@ public class welcomeSceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("switchToAddWordScene");
     }
 
     /**
@@ -112,10 +111,21 @@ public class welcomeSceneController implements Initializable {
         Word word = list.getFocusModel().getFocusedItem();
         wordSceneController wordSceneController = wordSceneLoader.getController();
         wordSceneController.showWord(word);
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("switchToAddWordScene");
+    }
+
+    @FXML
+    public void switchToGameScene(ActionEvent event) throws  IOException {
+        FXMLLoader gameScene = new FXMLLoader(getClass().getResource("gameScene.fxml"));
+        root = gameScene.load();
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

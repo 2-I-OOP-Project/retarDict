@@ -1,4 +1,4 @@
-package com.example.retardict.game.multipleChoice;
+package com.example.retardict.game;
 
 public class Question {
     private String question;
