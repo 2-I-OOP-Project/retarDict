@@ -7,6 +7,7 @@ public class MultipleChoice extends Game {
     private int numberOfQuestions;
 
     public MultipleChoice() {
+        super();
     }
 
     public Question returnRandomQuestion() {

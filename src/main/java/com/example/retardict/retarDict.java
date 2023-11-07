@@ -20,6 +20,9 @@ import java.io.IOException;
  * Class chạy bằng giao diện.
  */
 public class retarDict extends Application {
+    public Stage stage;
+    public Scene scene;
+    private Parent root;
 
     /**
      * The start function to run application with FXML files
@@ -32,10 +35,13 @@ public class retarDict extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("welcomeScene.fxml"));
+            root = FXMLLoader.load(getClass().getResource("welcomeScene.fxml"));
 
             Scene scene = new Scene(root);
             stage.setTitle(Utilities.APP_TITLE);
+            stage.setWidth(Utilities.APP_WIDTH);
+            stage.setHeight(Utilities.APP_HEIGHT);
+            stage.setResizable(false);
 
 //            Image icon = new Image(Utilities.PATH_TO_ICON);
 //            stage.getIcons().add(icon);

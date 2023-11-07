@@ -22,6 +22,7 @@ public class MultipleChoiceSceneController {
     private final MultipleChoice multipleChoice = MultipleChoice.getMultipleChoice();
     private String correctAnswer;
     private String currentChosenAnswer;
+    private boolean repeat = false;
 
     @FXML
     private Label questionBox;

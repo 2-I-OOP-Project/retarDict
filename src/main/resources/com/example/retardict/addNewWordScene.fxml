@@ -9,7 +9,7 @@
     <children>
         <TextField fx:id="userDefinedWord" layoutX="330.0" layoutY="26.0" promptText="Word" />
         <TextField fx:id="userDefinedMeaning" layoutX="330.0" layoutY="65.0" promptText="Meaning" />
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchBackToMainScene" prefHeight="79.0" prefWidth="208.0" text="Back" />
+        <Button layoutX="618.0" layoutY="201.0" mnemonicParsing="false" onAction="#switchBackToMainScene" prefHeight="198.0" prefWidth="324.0" text="Back" />
         <Button fx:id="submitButton" layoutX="377.0" layoutY="111.0" mnemonicParsing="false" onAction="#addUserDefinedWord" text="Submit" />
       <ListView fx:id="list" editable="true" layoutX="201.0" layoutY="153.0" prefHeight="422.0" prefWidth="408.0" />
       <Button fx:id="testButton" layoutX="38.0" layoutY="201.0" mnemonicParsing="false" onAction="#deleteUserDefinedWord" text="test" />

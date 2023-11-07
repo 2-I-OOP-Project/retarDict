@@ -121,7 +121,7 @@ public class welcomeSceneController implements Initializable {
     @FXML
     public void switchToGameScene(ActionEvent event) throws  IOException {
         FXMLLoader gameScene = new FXMLLoader(getClass().getResource("gameScene.fxml"));
-        root = gameScene.load();
+        root = new FXMLLoader(getClass().getResource("gameScene.fxml")).load();
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
