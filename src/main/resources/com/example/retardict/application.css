@@ -12,3 +12,80 @@
 #label1 {
     -fx-font-size: 40;
 }
+
+#hbox1 {
+
+    -fx-background-color: linear-gradient(to bottom right, reflect, #888888, #089876);
+    -fx-background-size: 400% 400%;
+    -fx-animated: gradient 15s ease infinite;
+    -fx-fill-height: 100px;
+}
+
+#dumbHbox {
+    -fx-background-color: #f1f1f1;
+
+}
+
+#dumbBackground {
+    -fx-background-color: #e8e8e8;
+}
+
+.button {
+    -fx-border-color: #f1f1f1;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+    -fx-background-color: #f1f1f1;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-border-radius: 300;
+    -fx-border-width: 5;
+    -fx-border-color: #e8e8e8;
+    -fx-font-size: 20;
+    -fx-background-color: #e8e8e8;
+    /*-fx-text-fill: black;*/
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#animationTest {
+    animation-name: dumb;
+    animation-duration: 5s;
+    animation-iteration-count: 10;
+}
+
+@keyframes dumb {
+
+    from {
+        left: 0;
+        top: 0;
+    }
+
+    to {
+        left: 100px;
+        top: 100px;
+    }
+
+}
+
+@keyframes gradient {
+    0% {
+        -fx-background-position: 0% 50%;
+    }
+    50% {
+        -fx-background-position: 100% 50%;
+    }
+    100% {
+        -fx-background-position: 0% 50%;
+    }
+}

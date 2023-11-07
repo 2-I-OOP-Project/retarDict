@@ -36,6 +36,9 @@ public class retarDict extends Application {
 
             Scene scene = new Scene(root);
             stage.setTitle(Utilities.APP_TITLE);
+            stage.setWidth(Utilities.APP_WIDTH);
+            stage.setHeight(Utilities.APP_HEIGHT);
+            stage.setResizable(false);
 
 //            Image icon = new Image(Utilities.PATH_TO_ICON);
 //            stage.getIcons().add(icon);
