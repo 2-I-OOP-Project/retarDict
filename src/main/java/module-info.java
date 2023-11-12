@@ -3,6 +3,7 @@ module com.example.retardict {
     requires javafx.fxml;
     requires java.sql;
     requires freetts;
+    requires java.net.http;
 
     opens com.example.retardict to javafx.fxml;
     exports com.example.retardict;
