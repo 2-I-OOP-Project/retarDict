@@ -13,8 +13,6 @@ public class Utilities {
     public static final int APP_HEIGHT = 720;
     public static final String PATH_TO_DATABASE = "jdbc:sqlite:src\\main\\resources\\testdb.db";
 //    public static final String PATH_TO_ICON = "src\\main\\resources\\icon.jpg";
-    public static final int APP_WIDTH = 1280;
-    public static final int APP_HEIGHT = 720;
     private static List<String> words = null;
 
     public static List<String> loadFromTextFile(String filePath) {
