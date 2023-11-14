@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +23,9 @@ public class addNewWordSceneController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private AnchorPane rootAnchor;
 
     @FXML
     private TextField userDefinedWord;
@@ -40,6 +44,14 @@ public class addNewWordSceneController implements Initializable {
         ObservableList<UserDefinedWord> words = FXCollections.observableArrayList();
         list.setItems(words);
         list.setCellFactory(userDefinedWordListView -> new UserDefinedWordListViewCell());
+
+        FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
+        try {
+            Parent sidePaneLoaded = sidePaneLoader.load();
+            rootAnchor.getChildren().addAll(sidePaneLoaded);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         try {
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);

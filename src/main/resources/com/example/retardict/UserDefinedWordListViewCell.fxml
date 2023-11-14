@@ -11,6 +11,6 @@
       <Button fx:id="editButton" layoutX="247.0" layoutY="18.0" mnemonicParsing="false" text="Edit" />
       <Label fx:id="wordLabel" layoutX="14.0" layoutY="4.0" prefHeight="52.0" prefWidth="177.0" text="Label" />
       <TextField fx:id="editWordField" disable="true" layoutX="14.0" layoutY="18.0" opacity="0.0" prefHeight="25.0" prefWidth="185.0" />
-      <Button fx:id="comfirmEditButton" disable="true" layoutX="207.0" layoutY="18.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="31.0" text="V" />
+      <Button fx:id="comfirmEditButton" disable="true" layoutX="207.0" layoutY="18.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="31.0" rotate="-93.0" text="🐒" />
    </children>
 </AnchorPane>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.ChooseItemGameController">
+   <children>
+      <Button layoutX="638.0" layoutY="281.0" mnemonicParsing="false" text="Button" />
+      <ImageView fx:id="imageView1" fitHeight="150.0" fitWidth="200.0" layoutX="288.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView2" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView3" fitHeight="150.0" fitWidth="200.0" layoutX="937.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView4" fitHeight="150.0" fitWidth="200.0" layoutX="948.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="questionBox" layoutX="650.0" layoutY="212.0" text="Label" />
+   </children>
+</AnchorPane>

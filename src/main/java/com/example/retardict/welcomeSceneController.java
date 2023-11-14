@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +25,9 @@ public class welcomeSceneController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private AnchorPane rootAnchor;
 
     @FXML
     private ListView<Word> list;
@@ -38,6 +43,22 @@ public class welcomeSceneController implements Initializable {
         ObservableList<String> wordNames = null;
 
         list.setItems(words);
+
+        FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
+        try {
+            Parent sidePaneLoaded = sidePaneLoader.load();
+            rootAnchor.getChildren().addAll(sidePaneLoaded);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+//        rootAnchor.setOnMouseMoved(event -> {
+//            double x = event.getX();
+//            double y = event.getY();
+//            rootAnchor.setStyle("-fx-background-color: radial-gradient(center " + 100*x/Utilities.APP_WIDTH + "% " + 100*y/Utilities.APP_HEIGHT + "%, radius 25%, black,  #e8e8e8);");
+//            System.out.println("x = " + x + ", y = " + y);
+//            System.out.println("x/Utilities.APP_WIDTH = " + x/Utilities.APP_WIDTH + ", y/Utilities.APP_HEIGHT = " + y/Utilities.APP_HEIGHT);
+//        });
 
         try {
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);

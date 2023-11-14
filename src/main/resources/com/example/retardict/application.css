@@ -12,3 +12,88 @@
 #label1 {
     -fx-font-size: 40;
 }
+
+#hbox1 {
+    -fx-background-color: linear-gradient(to bottom right, reflect, #888888, #089876);
+    -fx-background-size: 400% 400%;
+    -fx-animated: gradient 15s ease infinite;
+    -fx-fill-height: 100px;
+}
+
+#dumbHbox {
+    -fx-background-color: #f1f1f1;
+}
+
+#dumbHbox:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
+}
+
+#dumbBackground {
+    -fx-background-color: #e8e8e8;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 200, 300, 0);*/
+    /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
+}
+
+.button {
+    -fx-background-color: #f1f1f1;
+    -fx-border-color: #f1f1f1;
+    -fx-border-width: 0;
+    -fx-font-size: 20;/*20*/
+    -fx-text-fill: black;
+    -fx-transition: 0.5s;
+    -fx-letter-spacing: 0.1em;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #e8e8e8;
+    -fx-background-radius: 0 20 20 0;
+    -fx-border-color: #e8e8e8;
+    -fx-border-radius: 50;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+    -fx-letter-spacing: 1em;
+    /*-fx-text-fill: black;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+#animationTest {
+    animation-name: dumb;
+    animation-duration: 5s;
+    animation-iteration-count: 10;
+}
+
+@keyframes dumb {
+
+    from {
+        left: 0;
+        top: 0;
+    }
+
+    to {
+        left: 100px;
+        top: 100px;
+    }
+
+}
+
+@keyframes gradient {
+    0% {
+        -fx-background-position: 0% 50%;
+    }
+    50% {
+        -fx-background-position: 100% 50%;
+    }
+    100% {
+        -fx-background-position: 0% 50%;
+    }
+}
