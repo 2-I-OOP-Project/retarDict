@@ -19,7 +19,7 @@ public class AdSceneController {
     private ImageView imageView;
 
     public void showImage(ActionEvent event) throws FileNotFoundException {
-        Image image = new Image(new FileInputStream("D:\\CODING\\code\\retarDict\\src\\main\\resources\\ad.jpg"));
+        Image image = new Image(new FileInputStream("src\\main\\resources\\ad.jpg"));
         imageView.setImage(image);
     }
 }

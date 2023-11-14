@@ -3,13 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.wordSceneController">
+<AnchorPane fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.wordSceneController">
     <children>
-        <Label fx:id="wordLabel" layoutX="59.0" layoutY="100.0" prefHeight="46.0" prefWidth="194.0" text="Label" />
-      <Button layoutX="38.0" layoutY="45.0" mnemonicParsing="false" onAction="#switchBackToMainScene" text="Back" />
-      <Label fx:id="pronunciation" layoutX="347.0" layoutY="108.0" text="Label" />
-      <Label fx:id="description" layoutX="210.0" layoutY="213.0" text="Label" />
-      <Button layoutX="295.0" layoutY="33.0" mnemonicParsing="false" onAction="#speak" text="Button" />
+      <Button layoutX="973.0" layoutY="35.0" mnemonicParsing="false" onAction="#switchBackToMainScene" text="Back" />
+      <Button layoutX="691.0" layoutY="121.0" mnemonicParsing="false" onAction="#speak" text="Button" />
+      <VBox layoutX="315.0" layoutY="97.0" prefHeight="623.0" prefWidth="334.0">
+         <children>
+              <Label fx:id="wordLabel" prefHeight="50.0" prefWidth="400.0" text="Word" />
+            <Label fx:id="pronunciation" prefHeight="50.0" prefWidth="400.0" text="Pronunciation" />
+            <Label fx:id="description" prefHeight="50.0" prefWidth="400.0" text="Description" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

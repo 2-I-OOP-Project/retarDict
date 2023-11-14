@@ -1,5 +1,7 @@
 package com.example.retardict;
 
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,11 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,6 +37,15 @@ public class welcomeSceneController implements Initializable {
 
     @FXML
     private TextField searchBox;
+
+    @FXML
+    private Label wordLabel;
+    @FXML
+    private Label pronunciation;
+    @FXML
+    private Label description;
+
+    private Word word;
 
     private Connection connection = null;
 
@@ -83,10 +95,6 @@ public class welcomeSceneController implements Initializable {
 
     public void searchWord() {
         ObservableList<Word> words = FXCollections.observableArrayList();
-//        ObservableList<String> wordNames = null;
-//        for (Word word : words) {
-//            wordNames.add(word.getWord());
-//        }
         list.setItems(words);
 
         String pattern = '*' + searchBox.getText() + '*';
@@ -101,7 +109,6 @@ public class welcomeSceneController implements Initializable {
             while (resultSet.next()) {
                 Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
                 words.add(word);
-//                wordNames.add(word.getWord());
 
             }
         } catch (SQLException e) {
@@ -110,14 +117,29 @@ public class welcomeSceneController implements Initializable {
     }
 
     @FXML
-    public void switchToAddWordScene(ActionEvent event) throws IOException {
-        FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
-        root = wordSceneLoader.load();
+    public void speak(ActionEvent event) {
+        System.setProperty(
+                "freetts.voices",
+                "com.sun.speech.freetts.en.us"
+                        + ".cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        Voice[] voices = VoiceManager.getInstance().getVoices();
+        for (int i = 0; i < voices.length; i++) {
+            System.out.println("# Voices: " + voices[i].getName());
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        }
+        if (voice != null)
+        {
+            voice.allocate();
+            System.out.println("Voice rate: " + voice.getRate());
+            System.out.println("Voice pitch: " + voice.getPitch());
+            System.out.println("Voice volume: " + voice.getVolume());
+            boolean status = voice.speak(word.getWord());
+            System.out.println("Status: " + status);
+            voice.deallocate();
+        } else {
+            System.err.println("error something");
+        }
     }
 
     /**
@@ -125,28 +147,11 @@ public class welcomeSceneController implements Initializable {
      * ERROR: click to blank area of the list will still switch to blank word scene.
      */
     @FXML
-    public void switchToWordScene(MouseEvent event) throws IOException {
-        FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("wordScene.fxml"));
-        root = wordSceneLoader.load();
-
-        Word word = list.getFocusModel().getFocusedItem();
-        wordSceneController wordSceneController = wordSceneLoader.getController();
-        wordSceneController.showWord(word);
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void switchToGameScene(ActionEvent event) throws  IOException {
-        FXMLLoader gameScene = new FXMLLoader(getClass().getResource("gameScene.fxml"));
-        root = new FXMLLoader(getClass().getResource("gameScene.fxml")).load();
-
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void displayWord(MouseEvent event) throws IOException {
+//        System.out.println(word.getWord());
+        word = list.getFocusModel().getFocusedItem();
+        wordLabel.setText(word.getWord());
+        pronunciation.setText(word.getPronunciation());
+        description.setText(word.getDescription());
     }
 }
