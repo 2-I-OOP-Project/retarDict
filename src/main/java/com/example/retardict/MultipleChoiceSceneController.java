@@ -1,14 +1,13 @@
 package com.example.retardict;
 
 import com.example.retardict.game.MultipleChoice;
-import com.example.retardict.game.Question;
+import com.example.retardict.game.MultipleChoiceQuestion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -38,7 +37,7 @@ public class MultipleChoiceSceneController {
 
     @FXML
     public void setQuestion(ActionEvent event) throws IOException {
-        Question currentQuestion = multipleChoice.returnRandomQuestion();
+        MultipleChoiceQuestion currentQuestion = multipleChoice.returnRandomQuestion();
 
         questionBox.setText(currentQuestion.getQuestion());
         answerABox.setText(currentQuestion.getAnswerA());

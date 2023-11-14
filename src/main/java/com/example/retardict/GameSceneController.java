@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -48,14 +50,18 @@ public class GameSceneController implements Initializable {
     }
 
     @FXML
-    public void switchBackToWelcomeScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomeScene.fxml"));
+    public void switchToChooseItemGameScene(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("chooseItemScene.fxml"));
         root = loader.load();
+
+        ChooseItemGameController chooseItemGameController = loader.getController();
+        chooseItemGameController.setQuestion(event);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
 
 }

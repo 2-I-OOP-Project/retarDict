@@ -14,7 +14,6 @@
 }
 
 #hbox1 {
-
     -fx-background-color: linear-gradient(to bottom right, reflect, #888888, #089876);
     -fx-background-size: 400% 400%;
     -fx-animated: gradient 15s ease infinite;
@@ -23,12 +22,10 @@
 
 #dumbHbox {
     -fx-background-color: #f1f1f1;
-
 }
 
 #dumbHbox:hover {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
-
 }
 
 #dumbBackground {
@@ -45,7 +42,6 @@
     -fx-text-fill: black;
     -fx-transition: 0.5s;
     -fx-letter-spacing: 0.1em;
-
 }
 
 .button:hover {
@@ -58,7 +54,6 @@
     -fx-font-size: 20;
     -fx-letter-spacing: 1em;
     /*-fx-text-fill: black;*/
-
 }
 
 

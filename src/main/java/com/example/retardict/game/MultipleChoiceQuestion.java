@@ -1,6 +1,6 @@
 package com.example.retardict.game;
 
-public class Question {
+public class MultipleChoiceQuestion {
     private String question;
     private String answerA;
     private String answerB;
@@ -9,7 +9,7 @@ public class Question {
     private String correctAnswer;
     private boolean isChosen = false;
 
-    public Question(String question, String answerA, String answerB, String answerC, String answerD, String correctAnswer) {
+    public MultipleChoiceQuestion(String question, String answerA, String answerB, String answerC, String answerD, String correctAnswer) {
         this.question = question;
         this.answerA = answerA;
         this.answerB = answerB;
