@@ -5,7 +5,7 @@
 .label {
     -fx-font-size: 20;
     -fx-font-family: "Lucida Console";
-    -fx-text-fill: "white";
+    /*-fx-text-fill: "white";*/
     -fx-alignment: center;
 }
 
@@ -34,7 +34,7 @@
     /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
 }
 
-.button {
+#sidePaneButton {
     -fx-background-color: #f1f1f1;
     -fx-border-color: #f1f1f1;
     -fx-border-width: 0;
@@ -44,7 +44,7 @@
     -fx-letter-spacing: 0.1em;
 }
 
-.button:hover {
+#sidePaneButton:hover {
     -fx-cursor: hand;
     -fx-background-color: #e8e8e8;
     -fx-background-radius: 0 20 20 0;
@@ -54,46 +54,4 @@
     -fx-font-size: 20;
     -fx-letter-spacing: 1em;
     /*-fx-text-fill: black;*/
-}
-
-
-
-
-
-
-
-
-
-
-
-#animationTest {
-    animation-name: dumb;
-    animation-duration: 5s;
-    animation-iteration-count: 10;
-}
-
-@keyframes dumb {
-
-    from {
-        left: 0;
-        top: 0;
-    }
-
-    to {
-        left: 100px;
-        top: 100px;
-    }
-
-}
-
-@keyframes gradient {
-    0% {
-        -fx-background-position: 0% 50%;
-    }
-    50% {
-        -fx-background-position: 100% 50%;
-    }
-    100% {
-        -fx-background-position: 0% 50%;
-    }
 }

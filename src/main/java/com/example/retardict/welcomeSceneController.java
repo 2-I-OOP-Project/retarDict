@@ -55,7 +55,7 @@ public class welcomeSceneController implements Initializable {
 //        rootAnchor.setOnMouseMoved(event -> {
 //            double x = event.getX();
 //            double y = event.getY();
-//            rootAnchor.setStyle("-fx-background-color: radial-gradient(center " + 100*x/Utilities.APP_WIDTH + "% " + 100*y/Utilities.APP_HEIGHT + "%, radius 25%, black,  #e8e8e8);");
+//            rootAnchor.setStyle("-fx-background-color: radial-gradient(center " + 100*x/Utilities.APP_WIDTH + "% " + 100*y/Utilities.APP_HEIGHT + "%, radius 25%, #d4d4d4,  #e8e8e8);");
 //            System.out.println("x = " + x + ", y = " + y);
 //            System.out.println("x/Utilities.APP_WIDTH = " + x/Utilities.APP_WIDTH + ", y/Utilities.APP_HEIGHT = " + y/Utilities.APP_HEIGHT);
 //        });

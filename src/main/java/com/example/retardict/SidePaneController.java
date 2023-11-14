@@ -47,4 +47,18 @@ public class SidePaneController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    public void switchToAdScene(ActionEvent event) throws IOException {
+        FXMLLoader adScene = new FXMLLoader(getClass().getResource("adScene.fxml"));
+        root = adScene.load();
+
+        AdSceneController adSceneController = adScene.getController();
+        adSceneController.showImage(event);
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

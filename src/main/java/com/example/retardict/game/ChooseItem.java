@@ -25,10 +25,10 @@ public class ChooseItem extends Game {
     public static ChooseItem getChooseItem() throws FileNotFoundException {
         ChooseItem chooseItem = new ChooseItem();
 
-        chooseItem.addItem("pickaxe", "D:\\CODING\\code\\retarDict\\src\\main\\resources\\pickaxe.png");
-        chooseItem.addItem("egg", "D:\\CODING\\code\\retarDict\\src\\main\\resources\\egg.png");
-        chooseItem.addItem("apple", "D:\\CODING\\code\\retarDict\\src\\main\\resources\\apple.png");
-        chooseItem.addItem("potato", "D:\\CODING\\code\\retarDict\\src\\main\\resources\\potato.png");
+        chooseItem.addItem("pickaxe", "src\\main\\resources\\pickaxe.png");
+        chooseItem.addItem("egg", "src\\main\\resources\\egg.png");
+        chooseItem.addItem("apple", "src\\main\\resources\\apple.png");
+        chooseItem.addItem("potato", "src\\main\\resources\\potato.png");
 
         return chooseItem;
     }
