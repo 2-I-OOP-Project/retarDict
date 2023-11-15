@@ -8,10 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -45,12 +43,15 @@ public class welcomeSceneController implements Initializable {
     @FXML
     private Label description;
 
-    private Word word;
+    private Word currentSelectedWord;
 
     private Connection connection = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+//        String css = this.getClass().getResource("application.css").toExternalForm();
+//        scene.getStylesheets().add(css);
+
         ObservableList<Word> words = FXCollections.observableArrayList();
         ObservableList<String> wordNames = null;
 
@@ -134,7 +135,7 @@ public class welcomeSceneController implements Initializable {
             System.out.println("Voice rate: " + voice.getRate());
             System.out.println("Voice pitch: " + voice.getPitch());
             System.out.println("Voice volume: " + voice.getVolume());
-            boolean status = voice.speak(word.getWord());
+            boolean status = voice.speak(currentSelectedWord.getWord());
             System.out.println("Status: " + status);
             voice.deallocate();
         } else {
@@ -142,16 +143,11 @@ public class welcomeSceneController implements Initializable {
         }
     }
 
-    /**
-     * Switch to word description scene.
-     * ERROR: click to blank area of the list will still switch to blank word scene.
-     */
     @FXML
     public void displayWord(MouseEvent event) throws IOException {
-//        System.out.println(word.getWord());
-        word = list.getFocusModel().getFocusedItem();
-        wordLabel.setText(word.getWord());
-        pronunciation.setText(word.getPronunciation());
-        description.setText(word.getDescription());
+        currentSelectedWord = list.getFocusModel().getFocusedItem();
+        wordLabel.setText(currentSelectedWord.getWord());
+        pronunciation.setText(currentSelectedWord.getPronunciation());
+        description.setText(currentSelectedWord.getDescription());
     }
 }

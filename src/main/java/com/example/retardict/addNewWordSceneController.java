@@ -1,5 +1,7 @@
 package com.example.retardict;
 
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,8 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -38,8 +42,14 @@ public class addNewWordSceneController implements Initializable {
 
     @FXML
     private TextField searchBox;
+    @FXML
+    private Label wordLabel;
+    @FXML
+    private Label meaningLabel;
 
     private Connection connection = null;
+
+    private UserDefinedWord currentSelectedWord;
 
 
     @Override
@@ -95,6 +105,40 @@ public class addNewWordSceneController implements Initializable {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @FXML
+    public void speak(ActionEvent event) {
+        System.setProperty(
+                "freetts.voices",
+                "com.sun.speech.freetts.en.us"
+                        + ".cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        Voice[] voices = VoiceManager.getInstance().getVoices();
+        for (int i = 0; i < voices.length; i++) {
+            System.out.println("# Voices: " + voices[i].getName());
+
+        }
+        if (voice != null)
+        {
+            voice.allocate();
+            System.out.println("Voice rate: " + voice.getRate());
+            System.out.println("Voice pitch: " + voice.getPitch());
+            System.out.println("Voice volume: " + voice.getVolume());
+            boolean status = voice.speak(currentSelectedWord.getWord());
+            System.out.println("Status: " + status);
+            voice.deallocate();
+        } else {
+            System.err.println("error something");
+        }
+    }
+
+    @FXML
+    public void displayWord(MouseEvent event) throws IOException {
+        currentSelectedWord = list.getFocusModel().getFocusedItem();
+        System.out.println(list.getFocusModel().getFocusedIndex());
+        wordLabel.setText(currentSelectedWord.getWord());
+        meaningLabel.setText(currentSelectedWord.getMeaning());
     }
 
     public void addUserDefinedWord(ActionEvent event) {

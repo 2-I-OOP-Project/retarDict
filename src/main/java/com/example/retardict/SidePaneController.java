@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,6 +33,8 @@ public class SidePaneController {
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
@@ -44,20 +45,24 @@ public class SidePaneController {
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    public void switchToAdScene(ActionEvent event) throws IOException {
-        FXMLLoader adScene = new FXMLLoader(getClass().getResource("adScene.fxml"));
+    public void switchToSettingScene(ActionEvent event) throws IOException {
+        FXMLLoader adScene = new FXMLLoader(getClass().getResource("SettingScene.fxml"));
         root = adScene.load();
 
-        AdSceneController adSceneController = adScene.getController();
-        adSceneController.showImage(event);
+//        AdSceneController adSceneController = adScene.getController();
+//        adSceneController.showImage(event);
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
