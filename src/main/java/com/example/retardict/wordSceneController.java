@@ -5,30 +5,47 @@ import com.example.retardict.retarDict;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class wordSceneController {
+public class wordSceneController implements Initializable {
     @FXML
     private Label wordLabel;
     @FXML
     private Label pronunciation;
     @FXML
     private Label description;
+    @FXML
+    private AnchorPane rootAnchor;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     private Word word;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
+        try {
+            Parent sidePaneLoaded = sidePaneLoader.load();
+            rootAnchor.getChildren().addAll(sidePaneLoaded);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     public void showWord(Word inputWord) {
         this.word = inputWord;
@@ -76,4 +93,5 @@ public class wordSceneController {
         stage.setScene(scene);
         stage.show();
     }
+
 }

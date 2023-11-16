@@ -1,5 +1,7 @@
 package com.example.retardict;
 
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,8 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -36,7 +40,16 @@ public class addNewWordSceneController implements Initializable {
     @FXML
     private ListView<UserDefinedWord> list;
 
+    @FXML
+    private TextField searchBox;
+    @FXML
+    private Label wordLabel;
+    @FXML
+    private Label meaningLabel;
+
     private Connection connection = null;
+
+    private UserDefinedWord currentSelectedWord;
 
 
     @Override
@@ -71,14 +84,61 @@ public class addNewWordSceneController implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
+    public void searchWord() {
+        ObservableList<UserDefinedWord> words = FXCollections.observableArrayList();
+        list.setItems(words);
+
+        String pattern = '*' + searchBox.getText() + '*';
+
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement("SELECT * FROM userDefinedWords WHERE (word glob ?)");
+            preparedStatement.setString(1, pattern);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                UserDefinedWord word = new UserDefinedWord(resultSet.getString("word"), resultSet.getString("meaning"));
+                words.add(word);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     @FXML
-    public void switchBackToMainScene(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("welcomeScene.fxml"));
-        root = fxmlLoader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void speak(ActionEvent event) {
+        System.setProperty(
+                "freetts.voices",
+                "com.sun.speech.freetts.en.us"
+                        + ".cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        Voice[] voices = VoiceManager.getInstance().getVoices();
+        for (int i = 0; i < voices.length; i++) {
+            System.out.println("# Voices: " + voices[i].getName());
+
+        }
+        if (voice != null)
+        {
+            voice.allocate();
+            System.out.println("Voice rate: " + voice.getRate());
+            System.out.println("Voice pitch: " + voice.getPitch());
+            System.out.println("Voice volume: " + voice.getVolume());
+            boolean status = voice.speak(currentSelectedWord.getWord());
+            System.out.println("Status: " + status);
+            voice.deallocate();
+        } else {
+            System.err.println("error something");
+        }
+    }
+
+    @FXML
+    public void displayWord(MouseEvent event) throws IOException {
+        currentSelectedWord = list.getFocusModel().getFocusedItem();
+        System.out.println(list.getFocusModel().getFocusedIndex());
+        wordLabel.setText(currentSelectedWord.getWord());
+        meaningLabel.setText(currentSelectedWord.getMeaning());
     }
 
     public void addUserDefinedWord(ActionEvent event) {
@@ -87,25 +147,18 @@ public class addNewWordSceneController implements Initializable {
         System.out.println(word.getMeaning());
         if (word.getWord() != null) {
             Model.addUserDefinedWord(word);
+            FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+            Parent root = null;
+            try {
+                root = wordSceneLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
-    }
-
-    @FXML
-    public void deleteUserDefinedWord(ActionEvent event) {
-//        String word = userDefinedWord.getText();
-//        String meaning = userDefinedMeaning.getText();
-//        System.out.println(word);
-//        System.out.println(meaning);
-        System.out.println(list.getFocusModel().focusedItemProperty());
-
-//        try {
-//            Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/resources/testdb.db");
-//            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM userDefinedWords WHERE word = ?;");
-//            preparedStatement.setString(1, word);
-//            preparedStatement.executeUpdate();
-//        }
-//        catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//        }
     }
 }

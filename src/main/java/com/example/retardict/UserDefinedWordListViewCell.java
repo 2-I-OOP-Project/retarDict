@@ -4,11 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -80,6 +84,19 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
                     editWordField.setOpacity(0);
                     comfirmEditButton.setDisable(true);
                     comfirmEditButton.setOpacity(0);
+
+                    FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+                    Parent root = null;
+                    try {
+                        root = wordSceneLoader.load();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
                 }
             });
 
@@ -87,6 +104,18 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
                 @Override
                 public void handle(ActionEvent event) {
                     Model.deleteUserDefinedWord(word.getWord());
+                    FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+                    Parent root = null;
+                    try {
+                        root = wordSceneLoader.load();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
                 }
             });
             setText(null);

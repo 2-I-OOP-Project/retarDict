@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +22,15 @@ public class SidePaneController {
         root = fxmlLoader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        if (SettingSceneController.theme.equals("LIGHT")) {
+            String css = this.getClass().getResource("application.css").toExternalForm();
+            System.out.println("using light theme");
+            scene.getStylesheets().add(css);
+        } else {
+            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
+            System.out.println("using dark theme");
+            scene.getStylesheets().add(css);
+        }
         stage.setScene(scene);
         stage.show();
     }
@@ -34,6 +42,15 @@ public class SidePaneController {
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        if (SettingSceneController.theme.equals("LIGHT")) {
+            String css = this.getClass().getResource("application.css").toExternalForm();
+            System.out.println("using light theme");
+            scene.getStylesheets().add(css);
+        } else {
+            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
+            System.out.println("using dark theme");
+            scene.getStylesheets().add(css);
+        }
         stage.setScene(scene);
         stage.show();
     }
@@ -44,20 +61,35 @@ public class SidePaneController {
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        if (SettingSceneController.theme.equals("LIGHT")) {
+            String css = this.getClass().getResource("application.css").toExternalForm();
+            System.out.println("using light theme");
+            scene.getStylesheets().add(css);
+        } else {
+            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
+            System.out.println("using dark theme");
+            scene.getStylesheets().add(css);
+        }
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    public void switchToAdScene(ActionEvent event) throws IOException {
-        FXMLLoader adScene = new FXMLLoader(getClass().getResource("adScene.fxml"));
-        root = adScene.load();
-
-        AdSceneController adSceneController = adScene.getController();
-        adSceneController.showImage(event);
+    public void switchToSettingScene(ActionEvent event) throws IOException {
+        FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("SettingScene.fxml"));
+        root = settingSceneLoader.load();
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        if (SettingSceneController.theme.equals("LIGHT")) {
+            String css = this.getClass().getResource("application.css").toExternalForm();
+            System.out.println("using light theme");
+            scene.getStylesheets().add(css);
+        } else {
+            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
+            System.out.println("using dark theme");
+            scene.getStylesheets().add(css);
+        }
         stage.setScene(scene);
         stage.show();
     }

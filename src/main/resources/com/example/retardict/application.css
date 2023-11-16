@@ -1,10 +1,14 @@
 .root {
     -fx-background-color: "white";
+    -main-color: #e8e8e8;
+    -secondary-color: #f1f1f1;
+    -accent-color: #df8c52;
+    -text-color: #1a1a1a;
 }
 
 .label {
     -fx-font-size: 20;
-    -fx-font-family: "Lucida Console";
+    -fx-font-family: "Open Sans";
     /*-fx-text-fill: "white";*/
     -fx-alignment: center;
 }
@@ -20,23 +24,25 @@
     -fx-fill-height: 100px;
 }
 
-#dumbHbox {
-    -fx-background-color: #f1f1f1;
+#sidePane {
+    -fx-background-color: -secondary-color;
 }
 
-#dumbHbox:hover {
+#sidePane:hover {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
 }
 
 #dumbBackground {
-    -fx-background-color: #e8e8e8;
+    -fx-background-color: -main-color;
     /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 200, 300, 0);*/
     /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
 }
 
+
+
 #sidePaneButton {
-    -fx-background-color: #f1f1f1;
-    -fx-border-color: #f1f1f1;
+    -fx-background-color: -secondary-color;
+    -fx-border-color: -secondary-color;
     -fx-border-width: 0;
     -fx-font-size: 20;/*20*/
     -fx-text-fill: black;
@@ -46,9 +52,9 @@
 
 #sidePaneButton:hover {
     -fx-cursor: hand;
-    -fx-background-color: #e8e8e8;
+    -fx-background-color: -main-color;
     -fx-background-radius: 0 20 20 0;
-    -fx-border-color: #e8e8e8;
+    -fx-border-color: -main-color;
     -fx-border-radius: 50;
     -fx-border-width: 0;
     -fx-font-size: 20;
