@@ -1,9 +1,9 @@
 .root {
     -fx-background-color: "white";
-    -main-color: #e8e8e8;
-    -secondary-color: #f1f1f1;
+    -main-color: #1a1a1a;
+    -secondary-color: #424242;
     -accent-color: #df8c52;
-    -text-color: #1a1a1a;
+    -text-color: #e8e8e8;
 }
 
 .label {
@@ -11,6 +11,7 @@
     -fx-font-family: "Open Sans";
     /*-fx-text-fill: "white";*/
     -fx-alignment: center;
+    -fx-text-fill: -text-color;
 }
 
 #label1 {
@@ -22,36 +23,46 @@
     -fx-background-size: 400% 400%;
     -fx-animated: gradient 15s ease infinite;
     -fx-fill-height: 100px;
+    -fx-text-fill: -text-color;
+}
+
+#dumbVBox {
+    -fx-background-color: -secondary-color;
+    -fx-text-fill: -text-color;
+
+}
+
+#dumbBackground {
+    -fx-background-color: -main-color;
+    -fx-text-fill: -text-color;
+
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 200, 300, 0);*/
+    /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
 }
 
 #sidePane {
+    -fx-text-fill: -text-color;
     -fx-background-color: -secondary-color;
+
 }
 
 #sidePane:hover {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
 }
 
-#dumbBackground {
-    -fx-background-color: -main-color;
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 200, 300, 0);*/
-    /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
-}
-
-
-
 #sidePaneButton {
+    -fx-text-fill: -text-color;
     -fx-background-color: -secondary-color;
     -fx-border-color: -secondary-color;
     -fx-border-width: 0;
-    -fx-font-size: 20;/*20*/
-    -fx-text-fill: black;
+    -fx-font-size: 20;
     -fx-transition: 0.5s;
     -fx-letter-spacing: 0.1em;
 }
 
 #sidePaneButton:hover {
     -fx-cursor: hand;
+    -fx-text-fill: -text-color;
     -fx-background-color: -main-color;
     -fx-background-radius: 0 20 20 0;
     -fx-border-color: -main-color;
@@ -59,5 +70,4 @@
     -fx-border-width: 0;
     -fx-font-size: 20;
     -fx-letter-spacing: 1em;
-    /*-fx-text-fill: black;*/
 }
