@@ -25,10 +25,11 @@ public class ChooseItem extends Game {
     public static ChooseItem getChooseItem() throws FileNotFoundException {
         ChooseItem chooseItem = new ChooseItem();
 
-        chooseItem.addItem("pickaxe", "src\\main\\resources\\pickaxe.png");
-        chooseItem.addItem("egg", "src\\main\\resources\\egg.png");
+        chooseItem.addItem("compass", "src\\main\\resources\\compass.png");
+        chooseItem.addItem("wheat", "src\\main\\resources\\wheat.png");
         chooseItem.addItem("apple", "src\\main\\resources\\apple.png");
         chooseItem.addItem("potato", "src\\main\\resources\\potato.png");
+        chooseItem.addItem("ad", "src\\main\\resources\\ad.jpg");
 
         return chooseItem;
     }
@@ -65,7 +66,7 @@ public class ChooseItem extends Game {
             System.out.println(chooseItem.returnRandomQuestion());
             System.out.println(chooseItem.returnRandomItem().getName());
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 }

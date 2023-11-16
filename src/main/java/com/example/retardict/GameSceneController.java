@@ -7,8 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -55,13 +53,12 @@ public class GameSceneController implements Initializable {
         root = loader.load();
 
         ChooseItemGameController chooseItemGameController = loader.getController();
-        chooseItemGameController.setQuestion(event);
+        chooseItemGameController.initializeQuestion(event);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-
+//    52 67
 }
