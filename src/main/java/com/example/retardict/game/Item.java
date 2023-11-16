@@ -18,7 +18,6 @@ public class Item {
         question = "Chose the correct item: " + name;
         isChosen = false;
     }
-
     public String getName() {
         return name;
     }

@@ -4,14 +4,25 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.ChooseItemGameController">
-   <children>
-      <Button layoutX="638.0" layoutY="281.0" mnemonicParsing="false" onAction="#setQuestion" text="Button" />
-      <ImageView fx:id="imageView1" fitHeight="150.0" fitWidth="200.0" layoutX="288.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageView2" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageView3" fitHeight="150.0" fitWidth="200.0" layoutX="937.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageView4" fitHeight="150.0" fitWidth="200.0" layoutX="948.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="questionBox" layoutX="650.0" layoutY="212.0" text="Label" />
-   </children>
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@application.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.retardict.ChooseItemGameController">
+    <children>
+        <Button layoutX="638.0" layoutY="281.0" mnemonicParsing="false" onAction="#setQuestionByAction" text="Button"/>
+        <Label fx:id="questionBox" layoutX="796.0" layoutY="311.0" text="Label"/>
+        <HBox layoutX="311.0" layoutY="403.0" prefHeight="60.0" prefWidth="500.0">
+            <children>
+                <ImageView fx:id="imageView1" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#clickImageView1"
+                           pickOnBounds="true" preserveRatio="true"/>
+                <ImageView fx:id="imageView2" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#clickImageView2"
+                           pickOnBounds="true" preserveRatio="true"/>
+                <ImageView fx:id="imageView3" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#clickImageView3"
+                           pickOnBounds="true" preserveRatio="true"/>
+                <ImageView fx:id="imageView4" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#clickImageView4"
+                           pickOnBounds="true" preserveRatio="true"/>
+            </children>
+        </HBox>
+    </children>
 </AnchorPane>
