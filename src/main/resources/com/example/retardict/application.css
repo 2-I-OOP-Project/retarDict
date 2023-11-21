@@ -38,6 +38,9 @@
     /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
 }
 
+#wordVBox {
+    -fx-background-color: -secondary-color;
+}
 
 
 #sidePaneButton {
