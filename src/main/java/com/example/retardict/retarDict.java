@@ -2,19 +2,11 @@ package com.example.retardict;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.scene.text.Text;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Class chạy bằng giao diện.
@@ -35,7 +27,7 @@ public class retarDict extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            root = FXMLLoader.load(getClass().getResource("welcomeScene.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("welcomeScene.fxml")));
 
             Scene scene = new Scene(root);
             stage.setTitle(Utilities.APP_TITLE);
@@ -46,13 +38,13 @@ public class retarDict extends Application {
 //            Image icon = new Image(Utilities.PATH_TO_ICON);
 //            stage.getIcons().add(icon);
 
-            String css = this.getClass().getResource("application.css").toExternalForm();
+            String css = Objects.requireNonNull(getClass().getResource("application.css")).toExternalForm();
             scene.getStylesheets().add(css);
 
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
