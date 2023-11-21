@@ -23,7 +23,6 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-import de.jensd.fx.glyphs.fontawesome.*;
 
 public class addNewWordSceneController implements Initializable {
     private Stage stage;

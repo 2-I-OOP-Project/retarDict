@@ -4,7 +4,7 @@ module com.example.retardict {
     requires java.sql;
     requires freetts;
     requires java.net.http;
-    requires fontawesomefx;
+    requires org.controlsfx.controls;
 
     opens com.example.retardict to javafx.fxml;
     exports com.example.retardict;

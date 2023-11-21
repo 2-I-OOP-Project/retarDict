@@ -18,20 +18,41 @@
     -fx-text-fill: -text-color;
 }
 
-#accentBox {
-    -fx-background-color: black;
-    -fx-mark-color: orange;
+#closeButton {
+    -fx-background-color: -main-color;
+    -fx-background-radius: 0 0 0 20;
+    -fx-border-radius: 10;
+    -fx-border-color: -text-color;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
 
+#closeButton:hover {
+    -fx-background-color: -accent-color;
+    /*-fx-border-color: -accent-color;*/
+}
+
+#colorDisplay {
+    -fx-background-color: -accent-color;
+    -fx-background-radius: 50%;
+}
+
+#accentBox {
+    -fx-background-color: -secondary-color;
+    -fx-mark-color: -accent-color;
+    -fx-cursor: hand;
 
 
 }
 
 #accentBox .context-menu {
-    -fx-background-color: black;
+    -fx-background-color: -secondary-color;
 }
 
 #accentBox .menu-item:focused {
-    -fx-background-color: orange;
+    -fx-background-color: -accent-color;
 }
 
 #accentBox .menu-item:focused > .label {
@@ -81,13 +102,20 @@
 #sidePaneButton:hover {
     -fx-cursor: hand;
     -fx-text-fill: -text-color;
-    -fx-background-color: -main-color 50%;
+    -fx-background-color: -main-color 100%;
     -fx-background-radius: 0 20 20 0;
     -fx-border-color: -main-color;
     -fx-border-radius: 50;
     -fx-letter-spacing: 1em;
 }
 
+#sidePaneButton:pressed {
+    -fx-background-color: -text-color;
+    -fx-text-fill: -main-color;
+    -fx-background-radius: 0 20 20 0;
+
+}
+
 .button:pressed {
-    -fx-background-color: red;
+    -fx-background-color: green;
 }

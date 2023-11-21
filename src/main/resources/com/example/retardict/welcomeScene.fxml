@@ -14,7 +14,7 @@
     <children>
         <TextField fx:id="searchBox" layoutX="376.0" layoutY="46.0" onKeyReleased="#searchWord" prefHeight="25.0" prefWidth="210.0" />
         <ListView fx:id="list" layoutX="310.0" layoutY="119.0" onMouseClicked="#displayWord" prefHeight="553.0" prefWidth="342.0" AnchorPane.bottomAnchor="50.0" />
-      <AnchorPane layoutX="793.0" prefHeight="720.0" prefWidth="489.0">
+      <AnchorPane layoutX="793.0" prefHeight="720.0" prefWidth="488.0">
          <children>
             <VBox id="wordVBox" layoutX="-4.0" layoutY="38.0" prefHeight="620.0" prefWidth="389.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0">
                <children>
@@ -52,6 +52,7 @@
                   <Glyph prefHeight="30.0" prefWidth="55.0" text="hello" />
                </graphic>
             </Button>
+            <Button fx:id="closeButton" layoutX="440.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="43.0" prefWidth="47.0" text="X" />
          </children>
       </AnchorPane>
     </children>

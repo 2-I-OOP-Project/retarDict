@@ -2,18 +2,12 @@ package com.example.retardict;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.text.Font;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.text.Text;
+import javafx.stage.StageStyle;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -21,8 +15,11 @@ import java.io.IOException;
  */
 public class retarDict extends Application {
     public Stage stage;
+
     public Scene scene;
     private Parent root;
+
+    private AnchorPane rootAnchor;
 
     /**
      * The start function to run application with FXML files
@@ -42,6 +39,7 @@ public class retarDict extends Application {
             stage.setWidth(Utilities.APP_WIDTH);
             stage.setHeight(Utilities.APP_HEIGHT);
             stage.setResizable(false);
+            stage.initStyle(StageStyle.UNDECORATED);
 
 //            Image icon = new Image(Utilities.PATH_TO_ICON);
 //            stage.getIcons().add(icon);

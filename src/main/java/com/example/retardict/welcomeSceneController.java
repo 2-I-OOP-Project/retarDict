@@ -5,11 +5,14 @@ import com.sun.speech.freetts.VoiceManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -42,15 +45,35 @@ public class welcomeSceneController implements Initializable {
     private Label pronunciation;
     @FXML
     private Label description;
+    @FXML
+    private Button closeButton;
 
     private Word currentSelectedWord;
 
     private Connection connection = null;
 
+    private double xOffset;
+    private double yOffset;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        String css = this.getClass().getResource("application.css").toExternalForm();
-//        scene.getStylesheets().add(css);
+
+        rootAnchor.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                xOffset = stage.getX() - event.getScreenX();
+                yOffset = stage.getY() - event.getScreenY();
+            }
+        });
+
+        rootAnchor.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setX(event.getScreenX() + xOffset);
+                stage.setY(event.getScreenY() + yOffset);
+            }
+        });
 
         ObservableList<Word> words = FXCollections.observableArrayList();
         ObservableList<String> wordNames = null;
@@ -86,8 +109,6 @@ public class welcomeSceneController implements Initializable {
             while (resultSet.next()) {
                 Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
                 words.add(word);
-//                wordNames.add(word.getWord());
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -127,7 +148,6 @@ public class welcomeSceneController implements Initializable {
         Voice[] voices = VoiceManager.getInstance().getVoices();
         for (int i = 0; i < voices.length; i++) {
             System.out.println("# Voices: " + voices[i].getName());
-
         }
         if (voice != null)
         {
@@ -149,5 +169,11 @@ public class welcomeSceneController implements Initializable {
         wordLabel.setText(currentSelectedWord.getWord());
         pronunciation.setText(currentSelectedWord.getPronunciation());
         description.setText(currentSelectedWord.getDescription());
+    }
+
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
     }
 }

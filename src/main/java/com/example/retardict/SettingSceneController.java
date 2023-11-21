@@ -2,13 +2,11 @@ package com.example.retardict;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.css.Stylesheet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,8 +15,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.controlsfx.glyphfont.FontAwesome;
+import org.controlsfx.glyphfont.GlyphFont;
+import org.controlsfx.glyphfont.GlyphFontRegistry;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -56,6 +56,12 @@ public class SettingSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         accentChooser.setItems(accentColorChoices);
+
+        GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
+        Button b = new Button("", fontAwesome.create(FontAwesome.Glyph.GEAR));
+
+
+
         accentChooser.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
