@@ -74,6 +74,10 @@ public class SidePaneController {
         stage.show();
     }
 
+    public void switchToCatScene(ActionEvent event) {
+        System.out.println("nya");
+    }
+
     @FXML
     public void switchToSettingScene(ActionEvent event) throws IOException {
         FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("SettingScene.fxml"));

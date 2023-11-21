@@ -1,5 +1,7 @@
 package com.example.retardict;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.css.Stylesheet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -36,12 +39,30 @@ public class SettingSceneController implements Initializable {
     @FXML
     private Button themeButton;
 
+    @FXML
+    private ChoiceBox<String> accentChooser;
+
     public static String theme = "LIGHT";
 
     public static String accentColor = "BLUE";
 
+    static ObservableList<String> accentColorChoices = FXCollections.observableArrayList(
+            "BLUE",
+            "ORANGE",
+            "RED",
+            "GREEN"
+    );
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        accentChooser.setItems(accentColorChoices);
+        accentChooser.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                accentColor = accentChooser.getValue();
+                System.out.println(accentColor);
+            }
+        });
         FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
         if(theme.equals("LIGHT")) {
             themeButton.setText("LIGHT");
@@ -69,6 +90,7 @@ public class SettingSceneController implements Initializable {
 
     @FXML
     public void changeTheme(ActionEvent event) throws IOException {
+        // switch to dark theme
         if (theme.equals("LIGHT")) {
             System.out.println("dark");
             theme = "DARK";

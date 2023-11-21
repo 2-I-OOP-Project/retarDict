@@ -1,7 +1,7 @@
 .root {
     -fx-background-color: "white";
-    -main-color: #e8e8e8;
-    -secondary-color: #f1f1f1;
+    -main-color: #f1f1f1;
+    -secondary-color: #e8e8e8;
     -accent-color: #df8c52;
     -text-color: #1a1a1a;
 }
@@ -11,10 +11,31 @@
     -fx-font-family: "Open Sans";
     /*-fx-text-fill: "white";*/
     -fx-alignment: center;
+    -fx-text-fill: -text-color;
 }
 
-#label1 {
-    -fx-font-size: 40;
+.button {
+    -fx-text-fill: -text-color;
+}
+
+#accentBox {
+    -fx-background-color: black;
+    -fx-mark-color: orange;
+
+
+
+}
+
+#accentBox .context-menu {
+    -fx-background-color: black;
+}
+
+#accentBox .menu-item:focused {
+    -fx-background-color: orange;
+}
+
+#accentBox .menu-item:focused > .label {
+    -fx-text-fill: white;
 }
 
 #hbox1 {
@@ -22,45 +43,51 @@
     -fx-background-size: 400% 400%;
     -fx-animated: gradient 15s ease infinite;
     -fx-fill-height: 100px;
+    -fx-text-fill: -text-color;
+}
+
+#dumbVBox {
+    -fx-background-color: -secondary-color;
+    -fx-text-fill: -text-color;
+
+}
+
+#dumbBackground {
+    -fx-background-color: -main-color;
+    -fx-text-fill: -text-color;
+
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 200, 300, 0);*/
+    /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
 }
 
 #sidePane {
+    -fx-text-fill: -text-color;
     -fx-background-color: -secondary-color;
+
 }
 
 #sidePane:hover {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
 }
 
-#dumbBackground {
-    -fx-background-color: -main-color;
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 200, 300, 0);*/
-    /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
-}
-
-#wordVBox {
-    -fx-background-color: -secondary-color;
-}
-
-
 #sidePaneButton {
+    -fx-text-fill: -text-color;
     -fx-background-color: -secondary-color;
-    -fx-border-color: -secondary-color;
     -fx-border-width: 0;
-    -fx-font-size: 20;/*20*/
-    -fx-text-fill: black;
-    -fx-transition: 0.5s;
+    -fx-font-size: 20;
     -fx-letter-spacing: 0.1em;
 }
 
 #sidePaneButton:hover {
     -fx-cursor: hand;
-    -fx-background-color: -main-color;
+    -fx-text-fill: -text-color;
+    -fx-background-color: -main-color 50%;
     -fx-background-radius: 0 20 20 0;
     -fx-border-color: -main-color;
     -fx-border-radius: 50;
-    -fx-border-width: 0;
-    -fx-font-size: 20;
     -fx-letter-spacing: 1em;
-    /*-fx-text-fill: black;*/
+}
+
+.button:pressed {
+    -fx-background-color: red;
 }
