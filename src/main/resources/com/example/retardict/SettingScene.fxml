@@ -6,8 +6,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import org.controlsfx.control.ToggleSwitch?>
 
-<AnchorPane id="dumbBackground" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.SettingSceneController">
+<AnchorPane id="dumbBackground" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.SettingSceneController">
    <children>
       <HBox layoutX="400.0" layoutY="250.0" prefHeight="100.0" prefWidth="600.0">
          <children>
@@ -17,17 +19,19 @@
                   <Insets left="350.0" />
                </HBox.margin>
             </Button>
+            <ToggleSwitch />
          </children>
       </HBox>
       <HBox layoutX="400.0" layoutY="360.0" prefHeight="100.0" prefWidth="600.0">
          <children>
             <Label text="Accent Color" />
-            <ChoiceBox prefWidth="150.0">
+            <ChoiceBox id="accentBox" fx:id="accentChooser" prefWidth="150.0">
                <HBox.margin>
                   <Insets left="300.0" />
                </HBox.margin>
             </ChoiceBox>
          </children>
       </HBox>
+      <CheckComboBox id="accentBox" layoutX="459.0" layoutY="95.0" />
    </children>
 </AnchorPane>

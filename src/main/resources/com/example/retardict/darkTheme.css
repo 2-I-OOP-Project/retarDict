@@ -14,8 +14,16 @@
     -fx-text-fill: -text-color;
 }
 
-#label1 {
-    -fx-font-size: 40;
+.button {
+    -fx-text-fill: -text-color;
+}
+
+#accentBox {
+    -fx-background-color: -secondary-color;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: red;
 }
 
 #hbox1 {
@@ -52,22 +60,22 @@
 
 #sidePaneButton {
     -fx-text-fill: -text-color;
-    -fx-background-color: -secondary-color;
-    -fx-border-color: -secondary-color;
+    -fx-background-color: -main-color;
     -fx-border-width: 0;
     -fx-font-size: 20;
-    -fx-transition: 0.5s;
     -fx-letter-spacing: 0.1em;
 }
 
 #sidePaneButton:hover {
     -fx-cursor: hand;
     -fx-text-fill: -text-color;
-    -fx-background-color: -main-color;
+    -fx-background-color: -main-color 50%;
     -fx-background-radius: 0 20 20 0;
     -fx-border-color: -main-color;
     -fx-border-radius: 50;
-    -fx-border-width: 0;
-    -fx-font-size: 20;
     -fx-letter-spacing: 1em;
+}
+
+.button:pressed {
+    -fx-background-color: red;
 }

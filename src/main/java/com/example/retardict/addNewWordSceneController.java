@@ -23,6 +23,8 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+import de.jensd.fx.glyphs.fontawesome.*;
+
 public class addNewWordSceneController implements Initializable {
     private Stage stage;
     private Scene scene;
@@ -51,12 +53,17 @@ public class addNewWordSceneController implements Initializable {
 
     private UserDefinedWord currentSelectedWord;
 
+    private ObservableList<UserDefinedWord> words;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<UserDefinedWord> words = FXCollections.observableArrayList();
+
+        words = FXCollections.observableArrayList();
         list.setItems(words);
         list.setCellFactory(userDefinedWordListView -> new UserDefinedWordListViewCell());
+
+
 
         FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
         try {
@@ -65,6 +72,9 @@ public class addNewWordSceneController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+//        FontAwesomeIconView dumb = new FontAwesomeIconView(FontAwesomeIcon.AMBULANCE);
+//        dumb.setX(400);
 
         try {
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
@@ -105,6 +115,8 @@ public class addNewWordSceneController implements Initializable {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        list.refresh();
+
     }
 
     @FXML
