@@ -78,4 +78,20 @@ public class SidePaneController extends Controller {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    public void switchToTranslationScene(ActionEvent event) throws IOException {
+        FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("TranslationScene.fxml"));
+        root = settingSceneLoader.load();
+
+        TranslationController controller = settingSceneLoader.getController();
+        controller.init();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
