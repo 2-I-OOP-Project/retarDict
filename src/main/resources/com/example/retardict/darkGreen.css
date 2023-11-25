@@ -1,0 +1,194 @@
+.root {
+    -fx-background-color: "white";
+    -main-color: #1a1a1a;
+    -secondary-color: #424242;
+    -accent-color: #26A65B;
+    -text-color: #e8e8e8;
+}
+
+.label {
+    -fx-font-size: 20;
+    -fx-font-family: "Open Sans";
+    -fx-alignment: center;
+    -fx-text-fill: -text-color;
+}
+
+.button {
+    -fx-text-fill: -text-color;
+}
+
+.button:pressed {
+    -fx-background-color: -accent-color;
+}
+
+.text-field {
+    -fx-accent: -main-color;
+    -fx-background-color: -secondary-color, white;
+    -fx-background-radius: 10;
+}
+
+.text-field:focused {
+    -fx-background-color: -main-color, white;
+    -fx-border-color: -accent-color;
+    -fx-border-radius: 10;
+}
+
+.list-view {
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 10;
+}
+
+.list-view:focused {
+    -fx-background-color: -main-color;
+    -fx-border-color: -accent-color;
+}
+
+.list-cell {
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 10;
+    -fx-text-fill: -text-color;
+}
+
+.list-cell:odd {
+    -fx-background-color: -main-color;
+}
+
+.list-cell:focused {
+    -fx-background-color: -accent-color;
+}
+
+#rootAnchorPane {
+    -fx-background-radius: 20;
+    -fx-border-radius: 0 0 18 18;
+    -fx-background-color: -main-color;
+    -fx-text-fill: -text-color;
+}
+
+#closeButton {
+    -fx-background-color: -main-color;
+    -fx-background-radius: 0 0 0 0;
+    -fx-border-radius: 10;
+    -fx-border-color: -text-color;
+    -fx-border-width: 0;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 0 20 0 0;
+}
+
+#closeButton:hover {
+    -fx-background-color: -accent-color;
+    /*-fx-border-color: -accent-color;*/
+}
+
+#colorDisplay {
+    -fx-background-color: -accent-color;
+    -fx-background-radius: 50%;
+}
+
+#accentBox {
+    -fx-background-color: -secondary-color;
+    -fx-mark-color: -accent-color;
+    -fx-cursor: hand;
+
+
+}
+
+#accentBox .context-menu {
+    -fx-background-color: -secondary-color;
+}
+
+#accentBox .menu-item:focused {
+    -fx-background-color: -accent-color;
+}
+
+#accentBox .menu-item:focused > .label {
+    -fx-text-fill: white;
+}
+
+#dumbVBox {
+    -fx-background-color: -secondary-color;
+    -fx-text-fill: -text-color;
+
+}
+
+#sidePane {
+    -fx-text-fill: -text-color;
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 20;
+}
+
+#sidePane:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
+}
+
+#sidePaneButton {
+    -fx-text-fill: -text-color;
+    -fx-background-color: -secondary-color;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+    -fx-letter-spacing: 0.1em;
+    -fx-background-radius: 20;
+
+}
+
+#sidePaneButton:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: -text-color;
+    -fx-background-color: -main-color 100%;
+    -fx-background-radius: 20;
+    -fx-border-color: -main-color;
+    -fx-border-radius: 50;
+    -fx-letter-spacing: 1em;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 0, 0, 0, 0);
+
+}
+
+#sidePaneButton:pressed {
+    -fx-background-color: -text-color;
+    -fx-text-fill: -main-color;
+}
+
+#newWordSubmitButton {
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 20;
+    -fx-border-radius: 0 20 20 0;
+    -fx-border-color: -text-color;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}
+
+#newWordSubmitButton:hover {
+    -fx-background-color: -accent-color;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
+}
+
+#wordVBoxBackground {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, -accent-color, -main-color);
+    -fx-background-radius: 20;
+}
+
+#speakButton {
+
+}
+
+#themeButton {
+    -fx-background-color: -secondary-color;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+    -fx-background-radius: 20;
+    -fx-text-fill: -text-color;
+}
+
+#themeButton:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: -text-color;
+    -fx-background-color: derive(-accent-color, 50%);
+    -fx-background-radius: 20;
+    -fx-border-color: -main-color;
+    -fx-border-radius: 50;
+}
+
+#themeButton:pressed {
+    -fx-background-color: -accent-color;
+}

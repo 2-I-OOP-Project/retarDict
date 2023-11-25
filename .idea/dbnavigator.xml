@@ -8,7 +8,7 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
@@ -27,7 +27,6 @@ drop table test;
 
 .schema;
 
-explain test;
 
 show table;
 
@@ -48,7 +47,9 @@ CREATE TABLE userDefinedWords (
 
 SELECT * FROM words WHERE rowid = 1;
 
-SELECT * FROM userDefinedWords;]]></console>
+SELECT * FROM userDefinedWords;
+
+DELETE FROM userDefinedWords WHERE word = "";]]></console>
       <console name="testSQLite" type="STANDARD" schema="main" session="Main"><![CDATA[create table test (
     name CHAR(10),
     surname CHAR(10)
@@ -127,7 +128,7 @@ UPDATE "userDefinedWords" SET word = "dumb" WHERE word = "sss";]]></console>
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
-          <database-version value="3.41" />
+          <database-version value="3.44" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
@@ -186,7 +187,7 @@ UPDATE "userDefinedWords" SET word = "dumb" WHERE word = "sss";]]></console>
           <tcp-port-from value="4000" />
           <tcp-port-to value="4999" />
         </debugger>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
           <object-type-filter>
             <object-type name="SCHEMA" enabled="true" />
             <object-type name="USER" enabled="true" />
@@ -368,6 +369,7 @@ UPDATE "userDefinedWords" SET word = "dumb" WHERE word = "sss";]]></console>
       <confirmations>
         <save-changes value="false" />
         <revert-changes value="true" />
+        <exit-on-changes value="ASK" />
       </confirmations>
     </code-editor-settings>
     <code-completion-settings>

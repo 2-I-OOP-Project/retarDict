@@ -7,7 +7,7 @@
 
 <VBox id="sidePane" prefHeight="720.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.SidePaneController">
     <children>
-        <Button id="sidePaneButton" fx:id="homeButton" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@application.css" text="Home">
+        <Button id="sidePaneButton" fx:id="homeButton" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Home">
             <VBox.margin>
                 <Insets />
             </VBox.margin>
@@ -18,7 +18,7 @@
             <Insets bottom="20.0" right="150.0" top="20.0" />
          </padding>
         </Button>
-        <Button id="sidePaneButton" fx:id="userWordButton" mnemonicParsing="false" onAction="#switchToAddWordScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@application.css" text="Add New Word">
+        <Button id="sidePaneButton" fx:id="userWordButton" mnemonicParsing="false" onAction="#switchToAddWordScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Add New Word">
             <VBox.margin>
                 <Insets />
             </VBox.margin>
@@ -29,7 +29,7 @@
             <Insets bottom="20.0" right="70.0" top="20.0" />
          </padding>
         </Button>
-        <Button id="sidePaneButton" fx:id="gameButton" mnemonicParsing="false" onAction="#switchToGameScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@application.css" text="Game">
+        <Button id="sidePaneButton" fx:id="gameButton" mnemonicParsing="false" onAction="#switchToGameScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Game">
             <VBox.margin>
                 <Insets />
             </VBox.margin>
@@ -40,7 +40,7 @@
             <Insets bottom="20.0" right="150.0" top="20.0" />
          </padding>
         </Button>
-      <Button id="sidePaneButton" layoutX="10.0" layoutY="150.0" mnemonicParsing="false" onAction="#switchToCatScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@application.css" text="Cat">
+      <Button id="sidePaneButton" layoutX="10.0" layoutY="150.0" mnemonicParsing="false" onAction="#switchToCatScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Cat">
          <graphic>
             <Glyph prefHeight="30.0" prefWidth="30.0" text="🐈" />
          </graphic>
@@ -48,7 +48,7 @@
             <Insets bottom="20.0" right="170.0" top="20.0" />
          </padding>
       </Button>
-        <Button id="sidePaneButton" fx:id="settingButton" mnemonicParsing="false" onAction="#switchToSettingScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@application.css" text="Setting">
+        <Button id="sidePaneButton" fx:id="settingButton" mnemonicParsing="false" onAction="#switchToSettingScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Setting">
             <VBox.margin>
                 <Insets top="370.0" />
             </VBox.margin>

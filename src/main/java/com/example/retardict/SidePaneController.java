@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
@@ -52,15 +53,8 @@ public class SidePaneController implements Initializable {
         root = fxmlLoader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        if (SettingSceneController.theme.equals("LIGHT")) {
-            String css = this.getClass().getResource("application.css").toExternalForm();
-            System.out.println("using light theme");
-            scene.getStylesheets().add(css);
-        } else {
-            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
-            System.out.println("using dark theme");
-            scene.getStylesheets().add(css);
-        }
+        ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
@@ -72,15 +66,8 @@ public class SidePaneController implements Initializable {
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        if (SettingSceneController.theme.equals("LIGHT")) {
-            String css = this.getClass().getResource("application.css").toExternalForm();
-            System.out.println("using light theme");
-            scene.getStylesheets().add(css);
-        } else {
-            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
-            System.out.println("using dark theme");
-            scene.getStylesheets().add(css);
-        }
+        ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
@@ -91,15 +78,8 @@ public class SidePaneController implements Initializable {
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        if (SettingSceneController.theme.equals("LIGHT")) {
-            String css = this.getClass().getResource("application.css").toExternalForm();
-            System.out.println("using light theme");
-            scene.getStylesheets().add(css);
-        } else {
-            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
-            System.out.println("using dark theme");
-            scene.getStylesheets().add(css);
-        }
+        ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
@@ -115,15 +95,8 @@ public class SidePaneController implements Initializable {
 
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        if (SettingSceneController.theme.equals("LIGHT")) {
-            String css = this.getClass().getResource("application.css").toExternalForm();
-            System.out.println("using light theme");
-            scene.getStylesheets().add(css);
-        } else {
-            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
-            System.out.println("using dark theme");
-            scene.getStylesheets().add(css);
-        }
+        ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }

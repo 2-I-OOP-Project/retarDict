@@ -44,48 +44,44 @@ public class SettingSceneController implements Initializable {
 
     public static String theme = "LIGHT";
 
-    public static String accentColor = "BLUE";
+    public static String accentColor = "ORANGE";
 
     static ObservableList<String> accentColorChoices = FXCollections.observableArrayList(
             "BLUE",
             "ORANGE",
-            "RED",
             "GREEN"
     );
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         accentChooser.setItems(accentColorChoices);
-
-        GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
-        Button b = new Button("", fontAwesome.create(FontAwesome.Glyph.GEAR));
-
-
-
+        accentChooser.setValue(accentColor);
         accentChooser.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 accentColor = accentChooser.getValue();
                 System.out.println(accentColor);
+                FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("SettingScene.fxml"));
+                try {
+                    root = settingSceneLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                ApplicationColorController.setColor(scene);
+                stage.setScene(scene);
+                stage.show();
             }
         });
-        FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
         if(theme.equals("LIGHT")) {
             themeButton.setText("LIGHT");
         } else if (theme.equals("DARK")) {
             themeButton.setText("DARK");
         }
-//        SwitchButton themeSwitcher = new SwitchButton();
-//        themeSwitcher.setLayoutX(800);
-//        themeSwitcher.setLayoutY(250);
-//        themeSwitcher.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                changeTheme(themeSwitcher.getState());
-//            }
-//        });
-//        rootAnchor.getChildren().addAll(themeSwitcher);
 
+        FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
         try {
             Parent sidePaneLoaded = sidePaneLoader.load();
             rootAnchor.getChildren().addAll(sidePaneLoaded);
@@ -98,7 +94,6 @@ public class SettingSceneController implements Initializable {
     public void changeTheme(ActionEvent event) throws IOException {
         // switch to dark theme
         if (theme.equals("LIGHT")) {
-            System.out.println("dark");
             theme = "DARK";
             themeButton.setText("LIGHT");
 
@@ -107,13 +102,10 @@ public class SettingSceneController implements Initializable {
 
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            String css = this.getClass().getResource("darkTheme.css").toExternalForm();
-            System.out.println("using dark theme");
-            scene.getStylesheets().add(css);
+            ApplicationColorController.setColor(scene);
             stage.setScene(scene);
             stage.show();
         } else {
-            System.out.println("light");
             theme = "LIGHT";
             themeButton.setText("DARK");
 
@@ -122,10 +114,7 @@ public class SettingSceneController implements Initializable {
 
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            String css = this.getClass().getResource("application.css").toExternalForm();
-
-            System.out.println("using light theme");
-            scene.getStylesheets().add(css);
+            ApplicationColorController.setColor(scene);
             stage.setScene(scene);
             stage.show();
         }
