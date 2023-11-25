@@ -1,21 +1,11 @@
 package com.example.retardict;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Controller {
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    protected void onNotGayButtonClick() {
-        welcomeText.setText("You must be gay!");
-    }
-
-    @FXML
-    protected void onGayButtonClick() {
-        welcomeText.setText("Of course you are!");
-    }
-
-
+public abstract class Controller {
+    protected Parent root;
+    protected Stage stage;
+    protected Scene scene;
 }

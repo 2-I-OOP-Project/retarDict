@@ -1,27 +1,42 @@
 package com.example.retardict;
 
 public class Word {
-    private String word_target;
-    private String word_explain;
+    private String word;
+    private String pronunciation;
+    private String description;
 
-    public Word(String word_target, String word_explain) {
-        this.word_target = word_target;
-        this.word_explain = word_explain;
+    public Word(String word, String pronunciation, String description) {
+        this.word = word;
+        this.pronunciation = pronunciation;
+        this.description = description;
     }
 
-    public String getWord_target() {
-        return word_target;
+    public String getWord() {
+        return word;
     }
 
-    public String getWord_explain() {
-        return word_explain;
+    public String getPronunciation() {
+        return pronunciation;
     }
 
-    public void setWord_target(String word_target) {
-        this.word_target = word_target;
+    public String getDescription() {
+        return description;
     }
 
-    public void setWord_explain(String word_explain) {
-        this.word_explain = word_explain;
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public void setPronunciation(String pronunciation) {
+        this.pronunciation = pronunciation;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return this.getWord();
     }
 }
