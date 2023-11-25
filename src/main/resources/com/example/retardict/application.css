@@ -38,8 +38,6 @@
     /*-fx-background-color: radial-gradient(center 30% 80%, radius 25%, black,  #e8e8e8);*/
 }
 
-
-
 #sidePaneButton {
     -fx-background-color: -secondary-color;
     -fx-border-color: -secondary-color;
@@ -61,3 +59,14 @@
     -fx-letter-spacing: 1em;
     /*-fx-text-fill: black;*/
 }
+
+/* multiple choice scene */
+#AButton {
+    -fx-background-color: lightblue;
+}
+
+#AButton:hover {
+    -fx-cursor: hand;
+    -fx-background-color: black;
+}
+

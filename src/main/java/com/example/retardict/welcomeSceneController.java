@@ -22,11 +22,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class welcomeSceneController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+public class welcomeSceneController extends Controller implements Initializable {
     @FXML
     private AnchorPane rootAnchor;
 
@@ -125,9 +121,8 @@ public class welcomeSceneController implements Initializable {
                         + ".cmu_us_kal.KevinVoiceDirectory");
         Voice voice = VoiceManager.getInstance().getVoice("kevin16");
         Voice[] voices = VoiceManager.getInstance().getVoices();
-        for (int i = 0; i < voices.length; i++) {
-            System.out.println("# Voices: " + voices[i].getName());
-
+        for (Voice value : voices) {
+            System.out.println("# Voices: " + value.getName());
         }
         if (voice != null)
         {

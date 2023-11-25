@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class wordSceneController implements Initializable {
+public class wordSceneController extends Controller implements Initializable {
     @FXML
     private Label wordLabel;
     @FXML
@@ -29,10 +29,6 @@ public class wordSceneController implements Initializable {
     private Label description;
     @FXML
     private AnchorPane rootAnchor;
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     private Word word;
 

@@ -1,5 +1,7 @@
 package com.example.retardict.game;
 
+import com.example.retardict.Utilities;
+
 public class MultipleChoiceQuestion {
     private String question;
     private String answerA;
@@ -7,7 +9,7 @@ public class MultipleChoiceQuestion {
     private String answerC;
     private String answerD;
     private String correctAnswer;
-    private boolean isChosen = false;
+    private boolean isChosen;
 
     public MultipleChoiceQuestion(String question, String answerA, String answerB, String answerC, String answerD, String correctAnswer) {
         this.question = question;
@@ -16,6 +18,7 @@ public class MultipleChoiceQuestion {
         this.answerC = answerC;
         this.answerD = answerD;
         this.correctAnswer = correctAnswer;
+        this.isChosen = false;
     }
 
     public String getQuestion() {
@@ -59,7 +62,18 @@ public class MultipleChoiceQuestion {
     }
 
     public String getCorrectAnswer() {
-        return this.correctAnswer;
+        switch (correctAnswer) {
+            case "A":
+                return answerA;
+            case "B":
+                return answerB;
+            case "C":
+                return answerC;
+            case "D":
+                return answerD;
+            default:
+                return "";
+        }
     }
 
     public void setCorrectAnswer(String correctAnswer) {
@@ -76,8 +90,6 @@ public class MultipleChoiceQuestion {
 
     @Override
     public String toString() {
-        String res = this.question + "\n" + "A." + this.answerA + "\n" + "B."
-                + this.answerB + "\n" + "C." + this.answerC + "\n" + "D." + this.answerD;
-        return res;
+        return question;
     }
 }

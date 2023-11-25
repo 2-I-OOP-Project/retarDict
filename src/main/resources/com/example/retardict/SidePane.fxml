@@ -30,6 +30,11 @@
                 <Insets />
             </VBox.margin>
         </Button>
+      <Button id="sidePaneButton" mnemonicParsing="false" onAction="#switchToTranslationScene" prefHeight="70.0" prefWidth="250.0" stylesheets="@application.css" text="Translate">
+         <padding>
+            <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+         </padding>
+      </Button>
         <Button id="sidePaneButton" mnemonicParsing="false" onAction="#switchToSettingScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@application.css" text="Setting">
             <VBox.margin>
                 <Insets top="400.0" />

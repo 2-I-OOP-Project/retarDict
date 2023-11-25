@@ -23,11 +23,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class addNewWordSceneController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+public class addNewWordSceneController extends Controller implements Initializable {
     @FXML
     private AnchorPane rootAnchor;
 

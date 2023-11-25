@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -14,13 +15,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameSceneController implements Initializable {
-    private Parent root;
-    private Stage stage;
-    private Scene scene;
-
+public class GameSceneController extends Controller implements Initializable {
     @FXML
     private AnchorPane rootAnchor;
+    @FXML
+    private Button numberOfQuestionsButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,5 +59,4 @@ public class GameSceneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-//    52 67
 }
