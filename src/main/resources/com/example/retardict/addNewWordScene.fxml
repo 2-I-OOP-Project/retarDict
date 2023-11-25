@@ -8,27 +8,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="dumbBackground" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.addNewWordSceneController">
+<AnchorPane id="rootAnchorPane" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@lightOrange.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.addNewWordSceneController">
     <children>
-        <TextField fx:id="userDefinedWord" layoutX="463.0" layoutY="25.0" promptText="Word" />
-        <TextField fx:id="userDefinedMeaning" layoutX="463.0" layoutY="64.0" promptText="Meaning" />
-        <Button fx:id="submitButton" layoutX="500.0" layoutY="99.0" mnemonicParsing="false" onAction="#addUserDefinedWord" text="Submit" />
-      <ListView fx:id="list" editable="true" layoutX="327.0" layoutY="168.0" onMouseClicked="#displayWord" prefHeight="503.0" prefWidth="400.0" />
-      <TextField fx:id="searchBox" layoutX="327.0" layoutY="137.0" onKeyReleased="#searchWord" prefHeight="25.0" prefWidth="400.0" />
-      <AnchorPane layoutX="772.0" layoutY="-1.0" prefHeight="720.0" prefWidth="509.0">
+        <TextField fx:id="userDefinedWord" layoutX="426.0" layoutY="50.0" promptText="Word" AnchorPane.topAnchor="50.0" />
+        <TextField fx:id="userDefinedMeaning" layoutX="426.0" layoutY="88.0" promptText="Meaning" />
+        <Button id="newWordSubmitButton" fx:id="submitButton" layoutX="473.0" layoutY="120.0" mnemonicParsing="false" onAction="#addUserDefinedWord" text="Submit" />
+      <ListView fx:id="list" editable="true" layoutX="300.0" layoutY="194.0" onMouseClicked="#displayWord" prefHeight="477.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" />
+      <TextField fx:id="searchBox" layoutX="300.0" layoutY="155.0" onKeyReleased="#searchWord" prefHeight="25.0" prefWidth="400.0" />
+      <AnchorPane id="wordVBoxBackground" layoutX="772.0" layoutY="-1.0" prefHeight="620.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
          <children>
-            <VBox id="wordVBox" prefHeight="620.0" prefWidth="409.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0">
+            <VBox id="wordVBox" prefHeight="620.0" prefWidth="409.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
                <children>
                   <Label fx:id="wordLabel" prefWidth="400.0" text="word" />
                   <Label fx:id="meaningLabel" layoutX="10.0" layoutY="10.0" prefWidth="400.0" text="meaning" />
                </children>
             </VBox>
-            <Button layoutX="420.0" layoutY="104.0" mnemonicParsing="false" onAction="#speak" prefHeight="55.0" prefWidth="61.0" text="🔊">
+            <Button id="speakButton" layoutX="420.0" layoutY="104.0" mnemonicParsing="false" onAction="#speak" prefHeight="55.0" prefWidth="61.0" text="🔊">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
+      <Button fx:id="closeButton" layoutX="1233.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="20.0" prefWidth="47.0" text="X" />
     </children>
 </AnchorPane>

@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -23,7 +24,6 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-import de.jensd.fx.glyphs.fontawesome.*;
 
 public class addNewWordSceneController implements Initializable {
     private Stage stage;
@@ -48,6 +48,8 @@ public class addNewWordSceneController implements Initializable {
     private Label wordLabel;
     @FXML
     private Label meaningLabel;
+    @FXML
+    private Button closeButton;
 
     private Connection connection = null;
 
@@ -169,8 +171,15 @@ public class addNewWordSceneController implements Initializable {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+//            ApplicationColorController.setColor(scene);
             stage.setScene(scene);
             stage.show();
         }
+    }
+
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
     }
 }
