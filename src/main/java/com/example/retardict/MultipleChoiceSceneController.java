@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -20,49 +21,69 @@ public class MultipleChoiceSceneController {
     private int numberOfQuestionsUsed = 0;
     private final MultipleChoice multipleChoice = MultipleChoice.getMultipleChoice();
     private String correctAnswer;
-    private String currentChosenAnswer;
-    private boolean repeat = false;
 
     @FXML
     private Label questionBox;
     @FXML
-    private Label answerABox;
-    @FXML
-    private Label answerBBox;
-    @FXML
-    private Label answerCBox;
-    @FXML
-    private Label answerDBox;
-    @FXML
     private Label resultBox;
+    @FXML
+    private Button AButton;
+    @FXML
+    private Button BButton;
+    @FXML
+    private Button CButton;
+    @FXML
+    private Button DButton;
+    @FXML
+    private Label scoreBox;
 
     @FXML
     public void setQuestion(ActionEvent event) throws IOException {
+        if (numberOfQuestionsUsed == multipleChoice.getNumberOfQuestions()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MultipleChoiceEnd.fxml"));
+            root = loader.load();
+
+            MultipleChoiceEndController multipleChoiceEndController = loader.getController();
+            multipleChoiceEndController.displayScore(event, multipleChoice.getScore(), multipleChoice.getNumberOfQuestions());
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            return;
+        }
+
         MultipleChoiceQuestion currentQuestion = multipleChoice.returnRandomQuestion();
 
         questionBox.setText(currentQuestion.getQuestion());
-        answerABox.setText(currentQuestion.getAnswerA());
-        answerBBox.setText(currentQuestion.getAnswerB());
-        answerCBox.setText(currentQuestion.getAnswerC());
-        answerDBox.setText(currentQuestion.getAnswerD());
+        AButton.setText(currentQuestion.getAnswerA());
+        BButton.setText(currentQuestion.getAnswerB());
+        CButton.setText(currentQuestion.getAnswerC());
+        DButton.setText(currentQuestion.getAnswerD());
         correctAnswer = currentQuestion.getCorrectAnswer();
 
         resultBox.setText("Choose your answer!");
-        ++numberOfQuestionsUsed;
+        numberOfQuestionsUsed++;
 
-        if (numberOfQuestionsUsed == multipleChoice.getNumberOfQuestions()) {
-            for (int i = 0; i < multipleChoice.getNumberOfQuestions(); ++i) {
-                multipleChoice.getQuestions().get(i).setChosen(false);
-            }
-            numberOfQuestionsUsed = 0;
-        }
+//        //repeat questions
+//        if (numberOfQuestionsUsed == multipleChoice.getNumberOfQuestions()) {
+//            for (int i = 0; i < multipleChoice.getNumberOfQuestions(); ++i) {
+//                multipleChoice.getQuestions().get(i).setChosen(false);
+//            }
+//            numberOfQuestionsUsed = 0;
+//        }
+    }
+
+    public void correct() {
+        resultBox.setText("Correct!");
+        multipleChoice.increaseHighscore();
+        scoreBox.setText(multipleChoice.getScore() + "");
     }
 
     @FXML
     public void choseA() {
-        currentChosenAnswer = "A";
-        if (currentChosenAnswer.equals(correctAnswer)) {
-            resultBox.setText("Correct!");
+        if (AButton.getText().equals(correctAnswer)) {
+            correct();
         } else {
             resultBox.setText("Wrong!");
         }
@@ -70,9 +91,8 @@ public class MultipleChoiceSceneController {
 
     @FXML
     public void choseB() {
-        currentChosenAnswer = "B";
-        if (currentChosenAnswer.equals(correctAnswer)) {
-            resultBox.setText("Correct!");
+        if (BButton.getText().equals(correctAnswer)) {
+            correct();
         } else {
             resultBox.setText("Wrong!");
         }
@@ -80,9 +100,8 @@ public class MultipleChoiceSceneController {
 
     @FXML
     public void choseC() {
-        currentChosenAnswer = "C";
-        if (currentChosenAnswer.equals(correctAnswer)) {
-            resultBox.setText("Correct!");
+        if (CButton.getText().equals(correctAnswer)) {
+            correct();
         } else {
             resultBox.setText("Wrong!");
         }
@@ -90,9 +109,8 @@ public class MultipleChoiceSceneController {
 
     @FXML
     public void choseD() {
-        currentChosenAnswer = "D";
-        if (currentChosenAnswer.equals(correctAnswer)) {
-            resultBox.setText("Correct!");
+        if (DButton.getText().equals(correctAnswer)) {
+            correct();
         } else {
             resultBox.setText("Wrong!");
         }
@@ -103,7 +121,7 @@ public class MultipleChoiceSceneController {
         FXMLLoader gameScene = new FXMLLoader(getClass().getResource("gameScene.fxml"));
         root = gameScene.load();
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

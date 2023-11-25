@@ -24,12 +24,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-
-public class addNewWordSceneController implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+public class addNewWordSceneController extends Controller implements Initializable {
     @FXML
     private AnchorPane rootAnchor;
 
@@ -65,8 +60,6 @@ public class addNewWordSceneController implements Initializable {
         list.setItems(words);
         list.setCellFactory(userDefinedWordListView -> new UserDefinedWordListViewCell());
 
-
-
         FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
         try {
             Parent sidePaneLoaded = sidePaneLoader.load();
@@ -74,9 +67,6 @@ public class addNewWordSceneController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-//        FontAwesomeIconView dumb = new FontAwesomeIconView(FontAwesomeIcon.AMBULANCE);
-//        dumb.setX(400);
 
         try {
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
@@ -171,7 +161,6 @@ public class addNewWordSceneController implements Initializable {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
-//            ApplicationColorController.setColor(scene);
             stage.setScene(scene);
             stage.show();
         }

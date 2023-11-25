@@ -1,15 +1,19 @@
 package com.example.retardict.game;
 
 public abstract class Game {
-    protected int highscore;
+    protected int score;
     public Game() {
-        this.highscore = 0;
+        this.score = 0;
     }
-    public int getHighscore() {
-        return this.highscore;
+    public int getScore() {
+        return this.score;
     }
 
-    public void setHighscore(int highscore) {
-        this.highscore = highscore;
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void increaseHighscore() {
+        this.score++;
     }
 }

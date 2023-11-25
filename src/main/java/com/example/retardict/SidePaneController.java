@@ -19,34 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SidePaneController implements Initializable {
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-    @FXML
-    private Button homeButton;
-
-    @FXML
-    private Button userWordButton;
-
-    @FXML
-    private Button gameButton;
-
-    @FXML
-    private Button settingButton;
-
-    @FXML
-    private Glyph homeGlyph;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
-        homeGlyph = fontAwesome.create(FontAwesome.Glyph.GEAR);
-        Button b = new Button("", fontAwesome.create(FontAwesome.Glyph.GEAR));
-    }
-
+public class SidePaneController extends Controller {
     @FXML
     public void switchToMainScene(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("welcomeScene.fxml"));
@@ -71,12 +44,17 @@ public class SidePaneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Function to switch to game scene.
+     * ATTENTION: this function is also used in class MultipleChoiceEndController.
+     */
     @FXML
-    public void switchToGameScene(ActionEvent event) throws  IOException {
+    public void switchToGameScene(ActionEvent event) throws IOException {
         FXMLLoader gameScene = new FXMLLoader(getClass().getResource("gameScene.fxml"));
         root = gameScene.load();
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         ApplicationColorController.setColor(scene);
         scene.setFill(Color.TRANSPARENT);
@@ -93,12 +71,11 @@ public class SidePaneController implements Initializable {
         FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("SettingScene.fxml"));
         root = settingSceneLoader.load();
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         ApplicationColorController.setColor(scene);
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
-
 }

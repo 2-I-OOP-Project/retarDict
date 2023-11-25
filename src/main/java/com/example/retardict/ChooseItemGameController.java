@@ -14,10 +14,7 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.control.Label;
 
-public class ChooseItemGameController {
-    private Parent root;
-    private Scene scene;
-    private Stage stage;
+public class ChooseItemGameController extends Controller {
     private ChooseItem chooseItem;
     @FXML
     private ImageView imageView1;
@@ -136,36 +133,3 @@ public class ChooseItemGameController {
         }
     }
 }
-
-//
-//
-//
-//    @FXML
-//    public void setQuestionByMouse(MouseEvent event) throws FileNotFoundException {
-//        ChooseItem chooseItem = ChooseItem.getChooseItem();
-//
-//        Item correctItem = chooseItem.returnRandomItem();
-//        correctItem.setChosen(true);
-//
-//        Item[] items = new Item[4];
-//
-//        int randomIndex = (int) (Math.random() * 4);
-//        items[randomIndex] = correctItem;
-//
-//        while (checkIfArrayIsNotFull(items)) {
-//            randomIndex = (int) (Math.random() * 4);
-//            Item temp = chooseItem.returnRandomItem();
-//            if (items[randomIndex] == null && (temp != correctItem) && (!temp.isChosen())) {
-//                items[randomIndex] = temp;
-//                temp.setChosen(true);
-//            }
-//        }
-//
-//        imageView1.setImage(items[0].getImage());
-//        imageView2.setImage(items[1].getImage());
-//        imageView3.setImage(items[2].getImage());
-//        imageView4.setImage(items[3].getImage());
-//
-//        questionBox.setText(correctItem.getQuestion());
-//    }
-//}
