@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.MultipleChoiceSceneController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@lightOrange.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.MultipleChoiceSceneController">
     <children>
         <Label fx:id="questionBox" layoutX="390.0" layoutY="312.0" prefHeight="18.0" prefWidth="553.0" text="QuestionBox">
          <font>
@@ -18,7 +18,7 @@
         <Button layoutX="989.0" layoutY="97.0" mnemonicParsing="false" onAction="#setQuestion" prefHeight="115.0" prefWidth="181.0" text="Next Question" />
         <Label fx:id="resultBox" layoutX="555.0" layoutY="24.0" text="Correct?" />
         <Button layoutX="17.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchBackToGameScene" text="Back" />
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="13.0" layoutY="434.0" prefHeight="266.0" prefWidth="1246.0" stylesheets="@application.css" AnchorPane.bottomAnchor="19.59999999999991" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="20.600000000000136" AnchorPane.topAnchor="434.0">
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="13.0" layoutY="434.0" prefHeight="266.0" prefWidth="1246.0" stylesheets="@lightOrange.css" AnchorPane.bottomAnchor="19.59999999999991" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="20.600000000000136" AnchorPane.topAnchor="434.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -28,7 +28,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-              <Button fx:id="AButton" alignment="CENTER" mnemonicParsing="false" onAction="#choseA" prefHeight="139.0" prefWidth="623.0" stylesheets="@application.css" text="A">
+              <Button fx:id="AButton" alignment="CENTER" mnemonicParsing="false" onAction="#choseA" prefHeight="139.0" prefWidth="623.0" stylesheets="@lightOrange.css" text="A">
                <font>
                   <Font name="Comic Sans MS" size="39.0" />
                </font>
