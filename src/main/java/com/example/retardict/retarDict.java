@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -43,13 +44,14 @@ public class retarDict extends Application {
             scene.setFill(Color.TRANSPARENT);
             stage.initStyle(StageStyle.TRANSPARENT);
 
-//            Image icon = new Image(Utilities.PATH_TO_ICON);
-//            stage.getIcons().add(icon);
-
             String css = this.getClass().getResource("lightOrange.css").toExternalForm();
             scene.getStylesheets().add(css);
 
             stage.setScene(scene);
+
+            Image icon = new Image("file:" + Utilities.PATH_TO_ICON);
+            stage.getIcons().add(icon);
+
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
