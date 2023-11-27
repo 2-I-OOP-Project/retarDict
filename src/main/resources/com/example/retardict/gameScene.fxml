@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@lightOrange.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.GameSceneController">
-    <Button layoutX="715.0" layoutY="77.0" mnemonicParsing="false" onAction="#switchToMultipleChoiceScene" prefHeight="64.0" prefWidth="99.0" stylesheets="@lightOrange.css" text="Multiple Choice" />
-   <Button layoutX="880.0" layoutY="79.0" mnemonicParsing="false" onAction="#switchToChooseItemGameScene" prefHeight="66.0" prefWidth="118.0" stylesheets="@lightOrange.css" text="Choose Item Game" />
+<AnchorPane id="rootAnchorPane" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.GameSceneController">
+    <Button layoutX="590.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToMultipleChoiceScene" prefHeight="64.0" prefWidth="99.0" text="Multiple Choice" />
+   <Button layoutX="951.0" layoutY="347.0" mnemonicParsing="false" onAction="#switchToChooseItemGameScene" prefHeight="66.0" prefWidth="118.0" text="Choose Item Game" />
+   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="559.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" />
 </AnchorPane>

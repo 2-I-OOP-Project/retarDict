@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@lightOrange.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.TranslationController">
+<AnchorPane id="rootAnchorPane" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.TranslationController">
    <children>
       <HBox layoutX="409.0" layoutY="127.0" prefHeight="249.0" prefWidth="788.0" AnchorPane.bottomAnchor="344.19999999999993" AnchorPane.leftAnchor="409.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="127.0">
          <children>

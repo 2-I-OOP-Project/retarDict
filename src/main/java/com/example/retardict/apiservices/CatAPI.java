@@ -15,9 +15,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
 public class CatAPI implements APIService<CatImage> {
-
     private String catURL;
-
     public CatAPI() {
 
     }
