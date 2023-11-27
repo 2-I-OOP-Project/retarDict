@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="rootAnchorPane" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" stylesheets="@lightOrange.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.addNewWordSceneController">
+<AnchorPane id="rootAnchorPane" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.addNewWordSceneController">
     <children>
         <TextField fx:id="userDefinedWord" layoutX="426.0" layoutY="50.0" promptText="Word" AnchorPane.topAnchor="50.0" />
         <TextField fx:id="userDefinedMeaning" layoutX="426.0" layoutY="88.0" promptText="Meaning" />
@@ -19,11 +19,11 @@
          <children>
             <VBox id="wordVBox" prefHeight="620.0" prefWidth="409.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label fx:id="wordLabel" prefWidth="400.0" text="word" />
-                  <Label fx:id="meaningLabel" layoutX="10.0" layoutY="10.0" prefWidth="400.0" text="meaning" />
+                  <Label fx:id="wordLabel" prefHeight="128.0" prefWidth="381.0" text="word" />
+                  <Label fx:id="meaningLabel" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="453.0" prefWidth="381.0" text="meaning" />
                </children>
             </VBox>
-            <Button id="speakButton" layoutX="420.0" layoutY="104.0" mnemonicParsing="false" onAction="#speak" prefHeight="55.0" prefWidth="61.0" text="🔊">
+            <Button id="speakButton" layoutX="330.0" layoutY="120.0" mnemonicParsing="false" onAction="#speak" prefHeight="55.0" prefWidth="61.0" text="🔊">
                <font>
                   <Font size="25.0" />
                </font>

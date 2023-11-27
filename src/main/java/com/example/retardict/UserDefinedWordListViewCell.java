@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +20,8 @@ import java.io.IOException;
 public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
     @FXML
     private Label wordLabel;
+    @FXML
+    private Label meaningLabel;
     @FXML
     private Button deleteButton;
     @FXML
@@ -50,19 +53,17 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
                 }
             }
             wordLabel.setText(word.getWord());
+            meaningLabel.setText(word.getMeaning());
 
             editButton.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-//                    TextField newWordField = new TextField();
                     if (editWordField.isDisabled()) {
-                        System.out.println("disabled");
                         editWordField.setDisable(false);
                         editWordField.setOpacity(1);
                         comfirmEditButton.setDisable(false);
                         comfirmEditButton.setOpacity(1);
                     } else {
-                        System.out.println("not");
                         editWordField.setDisable(true);
                         editWordField.setOpacity(0);
                         comfirmEditButton.setDisable(true);
@@ -95,6 +96,8 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
+                    ApplicationColorController.setColor(scene);
+                    scene.setFill(Color.TRANSPARENT);
                     stage.setScene(scene);
                     stage.show();
                 }
@@ -114,6 +117,8 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
+                    ApplicationColorController.setColor(scene);
+                    scene.setFill(Color.TRANSPARENT);
                     stage.setScene(scene);
                     stage.show();
                 }

@@ -41,21 +41,18 @@ CREATE TABLE words (
 );
 
 CREATE TABLE userDefinedWords (
-    word TEXT,
-    meaning TEXT
+    word TEXT UNIQUE NOT null ,
+    meaning TEXT NOT null
 );
 
 SELECT * FROM words WHERE rowid = 1;
 
 SELECT * FROM userDefinedWords;
 
-DELETE FROM userDefinedWords WHERE word = "";]]></console>
-      <console name="testSQLite" type="STANDARD" schema="main" session="Main"><![CDATA[create table test (
-    name CHAR(10),
-    surname CHAR(10)
-);
+DELETE FROM userDefinedWords WHERE word = "";
 
-INSERT INTO test VALUES (
+DROP TABLE userDefinedWords;]]></console>
+      <console name="testSQLite" type="STANDARD" schema="main" session="Main"><![CDATA[INSERT INTO test VALUES (
     "gia",
     "huan"
 );
@@ -64,7 +61,6 @@ drop table test;
 
 .schema;
 
-explain test;
 
 show table;
 
@@ -79,24 +75,19 @@ CREATE TABLE words (
 );
 
 CREATE TABLE userDefinedWords (
-    word TEXT,
-    meaning TEXT
+    word TEXT UNIQUE NOT null ,
+    meaning TEXT NOT null
 );
 
-INSERT INTO userDefinedWords VALUES (
-    "stupid",
-    "dumb"
-);
-
-DELETE FROM userDefinedWords WHERE word = "hello";
-
-SELECT * FROM words ;
+SELECT * FROM words WHERE rowid = 1;
 
 SELECT * FROM userDefinedWords;
 
-DELETE FROM "userDefinedWords" WHERE word = "";
+INSERT INTO userDefinedWords VALUES ("cat", "meo");
 
-UPDATE "userDefinedWords" SET word = "dumb" WHERE word = "sss";]]></console>
+DELETE FROM userDefinedWords WHERE word = "";
+
+DROP TABLE userDefinedWords;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

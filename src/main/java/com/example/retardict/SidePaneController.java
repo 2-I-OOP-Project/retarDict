@@ -62,8 +62,16 @@ public class SidePaneController extends Controller {
         stage.show();
     }
 
-    public void switchToCatScene(ActionEvent event) {
-        System.out.println("nya");
+    public void switchToCatScene(ActionEvent event) throws IOException {
+        FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("catScene.fxml"));
+        root = settingSceneLoader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

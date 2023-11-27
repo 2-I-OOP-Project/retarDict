@@ -9,7 +9,6 @@
 .label {
     -fx-font-size: 20;
     -fx-font-family: "Open Sans";
-    -fx-alignment: center;
     -fx-text-fill: -text-color;
 }
 
@@ -36,6 +35,7 @@
 .list-view {
     -fx-background-color: -secondary-color;
     -fx-background-radius: 10;
+    -fx-border-radius: 5;
 }
 
 .list-view:focused {
@@ -55,6 +55,15 @@
 
 .list-cell:focused {
     -fx-background-color: -accent-color;
+}
+
+.tooltip {
+    -fx-show-delay: 0ms;
+}
+
+#meaningLabelCell {
+    -fx-font-size: 10;
+
 }
 
 #rootAnchorPane {
@@ -94,12 +103,18 @@
 
 }
 
+#accentBox {
+    -fx-background-radius: 15;
+}
+
 #accentBox .context-menu {
     -fx-background-color: -secondary-color;
+    -fx-background-radius: 15;
 }
 
 #accentBox .menu-item:focused {
     -fx-background-color: -accent-color;
+    -fx-background-radius: 15;
 }
 
 #accentBox .menu-item:focused > .label {
@@ -135,7 +150,7 @@
 #sidePaneButton:hover {
     -fx-cursor: hand;
     -fx-text-fill: -text-color;
-    -fx-background-color: -main-color 100%;
+    -fx-background-color: -main-color;//linear-gradient(from -50% 50% to 100% 50%, -accent-color, -main-color)
     -fx-background-radius: 20;
     -fx-border-color: -main-color;
     -fx-border-radius: 50;
@@ -153,7 +168,7 @@
     -fx-background-color: -secondary-color;
     -fx-background-radius: 20;
     -fx-border-radius: 0 20 20 0;
-    -fx-border-color: -text-color;
+    -fx-border-color: -accent-color;
     -fx-border-width: 0;
     -fx-cursor: hand;
 }
@@ -175,8 +190,8 @@
 #themeButton {
     -fx-background-color: -secondary-color;
     -fx-border-width: 0;
-    -fx-font-size: 20;
-    -fx-background-radius: 20;
+    -fx-font-size: 18;
+    -fx-background-radius: 15;
     -fx-text-fill: -text-color;
 }
 
@@ -191,4 +206,62 @@
 
 #themeButton:pressed {
     -fx-background-color: -accent-color;
+}
+
+#newCatButton {
+    -fx-text-fill: -text-color;
+    -fx-background-color: -secondary-color;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: -accent-color;
+    -fx-background-radius: 10;
+}
+
+#newCatButton:hover {
+    -fx-background-color: -main-color;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 5, 5);
+}
+
+#wordCellButton {
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-text-fill: -text-color;
+}
+
+#wordCellButton:hover {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 0);
+}
+
+#speakButton {
+    -fx-background-color: -secondary-color;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+    -fx-background-radius: 20;
+    -fx-text-fill: -text-color;
+}
+
+#speakButton:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: -text-color;
+    -fx-background-color: derive(-accent-color, 50%);
+    -fx-background-radius: 20;
+    -fx-border-color: -main-color;
+    -fx-border-radius: 50;
+}
+
+#wordTestFirst {
+    -fx-text-fill: -text-color;
+    -fx-font-weight: bold;
+    -fx-font-size: 25;
+
+}
+
+#wordTestSecond {
+    -fx-text-fill: -main-color;
+    -fx-font-weight: bold;
+    -fx-font-size: 25;
+    -fx-background-color: -accent-color;
+    -fx-background-radius: 5;
 }

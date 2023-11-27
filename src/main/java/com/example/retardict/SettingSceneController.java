@@ -14,7 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.GlyphFont;
@@ -42,6 +44,8 @@ public class SettingSceneController implements Initializable {
     @FXML
     private ChoiceBox<String> accentChooser;
 
+    @FXML
+    private Button closeButton;
     public static String theme = "LIGHT";
 
     public static String accentColor = "ORANGE";
@@ -52,10 +56,34 @@ public class SettingSceneController implements Initializable {
             "GREEN"
     );
 
+
+    private double xOffset;
+    private double yOffset;
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resources) {
+
+        rootAnchor.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                xOffset = stage.getX() - event.getScreenX();
+                yOffset = stage.getY() - event.getScreenY();
+            }
+        });
+
+        rootAnchor.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setX(event.getScreenX() + xOffset);
+                stage.setY(event.getScreenY() + yOffset);
+            }
+        });
+
         accentChooser.setItems(accentColorChoices);
         accentChooser.setValue(accentColor);
+
+
         accentChooser.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -71,6 +99,7 @@ public class SettingSceneController implements Initializable {
                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 ApplicationColorController.setColor(scene);
+                scene.setFill(Color.TRANSPARENT);
                 stage.setScene(scene);
                 stage.show();
             }
@@ -103,6 +132,7 @@ public class SettingSceneController implements Initializable {
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             ApplicationColorController.setColor(scene);
+            scene.setFill(Color.TRANSPARENT);
             stage.setScene(scene);
             stage.show();
         } else {
@@ -115,6 +145,7 @@ public class SettingSceneController implements Initializable {
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             ApplicationColorController.setColor(scene);
+            scene.setFill(Color.TRANSPARENT);
             stage.setScene(scene);
             stage.show();
         }
@@ -125,4 +156,9 @@ public class SettingSceneController implements Initializable {
         imageView.setImage(image);
     }
 
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+    }
 }

@@ -5,6 +5,7 @@ import com.sun.speech.freetts.VoiceManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -53,8 +55,27 @@ public class addNewWordSceneController extends Controller implements Initializab
     private ObservableList<UserDefinedWord> words;
 
 
+    private double xOffset;
+    private double yOffset;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        rootAnchor.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                xOffset = stage.getX() - event.getScreenX();
+                yOffset = stage.getY() - event.getScreenY();
+            }
+        });
+
+        rootAnchor.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setX(event.getScreenX() + xOffset);
+                stage.setY(event.getScreenY() + yOffset);
+            }
+        });
 
         words = FXCollections.observableArrayList();
         list.setItems(words);
@@ -161,6 +182,8 @@ public class addNewWordSceneController extends Controller implements Initializab
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            ApplicationColorController.setColor(scene);
+            scene.setFill(Color.TRANSPARENT);
             stage.setScene(scene);
             stage.show();
         }

@@ -5,8 +5,9 @@ module com.example.retardict {
     requires freetts;
     requires java.net.http;
     requires org.controlsfx.controls;
+    requires com.google.gson;
 
-    opens com.example.retardict to javafx.fxml;
+    opens com.example.retardict to javafx.fxml, com.google.gson;
     exports com.example.retardict;
     exports com.example.retardict.game;
     opens com.example.retardict.game to javafx.fxml;

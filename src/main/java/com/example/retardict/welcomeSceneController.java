@@ -71,6 +71,14 @@ public class welcomeSceneController extends Controller implements Initializable 
             }
         });
 
+//        rootAnchor.setOnMouseMoved(event -> {
+//            double x = event.getX();
+//            double y = event.getY();
+//            rootAnchor.setStyle("-fx-background-color: radial-gradient(center " + 100*x/Utilities.APP_WIDTH + "% " + 100*y/Utilities.APP_HEIGHT + "%, radius 25%, #d4d4d4,  #e8e8e8);");
+//            System.out.println("x = " + x + ", y = " + y);
+//            System.out.println("x/Utilities.APP_WIDTH = " + x/Utilities.APP_WIDTH + ", y/Utilities.APP_HEIGHT = " + y/Utilities.APP_HEIGHT);
+//        });
+
         ObservableList<Word> words = FXCollections.observableArrayList();
         ObservableList<String> wordNames = null;
 
@@ -83,14 +91,6 @@ public class welcomeSceneController extends Controller implements Initializable 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-//        rootAnchor.setOnMouseMoved(event -> {
-//            double x = event.getX();
-//            double y = event.getY();
-//            rootAnchor.setStyle("-fx-background-color: radial-gradient(center " + 100*x/Utilities.APP_WIDTH + "% " + 100*y/Utilities.APP_HEIGHT + "%, radius 25%, #d4d4d4,  #e8e8e8);");
-//            System.out.println("x = " + x + ", y = " + y);
-//            System.out.println("x/Utilities.APP_WIDTH = " + x/Utilities.APP_WIDTH + ", y/Utilities.APP_HEIGHT = " + y/Utilities.APP_HEIGHT);
-//        });
 
         try {
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
