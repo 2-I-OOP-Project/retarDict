@@ -70,7 +70,7 @@ public class SidePaneController extends Controller implements Initializable {
     @FXML
     public void switchToAddWordScene(ActionEvent event) throws IOException {
         currentScene = SCENE.ADD_NEW_WORD_SCENE;
-        FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+        FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("AddNewWordScene.fxml"));
         root = wordSceneLoader.load();
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

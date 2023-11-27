@@ -1,7 +1,5 @@
 package com.example.retardict;
 
-import com.example.retardict.Word;
-import com.example.retardict.retarDict;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import com.sun.speech.freetts.Voice;
@@ -20,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class wordSceneController extends Controller implements Initializable {
+public class WordSceneController extends Controller implements Initializable {
     @FXML
     private Label wordLabel;
     @FXML

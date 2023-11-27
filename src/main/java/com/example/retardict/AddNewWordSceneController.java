@@ -14,7 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,33 +22,31 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class welcomeSceneController extends Controller implements Initializable {
+public class AddNewWordSceneController extends Controller implements Initializable {
     @FXML
-    private ListView<Word> list;
+    private TextField userDefinedWord;
     @FXML
-    private ListView<Word> bookmarkList;
-
+    private TextField userDefinedMeaning;
+    @FXML
+    private ListView<UserDefinedWord> list;
     @FXML
     private TextField searchBox;
-
     @FXML
     private Label wordLabel;
     @FXML
-    private Label pronunciation;
-    @FXML
-    private Label description;
+    private Label meaningLabel;
     @FXML
     private Button closeButton;
 
-    private Word currentSelectedWord;
-
     private Connection connection = null;
+    private UserDefinedWord currentSelectedWord;
+    private ObservableList<UserDefinedWord> words;
+
 
     private double xOffset;
     private double yOffset;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         rootAnchor.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -67,19 +65,9 @@ public class welcomeSceneController extends Controller implements Initializable 
             }
         });
 
-//        rootAnchor.setOnMouseMoved(event -> {
-//            double x = event.getX();
-//            double y = event.getY();
-//            rootAnchor.setStyle("-fx-background-color: radial-gradient(center " + 100*x/Utilities.APP_WIDTH + "% " + 100*y/Utilities.APP_HEIGHT + "%, radius 25%, #d4d4d4,  #e8e8e8);");
-//            System.out.println("x = " + x + ", y = " + y);
-//            System.out.println("x/Utilities.APP_WIDTH = " + x/Utilities.APP_WIDTH + ", y/Utilities.APP_HEIGHT = " + y/Utilities.APP_HEIGHT);
-//        });
-
-        ObservableList<Word> words = FXCollections.observableArrayList();
-        ObservableList<Word> favorites = FXCollections.observableArrayList();
-
+        words = FXCollections.observableArrayList();
         list.setItems(words);
-        bookmarkList.setItems(favorites);
+        list.setCellFactory(userDefinedWordListView -> new UserDefinedWordListViewCell());
 
         FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
         try {
@@ -97,17 +85,11 @@ public class welcomeSceneController extends Controller implements Initializable 
 
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from words");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM userDefinedWords");
 
             while (resultSet.next()) {
-                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"), resultSet.getInt("isBookmarked"));
+                UserDefinedWord word = new UserDefinedWord(resultSet.getString("word"), resultSet.getString("meaning"));
                 words.add(word);
-            }
-
-            ResultSet favoriteSet = statement.executeQuery("SELECT * FROM words WHERE isBookmarked = 1");
-            while (favoriteSet.next()) {
-                Word word = new Word(favoriteSet.getString("word"), favoriteSet.getString("pronunciation"), favoriteSet.getString("description"), favoriteSet.getInt("isBookmarked"));
-                favorites.add(word);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -115,7 +97,7 @@ public class welcomeSceneController extends Controller implements Initializable 
     }
 
     public void searchWord() {
-        ObservableList<Word> words = FXCollections.observableArrayList();
+        ObservableList<UserDefinedWord> words = FXCollections.observableArrayList();
         list.setItems(words);
 
         String pattern = '*' + searchBox.getText() + '*';
@@ -123,54 +105,32 @@ public class welcomeSceneController extends Controller implements Initializable 
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            preparedStatement = connection.prepareStatement("select * from words where (word glob ?)");
+            preparedStatement = connection.prepareStatement("SELECT * FROM userDefinedWords WHERE (word glob ?)");
             preparedStatement.setString(1, pattern);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"),
-                        resultSet.getString("description"), resultSet.getInt("isBookmarked"));
+                UserDefinedWord word = new UserDefinedWord(resultSet.getString("word"), resultSet.getString("meaning"));
                 words.add(word);
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }
+        list.refresh();
 
-    @FXML
-    public void bookmark() {
-        if (currentSelectedWord == null || currentSelectedWord.getWord().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Please select a word.");
-            alert.show();
-            return;
-        }
-        if (Model.isBookmarked(currentSelectedWord) == 1) {
-            currentSelectedWord.setBookmarked(false);
-            Model.unbookmarkWord(currentSelectedWord);
-        } else {
-            currentSelectedWord.setBookmarked(true);
-            Model.bookmarkWord(currentSelectedWord);
-        }
     }
 
     @FXML
     public void speak(ActionEvent event) {
-        if (currentSelectedWord == null || currentSelectedWord.getWord().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Please select a word.");
-            alert.show();
-            return;
-        }
         System.setProperty(
                 "freetts.voices",
                 "com.sun.speech.freetts.en.us"
                         + ".cmu_us_kal.KevinVoiceDirectory");
         Voice voice = VoiceManager.getInstance().getVoice("kevin16");
         Voice[] voices = VoiceManager.getInstance().getVoices();
-        for (Voice value : voices) {
-            System.out.println("# Voices: " + value.getName());
+        for (int i = 0; i < voices.length; i++) {
+            System.out.println("# Voices: " + voices[i].getName());
+
         }
         if (voice != null)
         {
@@ -189,9 +149,38 @@ public class welcomeSceneController extends Controller implements Initializable 
     @FXML
     public void displayWord(MouseEvent event) throws IOException {
         currentSelectedWord = list.getFocusModel().getFocusedItem();
+        System.out.println(list.getFocusModel().getFocusedIndex());
         wordLabel.setText(currentSelectedWord.getWord());
-        pronunciation.setText(currentSelectedWord.getPronunciation());
-        description.setText(currentSelectedWord.getDescription());
+        meaningLabel.setText(currentSelectedWord.getMeaning());
+    }
+
+    public void addUserDefinedWord(ActionEvent event) {
+        UserDefinedWord word = new UserDefinedWord(userDefinedWord.getText(), userDefinedMeaning.getText());
+        System.out.println(word.getWord());
+        System.out.println(word.getMeaning());
+        if (word.getWord() != null) {
+            boolean success = Model.addUserDefinedWord(word);
+            if (!success) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("This word already exists in your dictionary.");
+                alert.show();
+                return;
+            }
+            FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("AddNewWordScene.fxml"));
+            Parent root = null;
+            try {
+                root = wordSceneLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            ApplicationColorController.setColor(scene);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @FXML

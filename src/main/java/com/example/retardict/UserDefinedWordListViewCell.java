@@ -86,7 +86,7 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
                     comfirmEditButton.setDisable(true);
                     comfirmEditButton.setOpacity(0);
 
-                    FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+                    FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("AddNewWordScene.fxml"));
                     Parent root = null;
                     try {
                         root = wordSceneLoader.load();
@@ -106,7 +106,7 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
                 @Override
                 public void handle(ActionEvent event) {
                     Model.deleteUserDefinedWord(word.getWord());
-                    FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
+                    FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("AddNewWordScene.fxml"));
                     Parent root = null;
                     try {
                         root = wordSceneLoader.load();
