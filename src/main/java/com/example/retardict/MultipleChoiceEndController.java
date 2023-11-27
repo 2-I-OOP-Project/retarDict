@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class MultipleChoiceEndController extends Controller {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
@@ -42,8 +44,8 @@ public class MultipleChoiceEndController extends Controller {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MultipleChoiceScene.fxml"));
         root = loader.load();
 
-        MultipleChoiceSceneController multipleChoiceSceneController = loader.getController();
-        multipleChoiceSceneController.setQuestion(event);
+        MultipleChoiceController multipleChoiceController = loader.getController();
+        multipleChoiceController.setQuestion(event);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

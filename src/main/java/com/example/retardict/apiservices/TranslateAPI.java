@@ -38,10 +38,6 @@ public class TranslateAPI implements APIService<String> {
      */
     @Override
     public String getData() {
-        if (input.isEmpty()) {
-            return "No input!";
-        }
-
         input = URLEncoder.encode(input , StandardCharsets.UTF_8);
 
         String language;

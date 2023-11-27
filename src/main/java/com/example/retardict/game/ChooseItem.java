@@ -17,11 +17,6 @@ public class ChooseItem extends Game {
         numberOfItems++;
     }
 
-    public void deleteItem(Item item) {
-        this.items.remove(item);
-        numberOfItems--;
-    }
-
     public static ChooseItem getChooseItem() throws FileNotFoundException {
         ChooseItem chooseItem = new ChooseItem();
 
@@ -58,15 +53,5 @@ public class ChooseItem extends Game {
 
     public void setNumberOfItems(int numberOfItems) {
         this.numberOfItems = numberOfItems;
-    }
-
-    public static void main(String[] args) {
-        try {
-            ChooseItem chooseItem = ChooseItem.getChooseItem();
-            System.out.println(chooseItem.returnRandomQuestion());
-            System.out.println(chooseItem.returnRandomItem().getName());
-        } catch (FileNotFoundException e) {
-            e.getMessage();
-        }
     }
 }

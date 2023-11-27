@@ -1,7 +1,5 @@
 package com.example.retardict.game;
 
-import com.example.retardict.Utilities;
-
 import java.util.ArrayList;
 
 public class MultipleChoice extends Game {
@@ -9,7 +7,7 @@ public class MultipleChoice extends Game {
     private int numberOfQuestions;
 
     public MultipleChoice() {
-         questions = new ArrayList<>();
+        questions = new ArrayList<>();
     }
 
     public MultipleChoiceQuestion returnRandomQuestion() {
@@ -49,6 +47,7 @@ public class MultipleChoice extends Game {
         multipleChoice.addQuestion(new MultipleChoiceQuestion("I ___ have a big meeting tomorrow.", "will", "is going to", "is", "shall", "A"));
         multipleChoice.addQuestion(new MultipleChoiceQuestion("Fuck you bitch!", "Fuck you, too!", "WTF have you just said, bitch?", "Thank you!", "Fuck off, bitch!", "C"));
         multipleChoice.addQuestion(new MultipleChoiceQuestion("Do you like the app?", "Yes", "No", "I hate it", "retaDict sucks", "A"));
+        multipleChoice.addQuestion(new MultipleChoiceQuestion("What ___ you doing?", "is", "are", "am", "was", "B"));
 
         return multipleChoice;
     }
@@ -56,16 +55,9 @@ public class MultipleChoice extends Game {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (MultipleChoiceQuestion q: questions) {
+        for (MultipleChoiceQuestion q : questions) {
             result.append(q.toString()).append(q.isChosen()).append("\n");
         }
         return result.toString();
-    }
-
-    public static void main(String[] args) {
-        MultipleChoice multipleChoice = getMultipleChoice();
-        for (MultipleChoiceQuestion q: multipleChoice.questions) {
-            System.out.println(q.toString() + " " + q.isChosen());
-        }
     }
 }

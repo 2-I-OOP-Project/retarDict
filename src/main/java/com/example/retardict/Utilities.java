@@ -1,25 +1,11 @@
 package com.example.retardict;
 
-import javafx.fxml.FXML;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 import java.sql.*;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
-import javafx.animation.FadeTransition;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Utilities {
     public static final String APP_TITLE = "retarDict";
@@ -28,6 +14,15 @@ public class Utilities {
     public static final String PATH_TO_DATABASE = "jdbc:sqlite:src\\main\\resources\\testdb.db";
     public static final String PATH_TO_ICON = "src\\main\\resources\\icon.jpg";
     private static List<String> words = null;
+    public static Connection connection;
+
+    private void init() {
+        try {
+            connection = DriverManager.getConnection(PATH_TO_DATABASE);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static List<String> loadFromTextFile(String filePath) {
         try {
