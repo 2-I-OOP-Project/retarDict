@@ -23,6 +23,8 @@ import javafx.util.Duration;
 
 public class Utilities {
     public static final String APP_TITLE = "retarDict";
+    public static final String PREMIUM_CODE = "tudiennay10diem";
+
     public static final int APP_WIDTH = 1280;
     public static final int APP_HEIGHT = 720;
     public static final String PATH_TO_DATABASE = "jdbc:sqlite:src\\main\\resources\\testdb.db";

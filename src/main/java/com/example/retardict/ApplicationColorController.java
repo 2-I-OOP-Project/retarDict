@@ -1,6 +1,7 @@
 package com.example.retardict;
 
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 
 public class ApplicationColorController extends Controller {
     public static void setColor(Scene scene) {
@@ -8,13 +9,13 @@ public class ApplicationColorController extends Controller {
             String css = null;
             if (SettingSceneController.accentColor.equals("BLUE")) {
                 css = ApplicationColorController.class.getResource("lightBlue.css").toExternalForm();
-                System.out.println("light blue");
+                scene.setFill(Color.TRANSPARENT);
             } else if (SettingSceneController.accentColor.equals("ORANGE")) {
                 css = ApplicationColorController.class.getResource("lightOrange.css").toExternalForm();
-                System.out.println("light orange");
+                scene.setFill(Color.TRANSPARENT);
             } else {
                 css = ApplicationColorController.class.getResource("lightGreen.css").toExternalForm();
-                System.out.println("light green");
+                scene.setFill(Color.TRANSPARENT);
             }
             System.out.println("using light theme");
             scene.getStylesheets().add(css);
@@ -22,16 +23,17 @@ public class ApplicationColorController extends Controller {
             String css = null;
             if (SettingSceneController.accentColor.equals("BLUE")) {
                 css = ApplicationColorController.class.getResource("darkBlue.css").toExternalForm();
-                System.out.println("dark blue");
+                scene.setFill(Color.TRANSPARENT);
             } else if (SettingSceneController.accentColor.equals("ORANGE")) {
                 css = ApplicationColorController.class.getResource("darkOrange.css").toExternalForm();
-                System.out.println("dark orange");
+                scene.setFill(Color.TRANSPARENT);
             } else {
                 css = ApplicationColorController.class.getResource("darkGreen.css").toExternalForm();
-                System.out.println("dark green");
+                scene.setFill(Color.TRANSPARENT);
             }
             System.out.println("using dark theme");
             scene.getStylesheets().add(css);
         }
+        scene.setFill(Color.TRANSPARENT);
     }
 }

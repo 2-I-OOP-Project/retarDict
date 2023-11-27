@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.controlsfx.glyphfont.Glyph?>
 
-<VBox id="sidePane" prefHeight="720.0" prefWidth="250.0" stylesheets="@lightBlue.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.SidePaneController">
+<VBox id="sidePane" prefHeight="720.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.SidePaneController">
     <children>
-        <Button id="sidePaneButton" fx:id="homeButton" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Home">
+        <Button id="sidePaneButton" fx:id="homeButton" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="25.0" prefWidth="250.0" text="Home">
             <VBox.margin>
                 <Insets />
             </VBox.margin>
@@ -22,7 +22,7 @@
             <Tooltip text="return to main word page" />
          </tooltip>
         </Button>
-        <Button id="sidePaneButton" fx:id="userWordButton" mnemonicParsing="false" onAction="#switchToAddWordScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Add New Word">
+        <Button id="sidePaneButton" fx:id="userWordButton" mnemonicParsing="false" onAction="#switchToAddWordScene" prefHeight="25.0" prefWidth="250.0" text="Add New Word">
             <VBox.margin>
                 <Insets />
             </VBox.margin>
@@ -36,7 +36,7 @@
             <Tooltip text="go to your words" />
          </tooltip>
         </Button>
-        <Button id="sidePaneButton" fx:id="gameButton" mnemonicParsing="false" onAction="#switchToGameScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Game">
+        <Button id="sidePaneButton" fx:id="gameButton" mnemonicParsing="false" onAction="#switchToGameScene" prefHeight="25.0" prefWidth="250.0" text="Game">
             <VBox.margin>
                 <Insets />
             </VBox.margin>
@@ -66,7 +66,7 @@
             <Glyph prefHeight="30.0" prefWidth="25.0" text="📑" />
          </graphic>
       </Button>
-        <Button id="sidePaneButton" mnemonicParsing="false" onAction="#switchToSettingScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Setting">
+        <Button id="sidePaneButton" mnemonicParsing="false" onAction="#switchToSettingScene" prefHeight="25.0" prefWidth="250.0" text="Setting">
             <VBox.margin>
                 <Insets top="300.0" />
             </VBox.margin>

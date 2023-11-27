@@ -12,10 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -135,6 +132,12 @@ public class welcomeSceneController extends Controller implements Initializable 
 
     @FXML
     public void speak(ActionEvent event) {
+        if (currentSelectedWord == null || currentSelectedWord.getWord().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Please select a word.");
+            alert.show();
+            return;
+        }
         System.setProperty(
                 "freetts.voices",
                 "com.sun.speech.freetts.en.us"

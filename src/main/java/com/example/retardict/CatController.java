@@ -57,7 +57,7 @@ public class CatController extends Controller implements Initializable {
                 stage.setY(event.getScreenY() + yOffset);
             }
         });
-        String source = "https://cdn2.thecatapi.com/images/cdb.jpg";
+        String source = "https://http.cat/200";
         Image catImage = new Image(source);
         catView.setImage(catImage);
 

@@ -97,7 +97,6 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
                     ApplicationColorController.setColor(scene);
-                    scene.setFill(Color.TRANSPARENT);
                     stage.setScene(scene);
                     stage.show();
                 }
@@ -118,7 +117,6 @@ public class UserDefinedWordListViewCell extends ListCell<UserDefinedWord> {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
                     ApplicationColorController.setColor(scene);
-                    scene.setFill(Color.TRANSPARENT);
                     stage.setScene(scene);
                     stage.show();
                 }

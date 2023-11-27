@@ -18,28 +18,28 @@
          <children>
             <VBox id="wordVBox" layoutX="-4.0" layoutY="38.0" prefHeight="620.0" prefWidth="389.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label fx:id="wordLabel" prefHeight="88.0" prefWidth="300.0" text="Word" wrapText="true">
+                  <Label id="wordBentoBox" fx:id="wordLabel" prefHeight="0.0" prefWidth="300.0" text="Word" wrapText="true">
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="5.0" />
                      </VBox.margin>
                      <padding>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="pronunciation" layoutX="10.0" layoutY="10.0" prefWidth="500.0" text="Pronunciation" wrapText="true">
+                  <Label id="wordBentoBox" fx:id="pronunciation" layoutX="10.0" layoutY="10.0" prefHeight="0.0" prefWidth="300.0" text="Pronunciation" wrapText="true">
                      <VBox.margin>
-                        <Insets />
+                        <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
                      <padding>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="description" alignment="TOP_LEFT" layoutX="10.0" layoutY="31.0" prefHeight="448.0" prefWidth="339.0" text="Description" wrapText="true">
+                  <Label id="wordBentoBox" fx:id="description" alignment="TOP_LEFT" layoutX="10.0" layoutY="31.0" prefHeight="448.0" prefWidth="339.0" text="Description" wrapText="true">
                      <VBox.margin>
-                        <Insets />
+                        <Insets top="5.0" />
                      </VBox.margin>
                      <padding>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
                </children>

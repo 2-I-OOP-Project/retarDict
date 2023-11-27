@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -54,15 +55,23 @@ public class SidePaneController extends Controller {
     }
 
     public void switchToCatScene(ActionEvent event) throws IOException {
-        FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("catScene.fxml"));
-        root = settingSceneLoader.load();
+        if (SettingSceneController.premium == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("This is a premium feature. Please unlock premium in setting in order to use this feature.");
+            alert.show();
+        } else {
+            FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("catScene.fxml"));
+            root = settingSceneLoader.load();
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        ApplicationColorController.setColor(scene);
-        scene.setFill(Color.TRANSPARENT);
-        stage.setScene(scene);
-        stage.show();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            ApplicationColorController.setColor(scene);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
+        }
+
+
     }
 
     @FXML

@@ -1,21 +1,10 @@
 package com.example.retardict;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Model {
-    enum TABLES {
-        userDefinedWords,
-        words
-    }
 
-    public static void addWord(Word word) {
-
-    }
-
-    public static void addUserDefinedWord(UserDefinedWord word) {
+    public static boolean addUserDefinedWord(UserDefinedWord word) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:src/main/resources/testdb.db");
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO userDefinedWords VALUES (?, ?);");
@@ -24,7 +13,9 @@ public class Model {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return false;
         }
+        return true;
     }
 
     public static void deleteUserDefinedWord(String word) {

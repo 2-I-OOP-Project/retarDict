@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
@@ -38,6 +39,9 @@ public class SettingSceneController extends Controller implements Initializable 
 
     @FXML
     private Button closeButton;
+
+    public static boolean premium = false;
+
     public static String theme = "LIGHT";
     public static String accentColor = "ORANGE";
 
@@ -140,6 +144,16 @@ public class SettingSceneController extends Controller implements Initializable 
             stage.setScene(scene);
             stage.show();
         }
+    }
+
+    @FXML
+    public void openPremiumRegister(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("premiumRegister.fxml"));
+        Parent root = settingSceneLoader.load();
+
+        alert.setGraphic(root);
+        alert.show();
     }
 
     public void showImage(ActionEvent event) throws FileNotFoundException {

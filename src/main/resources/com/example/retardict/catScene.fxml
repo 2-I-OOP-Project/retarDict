@@ -4,11 +4,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane id="rootAnchorPane" fx:id="rootAnchor" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.CatController">
    <children>
-      <ImageView fx:id="catView" fitHeight="629.0" fitWidth="800.0" layoutX="308.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0" />
-      <Button id="newCatButton" layoutX="574.0" layoutY="33.0" mnemonicParsing="false" onAction="#getCat" prefHeight="40.0" prefWidth="145.0" text="Generate new cat" />
+      <ImageView fx:id="catView" fitHeight="574.0" fitWidth="900.0" layoutX="308.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="75.0" />
+      <Button id="newCatButton" layoutX="744.0" layoutY="25.0" mnemonicParsing="false" onAction="#getCat" prefHeight="40.0" prefWidth="145.0" text="Generate new cat" />
       <Button fx:id="closeButton" layoutX="1233.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="20.0" prefWidth="47.0" text="X" />
    </children>
 </AnchorPane>

@@ -98,9 +98,6 @@
     -fx-background-color: -secondary-color;
     -fx-mark-color: -accent-color;
     -fx-cursor: hand;
-}
-
-#accentBox {
     -fx-background-radius: 15;
 }
 
@@ -309,4 +306,25 @@
 /* CSS styling for the choose item game */
 #image {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
+}
+
+#wordBentoBox {
+    -fx-text-fill: -text-color;
+    -fx-background-color: -main-color;
+    -fx-background-radius: 10;
+    -fx-font-size: 15;
+}
+
+#premiumUnlockButton {
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: derive(-accent-color, 50%);
+    -fx-text-fill: -text-color;
+}
+
+#premiumUnlockButton:hover {
+    -fx-background-color: derive(-accent-color, 50%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.1, 1, 1);
 }

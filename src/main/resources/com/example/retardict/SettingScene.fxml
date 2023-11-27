@@ -40,7 +40,7 @@
                   <Label id="wordTestSecond" alignment="CENTER" prefHeight="36.0" prefWidth="58.0" text="Dict" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" text="Unlock Premium Feature" GridPane.rowIndex="3" />
+            <Button id="premiumUnlockButton" mnemonicParsing="false" onAction="#openPremiumRegister" text="Unlock Premium Feature" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <Button fx:id="closeButton" layoutX="1233.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="20.0" prefWidth="47.0" text="X" />

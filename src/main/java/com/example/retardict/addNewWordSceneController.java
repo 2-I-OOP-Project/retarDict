@@ -12,10 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -163,7 +160,13 @@ public class addNewWordSceneController extends Controller implements Initializab
         System.out.println(word.getWord());
         System.out.println(word.getMeaning());
         if (word.getWord() != null) {
-            Model.addUserDefinedWord(word);
+            boolean success = Model.addUserDefinedWord(word);
+            if (!success) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("This word already exists in your dictionary.");
+                alert.show();
+                return;
+            }
             FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("addNewWordScene.fxml"));
             Parent root = null;
             try {

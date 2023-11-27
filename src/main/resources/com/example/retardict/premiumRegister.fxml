@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="160.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retardict.PremiumRegisterController">
+   <children>
+      <DialogPane />
+      <Button fx:id="closeButton" layoutX="308.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="Cancel" />
+      <TextField fx:id="premiumCodeField" layoutX="189.0" layoutY="59.0" onAction="#checkPremiumCode" prefHeight="25.0" prefWidth="211.0" />
+      <Label layoutX="12.0" layoutY="63.0" text="Enter  your premium code:" />
+      <Button layoutX="253.0" layoutY="100.0" mnemonicParsing="false" onAction="#checkPremiumCode" text="OK" />
+      <Label fx:id="premiumStatus" layoutX="14.0" layoutY="27.0" prefHeight="17.0" prefWidth="193.0" text="Premium Status: not Activated" />
+      <Label fx:id="registerMessage" layoutX="26.0" layoutY="104.0" prefHeight="17.0" prefWidth="193.0" />
+   </children>
+</AnchorPane>
