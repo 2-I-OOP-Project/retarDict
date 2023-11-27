@@ -48,14 +48,17 @@
             <Insets bottom="20.0" right="170.0" top="20.0" />
          </padding>
       </Button>
-      <Button id="sidePaneButton" fx:id="settingButton" mnemonicParsing="false" onAction="#switchToTranslationScene" prefHeight="70.0" prefWidth="250.0" stylesheets="@application.css" text="Translate">
+      <Button id="sidePaneButton" fx:id="settingButton" mnemonicParsing="false" onAction="#switchToTranslationScene" prefHeight="70.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Translate">
          <padding>
-            <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+            <Insets bottom="20.0" left="10.0" right="125.0" top="20.0" />
          </padding>
+         <graphic>
+            <Glyph prefHeight="30.0" prefWidth="25.0" text="📑" />
+         </graphic>
       </Button>
         <Button id="sidePaneButton" mnemonicParsing="false" onAction="#switchToSettingScene" prefHeight="25.0" prefWidth="250.0" stylesheets="@lightOrange.css" text="Setting">
             <VBox.margin>
-                <Insets top="370.0" />
+                <Insets top="300.0" />
             </VBox.margin>
          <graphic>
             <Glyph prefHeight="30.0" prefWidth="29.0" text="⚙" />

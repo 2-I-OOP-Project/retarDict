@@ -27,9 +27,6 @@ import java.util.ResourceBundle;
 
 public class welcomeSceneController extends Controller implements Initializable {
     @FXML
-    private AnchorPane rootAnchor;
-
-    @FXML
     private ListView<Word> list;
 
     @FXML

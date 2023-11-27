@@ -2,7 +2,7 @@ package com.example.retardict;
 
 import javafx.scene.Scene;
 
-public class ApplicationColorController {
+public class ApplicationColorController extends Controller {
     public static void setColor(Scene scene) {
         if (SettingSceneController.theme.equals("LIGHT")) {
             String css = null;

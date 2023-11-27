@@ -17,8 +17,6 @@ import javafx.scene.layout.AnchorPane;
 
 public class TranslationController extends Controller implements Initializable {
     @FXML
-    private AnchorPane rootAnchor;
-    @FXML
     private TextArea inputArea;
     @FXML
     private TextArea outputArea;

@@ -27,8 +27,6 @@ public class wordSceneController extends Controller implements Initializable {
     private Label pronunciation;
     @FXML
     private Label description;
-    @FXML
-    private AnchorPane rootAnchor;
 
     private Word word;
 
@@ -42,6 +40,7 @@ public class wordSceneController extends Controller implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
     @FXML
     public void showWord(Word inputWord) {
         this.word = inputWord;
@@ -89,5 +88,4 @@ public class wordSceneController extends Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
 }

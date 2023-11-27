@@ -191,3 +191,51 @@
 #themeButton:pressed {
     -fx-background-color: -accent-color;
 }
+
+/* CSS styling for the multiple choice game */
+#answerButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
+    -fx-background-color: rgba(227, 216, 136);
+}
+
+#answerButton:hover {
+    -fx-cursor: hand;
+    -fx-background-color: rgba(132, 113, 79);
+}
+
+#functionButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
+    -fx-background-color: rgba(227, 216, 136);
+}
+
+#functionButton:hover {
+    -fx-cursor: hand;
+    -fx-background-color: rgba(132, 113, 79);
+}
+
+#mcAnchorPane {
+    -fx-background-color: rgba(226, 241, 175);
+}
+
+#mcText {
+    -fx-font-size: 20;
+    -fx-font-family: "Open Sans";
+    -fx-alignment: center;
+    -fx-text-fill: white;
+}
+
+#mcQuestion {
+    -fx-font-size: 50;
+    -fx-font-family: "Open Sans";
+    -fx-alignment: center;
+    -fx-text-fill: black;
+}
+
+#mcGridPane1 {
+    -fx-background-color: rgba(49, 35, 30);
+}
+
+/* CSS styling for the choose item game */
+#image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
+}
