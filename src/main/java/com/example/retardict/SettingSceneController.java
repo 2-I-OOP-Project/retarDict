@@ -28,26 +28,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SettingSceneController implements Initializable {
-    private Parent root;
-    private Stage stage;
-    private Scene scene;
+public class SettingSceneController extends Controller implements Initializable {
     @FXML
     private ImageView imageView;
-
-    @FXML
-    private AnchorPane rootAnchor;
-
     @FXML
     private Button themeButton;
-
     @FXML
     private ChoiceBox<String> accentChooser;
 
     @FXML
     private Button closeButton;
     public static String theme = "LIGHT";
-
     public static String accentColor = "ORANGE";
 
     static ObservableList<String> accentColorChoices = FXCollections.observableArrayList(
@@ -96,7 +87,7 @@ public class SettingSceneController implements Initializable {
                     throw new RuntimeException(e);
                 }
 
-                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 ApplicationColorController.setColor(scene);
                 scene.setFill(Color.TRANSPARENT);
@@ -104,7 +95,7 @@ public class SettingSceneController implements Initializable {
                 stage.show();
             }
         });
-        if(theme.equals("LIGHT")) {
+        if (theme.equals("LIGHT")) {
             themeButton.setText("LIGHT");
         } else if (theme.equals("DARK")) {
             themeButton.setText("DARK");
@@ -129,7 +120,7 @@ public class SettingSceneController implements Initializable {
             FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("SettingScene.fxml"));
             root = settingSceneLoader.load();
 
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             ApplicationColorController.setColor(scene);
             scene.setFill(Color.TRANSPARENT);
@@ -142,7 +133,7 @@ public class SettingSceneController implements Initializable {
             FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("SettingScene.fxml"));
             root = settingSceneLoader.load();
 
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             ApplicationColorController.setColor(scene);
             scene.setFill(Color.TRANSPARENT);

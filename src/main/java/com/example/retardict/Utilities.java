@@ -13,6 +13,14 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import javafx.animation.FadeTransition;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
 public class Utilities {
     public static final String APP_TITLE = "retarDict";
     public static final int APP_WIDTH = 1280;

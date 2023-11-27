@@ -17,8 +17,6 @@ import java.util.ResourceBundle;
 
 public class GameSceneController extends Controller implements Initializable {
     @FXML
-    private AnchorPane rootAnchor;
-    @FXML
     private Button numberOfQuestionsButton;
 
     @Override
@@ -42,6 +40,7 @@ public class GameSceneController extends Controller implements Initializable {
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        ApplicationColorController.setColor(scene);
         stage.setScene(scene);
         stage.show();
     }
@@ -56,6 +55,7 @@ public class GameSceneController extends Controller implements Initializable {
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        ApplicationColorController.setColor(scene);
         stage.setScene(scene);
         stage.show();
     }

@@ -2,6 +2,7 @@ package com.example.retardict;
 
 import com.example.retardict.game.MultipleChoice;
 import com.example.retardict.game.MultipleChoiceQuestion;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,7 @@ public class MultipleChoiceSceneController {
     private int numberOfQuestionsUsed = 0;
     private final MultipleChoice multipleChoice = MultipleChoice.getMultipleChoice();
     private String correctAnswer;
+    private Timeline timeline;
 
     @FXML
     private Label questionBox;
@@ -44,10 +46,11 @@ public class MultipleChoiceSceneController {
             root = loader.load();
 
             MultipleChoiceEndController multipleChoiceEndController = loader.getController();
-            multipleChoiceEndController.displayScore(event, multipleChoice.getScore(), multipleChoice.getNumberOfQuestions());
+            multipleChoiceEndController.displayScore(multipleChoice.getScore(), multipleChoice.getNumberOfQuestions());
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
+            ApplicationColorController.setColor(scene);
             stage.setScene(scene);
             stage.show();
             return;
@@ -117,7 +120,7 @@ public class MultipleChoiceSceneController {
     }
 
     @FXML
-    public void switchBackToGameScene(ActionEvent event) throws  IOException {
+    public void switchBackToGameScene(ActionEvent event) throws IOException {
         FXMLLoader gameScene = new FXMLLoader(getClass().getResource("gameScene.fxml"));
         root = gameScene.load();
 

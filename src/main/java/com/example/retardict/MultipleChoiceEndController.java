@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class MultipleChoiceEndController extends Controller {
     @FXML
@@ -20,22 +19,36 @@ public class MultipleChoiceEndController extends Controller {
         FXMLLoader gameScene = new FXMLLoader(getClass().getResource("gameScene.fxml"));
         root = gameScene.load();
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        if (SettingSceneController.theme.equals("LIGHT")) {
-            String css = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
-            System.out.println("using light theme");
-            scene.getStylesheets().add(css);
-        } else {
-            String css = Objects.requireNonNull(this.getClass().getResource("darkTheme.css")).toExternalForm();
-            System.out.println("using dark theme");
-            scene.getStylesheets().add(css);
-        }
+        ApplicationColorController.setColor(scene);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void displayScore(ActionEvent event, int score, int numberOfQuestions) {
-        scoreBox.setText("Your score is: " + score + "/" + numberOfQuestions);
+    public void displayScore(int score, int numberOfQuestions) {
+        String res = "You got " + score + " question(s) correct out of " + numberOfQuestions + " question(s).";
+        if (score == 0) {
+            res += " Seriously, bitch?";
+        }
+        if (score == numberOfQuestions) {
+            res += " Well done, bitch!";
+        }
+        scoreBox.setText(res);
+    }
+
+    @FXML
+    public void replay(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MultipleChoiceScene.fxml"));
+        root = loader.load();
+
+        MultipleChoiceSceneController multipleChoiceSceneController = loader.getController();
+        multipleChoiceSceneController.setQuestion(event);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        ApplicationColorController.setColor(scene);
+        stage.setScene(scene);
+        stage.show();
     }
 }

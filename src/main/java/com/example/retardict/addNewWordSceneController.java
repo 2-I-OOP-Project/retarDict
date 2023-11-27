@@ -28,17 +28,11 @@ import java.util.ResourceBundle;
 
 public class addNewWordSceneController extends Controller implements Initializable {
     @FXML
-    private AnchorPane rootAnchor;
-
-    @FXML
     private TextField userDefinedWord;
-
     @FXML
     private TextField userDefinedMeaning;
-
     @FXML
     private ListView<UserDefinedWord> list;
-
     @FXML
     private TextField searchBox;
     @FXML
@@ -49,9 +43,7 @@ public class addNewWordSceneController extends Controller implements Initializab
     private Button closeButton;
 
     private Connection connection = null;
-
     private UserDefinedWord currentSelectedWord;
-
     private ObservableList<UserDefinedWord> words;
 
 
