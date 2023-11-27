@@ -2,27 +2,22 @@ package com.example.retardict;
 
 import com.example.retardict.game.MultipleChoice;
 import com.example.retardict.game.MultipleChoiceQuestion;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MultipleChoiceSceneController {
-    private Parent root;
-    private Stage stage;
-    private Scene scene;
+public class MultipleChoiceController extends Controller {
     private int numberOfQuestionsUsed = 0;
     private final MultipleChoice multipleChoice = MultipleChoice.getMultipleChoice();
     private String correctAnswer;
-    private Timeline timeline;
 
     @FXML
     private Label questionBox;
@@ -126,6 +121,8 @@ public class MultipleChoiceSceneController {
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }

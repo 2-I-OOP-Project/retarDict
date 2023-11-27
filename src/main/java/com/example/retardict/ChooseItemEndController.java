@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MultipleChoiceEndController extends Controller {
+public class ChooseItemEndController extends Controller {
     @FXML
     private Label scoreBox;
 
@@ -29,6 +29,7 @@ public class MultipleChoiceEndController extends Controller {
     }
 
     public void displayScore(int score, int numberOfQuestions) {
+        numberOfQuestions++;
         String res = "You got " + score + " question(s) correct out of " + numberOfQuestions + " question(s).";
         if (score == 0) {
             res += " Seriously, bitch?";
@@ -41,15 +42,16 @@ public class MultipleChoiceEndController extends Controller {
 
     @FXML
     public void replay(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MultipleChoiceScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChooseItem.fxml"));
         root = loader.load();
 
-        MultipleChoiceController multipleChoiceController = loader.getController();
-        multipleChoiceController.setQuestion(event);
+        ChooseItemController chooseItemController = loader.getController();
+        chooseItemController.initializeQuestion(event);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         ApplicationColorController.setColor(scene);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }

@@ -260,6 +260,49 @@
     -fx-background-radius: 5;
 }
 
+#wordBentoBox {
+    -fx-text-fill: -text-color;
+    -fx-background-color: -main-color;
+    -fx-background-radius: 10;
+    -fx-font-size: 15;
+}
+
+#premiumUnlockButton {
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: derive(-accent-color, 50%);
+    -fx-text-fill: -text-color;
+}
+
+#premiumUnlockButton:hover {
+    -fx-background-color: derive(-accent-color, 50%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.1, 1, 1);
+}
+
+#bookmarkButton {
+
+}
+
+/* CSS styling for the game scene */
+#gameButton {
+    -fx-background-color: white;
+    -fx-border-width: 0;
+    -fx-font-size: 20;
+    -fx-background-radius: 20;
+    -fx-text-fill: -text-color;
+}
+
+#gameButton:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: -text-color;
+    -fx-background-color: -accent-color;
+    -fx-background-radius: 20;
+    -fx-border-color: -main-color;
+    -fx-border-radius: 50;
+}
+
 /* CSS styling for the multiple choice game */
 #answerButton {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
@@ -308,27 +351,8 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
 }
 
-#wordBentoBox {
-    -fx-text-fill: -text-color;
-    -fx-background-color: -main-color;
-    -fx-background-radius: 10;
-    -fx-font-size: 15;
+#image:hover {
+    -fx-cursor: hand;
 }
 
-#premiumUnlockButton {
-    -fx-background-color: -secondary-color;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-border-width: 1;
-    -fx-border-color: derive(-accent-color, 50%);
-    -fx-text-fill: -text-color;
-}
-
-#premiumUnlockButton:hover {
-    -fx-background-color: derive(-accent-color, 50%);
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.1, 1, 1);
-}
-
-#bookmarkButton {
-
-}
+/* CSS styling for the translation scene */

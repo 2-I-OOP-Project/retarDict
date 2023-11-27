@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,8 +34,8 @@ public class GameSceneController extends Controller implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("multipleChoiceScene.fxml"));
         root = loader.load();
 
-        MultipleChoiceSceneController multipleChoiceSceneController = loader.getController();
-        multipleChoiceSceneController.setQuestion(event);
+        MultipleChoiceController multipleChoiceController = loader.getController();
+        multipleChoiceController.setQuestion(event);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -47,11 +46,11 @@ public class GameSceneController extends Controller implements Initializable {
 
     @FXML
     public void switchToChooseItemGameScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("chooseItemScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChooseItem.fxml"));
         root = loader.load();
 
-        ChooseItemGameController chooseItemGameController = loader.getController();
-        chooseItemGameController.initializeQuestion(event);
+        ChooseItemController chooseItemController = loader.getController();
+        chooseItemController.initializeQuestion(event);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

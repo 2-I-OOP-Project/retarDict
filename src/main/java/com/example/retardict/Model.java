@@ -132,4 +132,18 @@ public class Model {
             }
         }
     }
+
+    public static void addTranslationHistory(String sourceLanguage, String targetLanguage, String sourceText, String targetText) {
+        try {
+            Connection connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO translationHistory VALUES (?, ?, ?, ?);");
+            preparedStatement.setString(1, sourceLanguage);
+            preparedStatement.setString(2, targetLanguage);
+            preparedStatement.setString(3, sourceText);
+            preparedStatement.setString(4, targetText);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
