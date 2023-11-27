@@ -79,9 +79,21 @@ CREATE TABLE userDefinedWords (
     meaning TEXT NOT null
 );
 
-SELECT * FROM words WHERE rowid = 1;
+ALTER TABLE words ADD COLUMN isBookmarked INTEGER DEFAULT 0;
+
+SELECT * FROM words;
 
 SELECT * FROM userDefinedWords;
+
+SELECT * FROM words WHERE word = "accidental ";
+
+SELECT * FROM words;
+
+DELETE FROM words WHERE rowid = 1;
+
+UPDATE words SET isBookmarked = 0 WHERE word = "a-bomb ";
+
+UPDATE words SET isBookmarked = 1 WHERE word = "aasvogel ";
 
 INSERT INTO userDefinedWords VALUES ("cat", "meo");
 
@@ -94,7 +106,9 @@ DROP TABLE userDefinedWords;]]></console>
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="efe0fbbe-e123-4857-8827-d1bd56bae5b6" object-ref="consoles/testSQLite" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -110,6 +124,9 @@ DROP TABLE userDefinedWords;]]></console>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>

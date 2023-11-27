@@ -4,11 +4,24 @@ public class Word {
     private String word;
     private String pronunciation;
     private String description;
+    private boolean isBookmarked;
 
-    public Word(String word, String pronunciation, String description) {
+    public Word(String word, String pronunciation, String description, boolean isBookmarked) {
         this.word = word;
         this.pronunciation = pronunciation;
         this.description = description;
+        this.isBookmarked = isBookmarked;
+    }
+
+    public Word(String word, String pronunciation, String description, int isBookmarked) {
+        this.word = word;
+        this.pronunciation = pronunciation;
+        this.description = description;
+        if (isBookmarked == 1) {
+            this.isBookmarked = true;
+        } else {
+            this.isBookmarked = false;
+        }
     }
 
     public String getWord() {
@@ -33,6 +46,14 @@ public class Word {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        isBookmarked = bookmarked;
+    }
+
+    public boolean isBookmarked() {
+        return isBookmarked;
     }
 
     @Override

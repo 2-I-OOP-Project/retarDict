@@ -25,6 +25,8 @@ import java.util.ResourceBundle;
 public class welcomeSceneController extends Controller implements Initializable {
     @FXML
     private ListView<Word> list;
+    @FXML
+    private ListView<Word> bookmarkList;
 
     @FXML
     private TextField searchBox;
@@ -74,9 +76,10 @@ public class welcomeSceneController extends Controller implements Initializable 
 //        });
 
         ObservableList<Word> words = FXCollections.observableArrayList();
-        ObservableList<String> wordNames = null;
+        ObservableList<Word> favorites = FXCollections.observableArrayList();
 
         list.setItems(words);
+        bookmarkList.setItems(favorites);
 
         FXMLLoader sidePaneLoader = new FXMLLoader(getClass().getResource("SidePane.fxml"));
         try {
@@ -97,10 +100,14 @@ public class welcomeSceneController extends Controller implements Initializable 
             ResultSet resultSet = statement.executeQuery("select * from words");
 
             while (resultSet.next()) {
-                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
+                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"), resultSet.getInt("isBookmarked"));
                 words.add(word);
-//                wordNames.add(word.getWord());
+            }
 
+            ResultSet favoriteSet = statement.executeQuery("SELECT * FROM words WHERE isBookmarked = 1");
+            while (favoriteSet.next()) {
+                Word word = new Word(favoriteSet.getString("word"), favoriteSet.getString("pronunciation"), favoriteSet.getString("description"), favoriteSet.getInt("isBookmarked"));
+                favorites.add(word);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -121,12 +128,30 @@ public class welcomeSceneController extends Controller implements Initializable 
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"));
+                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"),
+                        resultSet.getString("description"), resultSet.getInt("isBookmarked"));
                 words.add(word);
 
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void bookmark() {
+        if (currentSelectedWord == null || currentSelectedWord.getWord().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Please select a word.");
+            alert.show();
+            return;
+        }
+        if (Model.isBookmarked(currentSelectedWord) == 1) {
+            currentSelectedWord.setBookmarked(false);
+            Model.unbookmarkWord(currentSelectedWord);
+        } else {
+            currentSelectedWord.setBookmarked(true);
+            Model.bookmarkWord(currentSelectedWord);
         }
     }
 
