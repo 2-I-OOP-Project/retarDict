@@ -71,11 +71,10 @@ public class Model {
     public static int isBookmarked(Word word) {
         int isBookmarked = 0;
         try {
-            String query = "SELECT isBookmarked FROM words WHERE word = " + word.getWord() + ";";
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
-            Statement statement = connection.createStatement();
-//            statement.setString(1, word.getWord());
-            ResultSet resultSet = statement.executeQuery(query);
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT isBookmarked FROM words WHERE word = ?;");
+            preparedStatement.setString(1, word.getWord());
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 isBookmarked = resultSet.getInt("isBookmarked");
             }

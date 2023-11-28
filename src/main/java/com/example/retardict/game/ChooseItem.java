@@ -24,7 +24,9 @@ public class ChooseItem extends Game {
         chooseItem.addItem("wheat", "src\\main\\resources\\wheat.png");
         chooseItem.addItem("apple", "src\\main\\resources\\apple.png");
         chooseItem.addItem("potato", "src\\main\\resources\\potato.png");
-        chooseItem.addItem("ad", "src\\main\\resources\\ad.jpg");
+        chooseItem.addItem("book", "src\\main\\resources\\book.png");
+        chooseItem.addItem("dog", "src\\main\\resources\\dog.png");
+        chooseItem.addItem("pickaxe", "src\\main\\resources\\pickaxe.png");
 
         return chooseItem;
     }

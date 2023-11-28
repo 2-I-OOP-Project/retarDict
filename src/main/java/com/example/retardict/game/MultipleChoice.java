@@ -45,9 +45,10 @@ public class MultipleChoice extends Game {
         multipleChoice.addQuestion(new MultipleChoiceQuestion("We're ___ dinner. Do you wanna join?", "have", "having", "has", "had", "B"));
         multipleChoice.addQuestion(new MultipleChoiceQuestion("At 8PM last night, I ___ the television.", "watched", "has watched", "had watched", "was watching", "D"));
         multipleChoice.addQuestion(new MultipleChoiceQuestion("I ___ have a big meeting tomorrow.", "will", "is going to", "is", "shall", "A"));
-        multipleChoice.addQuestion(new MultipleChoiceQuestion("Fuck you bitch!", "Fuck you, too!", "WTF have you just said, bitch?", "Thank you!", "Fuck off, bitch!", "C"));
         multipleChoice.addQuestion(new MultipleChoiceQuestion("Do you like the app?", "Yes", "No", "I hate it", "retaDict sucks", "A"));
         multipleChoice.addQuestion(new MultipleChoiceQuestion("What ___ you doing?", "is", "are", "am", "was", "B"));
+        multipleChoice.addQuestion(new MultipleChoiceQuestion("I ___ to the cinema last night.", "go", "goes","went", "going", "C"));
+        multipleChoice.addQuestion(new MultipleChoiceQuestion("How much do you rate this app?", "7.5", "2.5", "5", "10", "D"));
 
         return multipleChoice;
     }
