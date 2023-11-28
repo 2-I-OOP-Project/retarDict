@@ -34,7 +34,7 @@ public class retarDict extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            root = FXMLLoader.load(getClass().getResource("welcomeScene.fxml"));
+            root = FXMLLoader.load(getClass().getResource("WelcomeScene.fxml"));
 
             Scene scene = new Scene(root);
             stage.setTitle(Utilities.APP_TITLE);

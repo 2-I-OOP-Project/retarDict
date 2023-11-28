@@ -78,7 +78,7 @@ public class WordSceneController extends Controller implements Initializable {
 
     @FXML
     public void switchBackToMainScene(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("welcomeScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("WelcomeScene.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
