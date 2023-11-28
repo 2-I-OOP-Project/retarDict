@@ -25,10 +25,8 @@ public class WelcomeSceneController extends Controller implements Initializable 
     private ListView<Word> list;
     @FXML
     private ListView<Word> bookmarkList;
-
     @FXML
     private TextField searchBox;
-
     @FXML
     private Label wordLabel;
     @FXML
@@ -39,9 +37,7 @@ public class WelcomeSceneController extends Controller implements Initializable 
     private Button closeButton;
 
     private Word currentSelectedWord;
-
     private Connection connection = null;
-
     private double xOffset;
     private double yOffset;
     @Override
@@ -144,9 +140,11 @@ public class WelcomeSceneController extends Controller implements Initializable 
             alert.show();
             return;
         }
+
         if (Model.isBookmarked(currentSelectedWord) == 1) {
             currentSelectedWord.setBookmarked(false);
             Model.unbookmarkWord(currentSelectedWord);
+
         } else {
             currentSelectedWord.setBookmarked(true);
             Model.bookmarkWord(currentSelectedWord);
@@ -185,8 +183,16 @@ public class WelcomeSceneController extends Controller implements Initializable 
     }
 
     @FXML
-    public void displayWord(MouseEvent event) throws IOException {
+    public void displayWordInSearchList(MouseEvent event) throws IOException {
         currentSelectedWord = list.getFocusModel().getFocusedItem();
+        wordLabel.setText(currentSelectedWord.getWord());
+        pronunciation.setText(currentSelectedWord.getPronunciation());
+        description.setText(currentSelectedWord.getDescription());
+    }
+
+    @FXML
+    public void displayWordInBookmarkList(MouseEvent event) throws IOException {
+        currentSelectedWord = bookmarkList.getFocusModel().getFocusedItem();
         wordLabel.setText(currentSelectedWord.getWord());
         pronunciation.setText(currentSelectedWord.getPronunciation());
         description.setText(currentSelectedWord.getDescription());

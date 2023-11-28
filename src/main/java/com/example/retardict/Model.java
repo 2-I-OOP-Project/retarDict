@@ -3,8 +3,8 @@ package com.example.retardict;
 import java.sql.*;
 
 public class Model {
-
     private static Connection connection = null;
+
     public static boolean addUserDefinedWord(UserDefinedWord word) {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:src/main/resources/testdb.db");
@@ -71,11 +71,10 @@ public class Model {
     public static int isBookmarked(Word word) {
         int isBookmarked = 0;
         try {
-            String query = "SELECT isBookmarked FROM words WHERE word = " + word.getWord() + ";";
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
-            Statement statement = connection.createStatement();
-//            statement.setString(1, word.getWord());
-            ResultSet resultSet = statement.executeQuery(query);
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from words where word = ?;");
+            preparedStatement.setString(1, word.getWord());
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 isBookmarked = resultSet.getInt("isBookmarked");
             }
@@ -117,7 +116,7 @@ public class Model {
     public static void unbookmarkWord(Word word) {
         try {
             connection = DriverManager.getConnection(Utilities.PATH_TO_DATABASE);
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE words SET isBookmarked = 0 WHERE word = (?);");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE words SET isBookmarked = 0 WHERE (word = ?);");
             preparedStatement.setString(1, word.getWord());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
