@@ -2,7 +2,7 @@
     -fx-background-color: "white";
     -main-color: #f1f1f1;
     -secondary-color: #e8e8e8;
-    -accent-color: #0096FF;
+    -accent-color: #3C91E6;
     -text-color: #1a1a1a;
 }
 
@@ -75,7 +75,6 @@
 
 #closeButton {
     -fx-background-color: -main-color;
-    -fx-background-radius: 0 0 0 0;
     -fx-border-radius: 10;
     -fx-border-color: -text-color;
     -fx-border-width: 0;
@@ -99,11 +98,6 @@
     -fx-background-color: -secondary-color;
     -fx-mark-color: -accent-color;
     -fx-cursor: hand;
-
-
-}
-
-#accentBox {
     -fx-background-radius: 15;
 }
 
@@ -151,7 +145,7 @@
     -fx-cursor: hand;
     -fx-text-fill: -text-color;
     -fx-background-color: -main-color;//linear-gradient(from -50% 50% to 100% 50%, -accent-color, -main-color)
-    -fx-background-radius: 20;
+-fx-background-radius: 20;
     -fx-border-color: -main-color;
     -fx-border-radius: 50;
     -fx-letter-spacing: 1em;
@@ -181,10 +175,6 @@
 #wordVBoxBackground {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, -accent-color, -main-color);
     -fx-background-radius: 20;
-}
-
-#speakButton {
-
 }
 
 #themeButton {
@@ -237,8 +227,8 @@
 #speakButton {
     -fx-background-color: -secondary-color;
     -fx-border-width: 0;
-    -fx-font-size: 20;
-    -fx-background-radius: 20;
+    -fx-font-size: 18;
+    -fx-background-radius: 50;
     -fx-text-fill: -text-color;
 }
 
@@ -246,7 +236,7 @@
     -fx-cursor: hand;
     -fx-text-fill: -text-color;
     -fx-background-color: derive(-accent-color, 50%);
-    -fx-background-radius: 20;
+    -fx-background-radius: 50;
     -fx-border-color: -main-color;
     -fx-border-radius: 50;
 }
@@ -266,9 +256,34 @@
     -fx-background-radius: 5;
 }
 
+#wordBentoBox {
+    -fx-text-fill: -text-color;
+    -fx-background-color: -main-color;
+    -fx-background-radius: 10;
+    -fx-font-size: 15;
+}
+
+#premiumUnlockButton {
+    -fx-background-color: -secondary-color;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: derive(-accent-color, 50%);
+    -fx-text-fill: -text-color;
+}
+
+#premiumUnlockButton:hover {
+    -fx-background-color: derive(-accent-color, 50%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.1, 1, 1);
+}
+
+#bookmarkButton {
+
+}
+
 /* CSS styling for the game scene */
 #gameButton {
-    -fx-background-color: white;
+    -fx-background-color: -seccondary-color;
     -fx-border-width: 0;
     -fx-font-size: 20;
     -fx-background-radius: 20;
@@ -287,7 +302,8 @@
 /* CSS styling for the multiple choice game */
 #answerButton {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
-    -fx-background-color: rgba(227, 216, 136);
+    -fx-background-color: rgb(199, 180, 147);
+    -fx-text-fill: -text-color;
 }
 
 #answerButton:hover {
@@ -297,7 +313,7 @@
 
 #functionButton {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
-    -fx-background-color: rgba(227, 216, 136);
+    -fx-background-color: rgb(192, 177, 149);
 }
 
 #functionButton:hover {
@@ -320,7 +336,7 @@
     -fx-font-size: 50;
     -fx-font-family: "Open Sans";
     -fx-alignment: center;
-    -fx-text-fill: black;
+    -fx-text-fill: -text-color;
 }
 
 #mcGridPane1 {
@@ -329,11 +345,22 @@
 
 /* CSS styling for the choose item game */
 #image {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
+
 }
 
 #image:hover {
     -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 5, 5);
+}
+
+#gameButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
+    -fx-background-color: -secondary-color;
+}
+
+#gameButton:hover {
+    -fx-cursor: hand;
+    -fx-background-color: -accent-color;
 }
 
 /* CSS styling for the translation scene */

@@ -149,6 +149,19 @@ public class WelcomeSceneController extends Controller implements Initializable 
             currentSelectedWord.setBookmarked(true);
             Model.bookmarkWord(currentSelectedWord);
         }
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM words WHERE isBookmarked = 1");
+            ObservableList<Word> favorites = FXCollections.observableArrayList();
+            while (resultSet.next()) {
+                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"), resultSet.getInt("isBookmarked"));
+                favorites.add(word);
+            }
+            bookmarkList.setItems(favorites);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @FXML

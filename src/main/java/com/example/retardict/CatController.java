@@ -1,7 +1,6 @@
 package com.example.retardict;
 
 import com.example.retardict.apiservices.CatAPI;
-import com.example.retardict.apiservices.TranslateAPI;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,13 +9,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +26,8 @@ public class CatController extends Controller implements Initializable {
 
     @FXML
     private ImageView catView;
+    @FXML
+    private Label catGeneratorLabel;
 
     @FXML
     private Button closeButton;
@@ -84,6 +84,7 @@ public class CatController extends Controller implements Initializable {
                 System.out.println(e.getMessage());
             }
         }).start();
+        catGeneratorLabel.setVisible(false);
     }
 
     @FXML

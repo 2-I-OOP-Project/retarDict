@@ -1,24 +1,21 @@
 package com.example.retardict;
 
+import com.example.retardict.apiservices.TranslateAPI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
 import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-
-import com.example.retardict.apiservices.TranslateAPI;
-import javafx.scene.control.Label;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class TranslationController extends Controller implements Initializable {
     @FXML
@@ -42,6 +39,9 @@ public class TranslationController extends Controller implements Initializable {
     private TableColumn<Record, String> sourceText;
     @FXML
     private TableColumn<Record, String> targetText;
+    @FXML
+    private Button closeButton;
+
     private ObservableList<Record> history = FXCollections.observableArrayList();
 
     public void init() {
@@ -133,4 +133,11 @@ public class TranslationController extends Controller implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+    }
+
 }

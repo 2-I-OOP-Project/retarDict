@@ -17,6 +17,9 @@ import java.util.ResourceBundle;
 public class GameSceneController extends Controller implements Initializable {
     @FXML
     private Button numberOfQuestionsButton;
+    @FXML
+    private Button closeButton;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -57,5 +60,11 @@ public class GameSceneController extends Controller implements Initializable {
         ApplicationColorController.setColor(scene);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
     }
 }
