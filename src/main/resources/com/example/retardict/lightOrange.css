@@ -335,7 +335,7 @@
     -fx-font-size: 50;
     -fx-font-family: "Open Sans";
     -fx-alignment: center;
-    -fx-text-fill: -text-color;
+    -fx-text-fill: black;
 }
 
 #mcGridPane1 {
@@ -359,7 +359,7 @@
 
 #gameButton:hover {
     -fx-cursor: hand;
-    -fx-background-color: rgba(132, 113, 79);
+    -fx-background-color: -accent-color;
 }
 
 /* CSS styling for the translation scene */

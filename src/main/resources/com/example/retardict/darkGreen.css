@@ -360,7 +360,7 @@
 
 #gameButton:hover {
     -fx-cursor: hand;
-    -fx-background-color: rgba(132, 113, 79);
+    -fx-background-color: -accent-color;
 }
 
 /* CSS styling for the translation scene */
