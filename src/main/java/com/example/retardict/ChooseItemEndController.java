@@ -32,10 +32,10 @@ public class ChooseItemEndController extends Controller {
         numberOfQuestions++;
         String res = "You got " + score + " question(s) correct out of " + numberOfQuestions + " question(s).";
         if (score == 0) {
-            res += " Seriously, bitch?";
+            res += " Seriously?";
         }
         if (score == numberOfQuestions) {
-            res += " Well done, bitch!";
+            res += " Well done!";
         }
         scoreBox.setText(res);
     }

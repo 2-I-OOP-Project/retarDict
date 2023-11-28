@@ -282,7 +282,7 @@
 
 /* CSS styling for the game scene */
 #gameButton {
-    -fx-background-color: white;
+    -fx-background-color: -seccondary-color;
     -fx-border-width: 0;
     -fx-font-size: 20;
     -fx-background-radius: 20;
@@ -301,7 +301,8 @@
 /* CSS styling for the multiple choice game */
 #answerButton {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
-    -fx-background-color: rgba(227, 216, 136);
+    -fx-background-color: rgb(199, 180, 147);
+    -fx-text-fill: -text-color;
 }
 
 #answerButton:hover {
@@ -311,7 +312,7 @@
 
 #functionButton {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
-    -fx-background-color: rgba(227, 216, 136);
+    -fx-background-color: rgb(192, 177, 149);
 }
 
 #functionButton:hover {
@@ -334,7 +335,7 @@
     -fx-font-size: 50;
     -fx-font-family: "Open Sans";
     -fx-alignment: center;
-    -fx-text-fill: black;
+    -fx-text-fill: -text-color;
 }
 
 #mcGridPane1 {
@@ -349,6 +350,16 @@
 #image:hover {
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 5, 5);
+}
+
+#gameButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.63), 11, 0, 0, 1);
+    -fx-background-color: -secondary-color;
+}
+
+#gameButton:hover {
+    -fx-cursor: hand;
+    -fx-background-color: rgba(132, 113, 79);
 }
 
 /* CSS styling for the translation scene */
