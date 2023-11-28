@@ -151,6 +151,19 @@ public class WelcomeSceneController extends Controller implements Initializable 
             currentSelectedWord.setBookmarked(true);
             Model.bookmarkWord(currentSelectedWord);
         }
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM words WHERE isBookmarked = 1");
+            ObservableList<Word> favorites = FXCollections.observableArrayList();
+            while (resultSet.next()) {
+                Word word = new Word(resultSet.getString("word"), resultSet.getString("pronunciation"), resultSet.getString("description"), resultSet.getInt("isBookmarked"));
+                favorites.add(word);
+            }
+            bookmarkList.setItems(favorites);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @FXML
@@ -185,8 +198,16 @@ public class WelcomeSceneController extends Controller implements Initializable 
     }
 
     @FXML
-    public void displayWord(MouseEvent event) throws IOException {
+    public void displayWordInSearchList(MouseEvent event) throws IOException {
         currentSelectedWord = list.getFocusModel().getFocusedItem();
+        wordLabel.setText(currentSelectedWord.getWord());
+        pronunciation.setText(currentSelectedWord.getPronunciation());
+        description.setText(currentSelectedWord.getDescription());
+    }
+
+    @FXML
+    public void displayWordInBookmarkList(MouseEvent event) throws IOException {
+        currentSelectedWord = bookmarkList.getFocusModel().getFocusedItem();
         wordLabel.setText(currentSelectedWord.getWord());
         pronunciation.setText(currentSelectedWord.getPronunciation());
         description.setText(currentSelectedWord.getDescription());
