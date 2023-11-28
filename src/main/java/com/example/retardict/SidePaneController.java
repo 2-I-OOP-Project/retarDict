@@ -57,7 +57,7 @@ public class SidePaneController extends Controller implements Initializable {
     @FXML
     public void switchToMainScene(ActionEvent event) throws IOException {
         currentScene = SCENE.WELCOME_SCENE;
-        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("welcomeScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(retarDict.class.getResource("WelcomeScene.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
