@@ -16,12 +16,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.controlsfx.glyphfont.FontAwesome;
-import org.controlsfx.glyphfont.GlyphFont;
-import org.controlsfx.glyphfont.GlyphFontRegistry;
+import org.controlsfx.control.Rating;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -36,9 +33,10 @@ public class SettingSceneController extends Controller implements Initializable 
     private Button themeButton;
     @FXML
     private ChoiceBox<String> accentChooser;
-
     @FXML
     private Button closeButton;
+    @FXML
+    private Rating rating;
 
     public static boolean premium = false;
 
@@ -74,6 +72,7 @@ public class SettingSceneController extends Controller implements Initializable 
                 stage.setY(event.getScreenY() + yOffset);
             }
         });
+
 
         accentChooser.setItems(accentColorChoices);
         accentChooser.setValue(accentColor);
@@ -156,13 +155,18 @@ public class SettingSceneController extends Controller implements Initializable 
         alert.show();
     }
 
+    @FXML
+    public void handleRating(ActionEvent event) {
+        System.out.println(rating.getRating());
+    }
+
     public void showImage(ActionEvent event) throws FileNotFoundException {
         Image image = new Image(new FileInputStream("src\\main\\resources\\ad.jpg"));
         imageView.setImage(image);
     }
 
     @FXML
-    public void handleCloseButtonAction(ActionEvent event) {
+    public void handleCloseButtonAction(MouseEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }

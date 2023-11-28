@@ -74,7 +74,6 @@
 
 #closeButton {
     -fx-background-color: -main-color;
-    -fx-background-radius: 0 0 0 0;
     -fx-border-radius: 10;
     -fx-border-color: -text-color;
     -fx-border-width: 0;
