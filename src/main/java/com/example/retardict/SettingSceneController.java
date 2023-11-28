@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -37,11 +38,32 @@ public class SettingSceneController extends Controller implements Initializable 
     private Button closeButton;
     @FXML
     private Rating rating;
+    @FXML
+    private Label ratingLabel;
 
     public static boolean premium = false;
 
     public static String theme = "LIGHT";
     public static String accentColor = "ORANGE";
+    public static String cssAccent = COLOR.ORANGE.toString();
+
+    public enum COLOR {
+        BLUE {
+            public String toString() {
+                return "#3C91E6";
+            }
+        },
+        ORANGE {
+            public String toString() {
+                return "#df8c52";
+            }
+        },
+        GREEN {
+            public String toString() {
+                return "#26A65B";
+            }
+        }
+    }
 
     static ObservableList<String> accentColorChoices = FXCollections.observableArrayList(
             "BLUE",
@@ -73,7 +95,6 @@ public class SettingSceneController extends Controller implements Initializable 
             }
         });
 
-
         accentChooser.setItems(accentColorChoices);
         accentChooser.setValue(accentColor);
 
@@ -82,7 +103,16 @@ public class SettingSceneController extends Controller implements Initializable 
             @Override
             public void handle(ActionEvent event) {
                 accentColor = accentChooser.getValue();
-                System.out.println(accentColor);
+                if (accentColor.equals("ORANGE")) {
+                    cssAccent = COLOR.ORANGE.toString();
+
+                } else if (accentColor.equals("BLUE")) {
+                    cssAccent = COLOR.BLUE.toString();
+
+                } else {
+                    cssAccent = COLOR.GREEN.toString();
+
+                }
                 FXMLLoader settingSceneLoader = new FXMLLoader(getClass().getResource("SettingScene.fxml"));
                 try {
                     root = settingSceneLoader.load();
@@ -156,8 +186,13 @@ public class SettingSceneController extends Controller implements Initializable 
     }
 
     @FXML
-    public void handleRating(ActionEvent event) {
+    public void handleRating(MouseEvent event) {
         System.out.println(rating.getRating());
+        String labelString = "User Rating: " + 5.0;
+        if (rating.getRating() == 5) labelString += " thank you";
+        else labelString += "   nope, cant be anything but 5";
+        if (rating.getRating() != 5) rating.setRating(5);
+        ratingLabel.setText(labelString);
     }
 
     public void showImage(ActionEvent event) throws FileNotFoundException {
@@ -166,7 +201,7 @@ public class SettingSceneController extends Controller implements Initializable 
     }
 
     @FXML
-    public void handleCloseButtonAction(MouseEvent event) {
+    public void handleCloseButtonAction(ActionEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }

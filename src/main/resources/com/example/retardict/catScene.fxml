@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -9,5 +10,6 @@
       <ImageView fx:id="catView" fitHeight="574.0" fitWidth="900.0" layoutX="308.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="75.0" />
       <Button id="newCatButton" layoutX="744.0" layoutY="25.0" mnemonicParsing="false" onAction="#getCat" prefHeight="40.0" prefWidth="145.0" text="Generate new cat" />
       <Button fx:id="closeButton" layoutX="1233.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="20.0" prefWidth="47.0" text="X" />
+      <Label fx:id="catGeneratorLabel" layoutX="501.0" layoutY="532.0" style="-fx-text-fill: white;" text="CAT GENERATOR STATUS:" />
    </children>
 </AnchorPane>

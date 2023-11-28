@@ -13,4 +13,5 @@
          <Image url="@../../../screenshot.png" />
       </image>
    </ImageView>
+   <Button fx:id="closeButton" layoutX="1233.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="30.0" prefWidth="47.0" text="X" />
 </AnchorPane>

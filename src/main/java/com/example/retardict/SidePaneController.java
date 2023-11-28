@@ -40,17 +40,17 @@ public class SidePaneController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (currentScene.equals(SCENE.WELCOME_SCENE)) {
-            homeButton.setStyle("-fx-background-color: " + SettingSceneController.accentColor);
+            homeButton.setStyle("-fx-background-color: " + SettingSceneController.cssAccent);
         } else if (currentScene.equals(SCENE.ADD_NEW_WORD_SCENE)) {
-            userWordButton.setStyle("-fx-background-color: " + SettingSceneController.accentColor);
+            userWordButton.setStyle("-fx-background-color: " + SettingSceneController.cssAccent);
         } else if (currentScene.equals(SCENE.GAME_SCENE)) {
-            gameButton.setStyle("-fx-background-color: " + SettingSceneController.accentColor);
+            gameButton.setStyle("-fx-background-color: " + SettingSceneController.cssAccent);
         } else if (currentScene.equals(SCENE.CAT_SCENE)) {
-            catButton.setStyle("-fx-background-color: " + SettingSceneController.accentColor);
+            catButton.setStyle("-fx-background-color: " + SettingSceneController.cssAccent);
         } else if (currentScene.equals(SCENE.TRANSLATION_SCENE)) {
-            translateButton.setStyle("-fx-background-color: " + SettingSceneController.accentColor);;
+            translateButton.setStyle("-fx-background-color: " + SettingSceneController.cssAccent);;
         } else if (currentScene.equals(SCENE.SETTING_SCENE)) {
-            settingButton.setStyle("-fx-background-color: " + SettingSceneController.accentColor);
+            settingButton.setStyle("-fx-background-color: " + SettingSceneController.cssAccent);
         }
     }
 
