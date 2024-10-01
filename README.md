@@ -1,6 +1,6 @@
 # retarDict
 **OOP DICTIONARY PROJECT**  
-AUTHOR: Doan Minh Quan - 22028315, Phan Duc Quan - 22028250  
+AUTHOR: Doan Minh Quan k gay - 22028315, Phan Duc Quan - 22028250  
 Class: INT2202 22 (Group 3)  
 
 This is our first English-Vietnamese dictionary app. We used Java language for the coding part and JavaFX with the support of SceneBuilder to make the GUI part. We also used CSS for further styling.  
